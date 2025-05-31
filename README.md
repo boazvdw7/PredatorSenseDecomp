@@ -11,11 +11,14 @@ This project is intended strictly for **educational and research purposes**.
 
 ---
 
+## Implemented Features
+- **Fan Curve Editor:** Modify fan curves (located in advanced settings)
+
 ## Current state
 
 - Both PredatorSense and TsDotNetLib are 100% decompiled and can be build
 - Some debug symbols are not translated yet
-- Some code has been temporarly disabled which might break some functions
+- Some code has been temporarily disabled which might break some functions
 
 ---
 

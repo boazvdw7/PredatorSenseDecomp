@@ -690,7 +690,7 @@ namespace PredatorSense
 		private PerformanceCounter cpuCounter;
 
 		// Token: 0x040000FB RID: 251
-		private FanControlPage FanControl_Page;
+		public FanControlPage FanControl_Page;
 
 		// Token: 0x040000FC RID: 252
 		private OC_MonitoringPage Monitoring_Page;

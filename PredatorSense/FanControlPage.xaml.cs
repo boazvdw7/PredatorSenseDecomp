@@ -405,7 +405,7 @@ namespace PredatorSense
 			}
 			Slider slider = sender as Slider;
 			uint num = (uint)slider.Value * 10U;
-			this.Do_fan_custom_ScrollBar_value_change(Convert.ToInt32(slider.Tag), num);
+            this.Do_fan_custom_ScrollBar_value_change(Convert.ToInt32(slider.Tag), num);
 		}
 
 		// Token: 0x06000077 RID: 119 RVA: 0x000059E8 File Offset: 0x00003BE8
