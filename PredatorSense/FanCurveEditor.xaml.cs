@@ -10,6 +10,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using TsDotNetLib;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace PredatorSense
 {
@@ -18,6 +20,8 @@ namespace PredatorSense
         public ObservableCollection<FanCurvePoint> FanCurve { get; set; }
         private static CancellationTokenSource _globalCts; // Shared across all editors
         private static ObservableCollection<FanCurvePoint> _globalFanCurve; // Shared curve
+        private static readonly string FanCurveConfigPath =
+            System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PredatorSense", "fan_curve.xml");
 
         private int? _draggingIndex = null;
         private Point _dragStart;
@@ -27,17 +31,17 @@ namespace PredatorSense
         {
             InitializeComponent();
 
-            // Use global curve if available, else create default
+            // Load saved curve or use default
             if (_globalFanCurve == null)
             {
-                _globalFanCurve = new ObservableCollection<FanCurvePoint>
-                {
-                    new FanCurvePoint { Temperature = 40, FanSpeed = 20 },
-                    new FanCurvePoint { Temperature = 50, FanSpeed = 30 },
-                    new FanCurvePoint { Temperature = 60, FanSpeed = 50 },
-                    new FanCurvePoint { Temperature = 70, FanSpeed = 70 },
-                    new FanCurvePoint { Temperature = 80, FanSpeed = 100 }
-                };
+                _globalFanCurve = LoadFanCurve() ?? new ObservableCollection<FanCurvePoint>
+                    {
+                        new FanCurvePoint { Temperature = 40, FanSpeed = 20 },
+                        new FanCurvePoint { Temperature = 50, FanSpeed = 30 },
+                        new FanCurvePoint { Temperature = 60, FanSpeed = 50 },
+                        new FanCurvePoint { Temperature = 70, FanSpeed = 70 },
+                        new FanCurvePoint { Temperature = 80, FanSpeed = 100 }
+                    };
             }
             FanCurve = _globalFanCurve;
             FanCurveGrid.ItemsSource = FanCurve;
@@ -49,6 +53,9 @@ namespace PredatorSense
             // Cancel any previous polling
             _globalCts?.Cancel();
 
+            // Save the curve
+            SaveFanCurve(FanCurve);
+
             // Set fan mode to Custom
             CommonFunction.set_all_fan_mode(CommonFunction.Fan_Mode_Type.Custom);
 
@@ -57,6 +64,40 @@ namespace PredatorSense
             Task.Run(() => PollFanCurve(_globalCts.Token), _globalCts.Token);
 
             MessageBox.Show("Fan curve applied.");
+        }
+
+        private static void SaveFanCurve(ObservableCollection<FanCurvePoint> curve)
+        {
+            try
+            {
+                Directory.CreateDirectory(System.IO.Path.GetDirectoryName(FanCurveConfigPath));
+                using (var stream = File.Create(FanCurveConfigPath))
+                {
+                    var serializer = new XmlSerializer(typeof(List<FanCurvePoint>));
+                    serializer.Serialize(stream, new List<FanCurvePoint>(curve));
+                }
+            }
+            catch {  
+            
+            }
+        }
+
+        private static ObservableCollection<FanCurvePoint> LoadFanCurve()
+        {
+            try
+            {
+                if (File.Exists(FanCurveConfigPath))
+                {
+                    using (var stream = File.OpenRead(FanCurveConfigPath))
+                    {
+                        var serializer = new XmlSerializer(typeof(List<FanCurvePoint>));
+                        var list = (List<FanCurvePoint>)serializer.Deserialize(stream);
+                        return new ObservableCollection<FanCurvePoint>(list);
+                    }
+                }
+            }
+            catch { /* Optionally log error */ }
+            return null;
         }
 
         private void PollFanCurve(CancellationToken token)
@@ -109,8 +150,6 @@ namespace PredatorSense
 
         protected override void OnClosed(EventArgs e)
         {
-            // Do NOT cancel the global polling when the editor closes
-            // _globalCts?.Cancel(); // <-- Do not call this here
             base.OnClosed(e);
         }
 
@@ -182,7 +221,6 @@ namespace PredatorSense
                 ChartCanvas.Children.Add(label);
             }
 
-            // Highlight 10% and 40°C
             double y10 = height - (10 - minSpeed) * height / (maxSpeed - minSpeed);
             double x40 = (40 - minTemp) * width / (maxTemp - minTemp);
             ChartCanvas.Children.Add(new Line { X1 = 0, X2 = width, Y1 = y10, Y2 = y10, Stroke = Brushes.Orange, StrokeDashArray = new DoubleCollection { 2 }, StrokeThickness = 1 });
