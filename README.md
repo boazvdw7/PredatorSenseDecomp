@@ -1,5 +1,7 @@
 # PredatorSenseDecomp (WIP)
 
+**This project is for the PH-315-51 only**
+
 This repository contains a reverse-engineered version of Acer's PredatorSense application using [dnSpy](https://github.com/dnSpy/dnSpy) because Acer 
 decided to stop updating the software and it's broken on Windows 11. This project aims to resolve the bugs introduced with Windows 11 and add QoL features.
 
