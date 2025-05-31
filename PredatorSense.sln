@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36127.28 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredatorSense", "PredatorSense\PredatorSense.csproj", "{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TsDotNetLib", "..\TsDotNetLib\TsDotNetLib\TsDotNetLib.csproj", "{CA94B40E-02C6-42C0-9F7A-26674365E1E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Debug|Any CPU.Build.0 = Debug|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Debug|x86.ActiveCfg = Debug|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Debug|x86.Build.0 = Debug|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Release|Any CPU.ActiveCfg = Release|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Release|Any CPU.Build.0 = Release|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Release|Mixed Platforms.Build.0 = Release|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Release|x86.ActiveCfg = Release|x86
+		{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}.Release|x86.Build.0 = Release|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Debug|Any CPU.Build.0 = Debug|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Debug|x86.ActiveCfg = Debug|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Debug|x86.Build.0 = Debug|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Release|Any CPU.ActiveCfg = Release|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Release|Any CPU.Build.0 = Release|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Release|Mixed Platforms.Build.0 = Release|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Release|x86.ActiveCfg = Release|x86
+		{CA94B40E-02C6-42C0-9F7A-26674365E1E4}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

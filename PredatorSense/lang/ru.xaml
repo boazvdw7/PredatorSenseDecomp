@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Дискр. ГП неакт.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Разгон возможен только при подсоединении сетевого адаптера и заряде аккумулятора не менее 40%.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Зона</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Для возобновления разгона зарядите аккумулятор минимум до 40%.</s:String>
+	<s:String
+		x:Key="MUI_Path">Путь</s:String>
+	<s:String
+		x:Key="MUI_Home">Дом</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Разгон</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Гор. клав.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Упр. вент.</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Мониторинг</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Кн. Windows и меню</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Залипание клавиш</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Ед. измер. темпер.</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 отключен. Для включения GPU2 подсоедините оба адаптера пит.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Профиль гор.кл.</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Профиль освещ.</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">Разгон ЦП</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">Разгон GPU</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Разгон возможен только при подкл. обоих адаптеров пит. и заряде аккум-ра не менее 40%.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Менеджер профилей</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Клавиатура</s:String>
+	<s:String
+		x:Key="MUI_Zone">Зона [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Световые эфф.</s:String>
+	<s:String
+		x:Key="MUI_Speed">Скор.</s:String>
+	<s:String
+		x:Key="MUI_Logo">Лого</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Свет. панель</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Кн. питания</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Сдв. модуль</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Дыхание</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Подсветка</s:String>
+	<s:String
+		x:Key="MUI_Static">Стат.</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Динам.</s:String>
+	<s:String
+		x:Key="MUI_Off">Выкл.</s:String>
+	<s:String
+		x:Key="MUI_All">Все</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Клав.стрел.</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Ряды цифр</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Клавиши Fn</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Выбор неск. клавиш</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Способ %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Нажмите %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">для выбора клавиш предуст.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Нажм. и удерж. кл. Ctrl и затем нажмите или перетащите для выбора.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Направл.</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Менеджер профилей осв.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Менеджер пр-лей гор.кл.</s:String>
+	<s:String
+		x:Key="MUI_Close">Закрыть</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Новый профиль гор.кл.</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Новый профиль осв.</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Частота</s:String>
+	<s:String
+		x:Key="MUI_Loading">Загрузка</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Частота ядра</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">Разгон ЦП остановлен.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">Разгон ЦП возобновлен.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">Разгон ЦП остановлен, так как заряд аккумулятора менее 40%.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Макросы</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Нажмите Правка для настр-ки гор. кл.</s:String>
+	<s:String
+		x:Key="MUI_Options">Опции</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">Переключатель разгона ЦП</s:String>
+	<s:String
+		x:Key="MUI_Fan">Вентилятор</s:String>
+	<s:String
+		x:Key="MUI_Auto">Авто</s:String>
+	<s:String
+		x:Key="MUI_Max">Макс.</s:String>
+	<s:String
+		x:Key="MUI_Custom">Пользов.</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">Переключатель разгона GPU</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Переключатель скор. вент.</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Запустить приложение</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Вкл./откл. доп. настройки</s:String>
+	<s:String
+		x:Key="MUI_Browse">Обзор</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">При ВКЛ. CoolBoost™ повышается макс. скорость вентилятора для работы при высокой нагрузке.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Полож. вент.</s:String>
+	<s:String
+		x:Key="MUI_Min">Мин</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Открыть</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Змея</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Шаль</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Звездная вспышка</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Вечер. заря</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Нажм. для выкл.</s:String>
+	<s:String
+		x:Key="MUI_Wave">Волна</s:String>
+	<s:String
+		x:Key="MUI_Neon">Неон</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Рябь</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Капли дождя</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Изгородь</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Повернуть</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Интерактив</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Разгон возможен только при подкл. обоих адаптеров пит. и заряде аккум-ра не менее 40%.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Для возобновл. разгона подсоедините оба адаптера пит.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Включено</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Отключено</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Профиль горячих клавиш</s:String>
+	<s:String
+		x:Key="MUI_Edit">Изменить</s:String>
+	<s:String
+		x:Key="MUI_Import">Импортировать</s:String>
+	<s:String
+		x:Key="MUI_Export">Экспортировать</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Экспортировать все</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Дублировать</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Назначение клавиш</s:String>
+	<s:String
+		x:Key="MUI_Macro">макрос</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Подсветка</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Вставить клавишу</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Вставить задержку</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Начать запись</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Остановить запись</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Записать задержку</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Фиксир. задержка</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Без задержки</s:String>
+	<s:String
+		x:Key="MUI_MS">мс</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Дополнительные настройки</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Отмена</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Замен./Проп. Профиль</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">В этой папке уже есть профиль с таким же именем.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Заменить имеющ. Профиль</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Пропустить этот профиль</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Сохр. оба Профиля</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Делать это для следующих %N% конфликтов.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Делать это для следующего конфликта.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Внимание!</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Вы действительно хотите удалить макрос "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_YES">Да</s:String>
+	<s:String
+		x:Key="MUI_NO">Нет</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Температура</s:String>
+	<s:String
+		x:Key="MUI_CPU">ЦП</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Система</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Пользователь-гость не может работать с Acer Power Management.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Скорость вентилятора</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Экспортируемый профиль будет назван "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Импортировать профиль</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Импортировать и заменить</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Импортировать, но сохранить оба профиля</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Импортируемый профиль будет назван "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Вы действительно хотите удалить Профиль "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Новый профиль</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Новый макрос</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">В списке профилей уже есть профиль с таким же именем.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Профиль с таким именем уже есть.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Введите другое имя.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Перейти на страницу редактирования Макросов</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">Вы назначили пустой Макрос клавише %Num%. Вы перейдете на страницу редактирования Макросов.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Больше не напоминать</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Журнал будет очищен</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Чтобы начать новый журнал записи, текущий журнал будет очищен. Продолжить?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Сбой при экспорте</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Недостаточно места в хранилище для экспорта выбранного профиля(ей).</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Сбой при импорте</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Этот профиль нельзя импортировать, так как возникла непредвиденная проблема.</s:String>
+	<s:String
+		x:Key="MUI_Name">Имя</s:String>
+	<s:String
+		x:Key="MUI_Group">Группа</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Выберите макрос</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Удалить профиль</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Группа с таким именем уже есть.</s:String>
+	<s:String
+		x:Key="MUI_None">Нет</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Макрос с таким именем уже есть.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Удалить макрос</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Переименовать макрос</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Превышено макс. кол-во команд, которые можно записать в этот макрос.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Профиль</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Врем. задержка</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Отпустить</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Нажать</s:String>
+	<s:String
+		x:Key="MUI_Color">Цвет</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Базовые цвета</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Последние цвета</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Другие цвета...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Красн.</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Зелен.</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Синий</s:String>
+	<s:String
+		x:Key="MUI_Turbo">ТУРБО</s:String>
+	<s:String
+		x:Key="MUI_Faster">БЫСТРЕЕ</s:String>
+	<s:String
+		x:Key="MUI_Normal">ОБЫЧН.</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

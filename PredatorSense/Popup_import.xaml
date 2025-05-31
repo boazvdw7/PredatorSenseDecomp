@@ -1,0 +1,208 @@
+<Window
+	x:Class="PredatorSense.Popup_import" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="PredatorSense       "
+	Height="540"
+	Width="560"
+	AllowsTransparency="True"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterOwner"
+	WindowStyle="None"
+	Background="#00FFFFFF"
+	FontFamily="Segoe UI" xmlns:predatorsense="clr-namespace:PredatorSense"
+	StateChanged="Window_StateChanged">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="Style\100\PSStyle.xaml" />
+				<ResourceDictionary
+					Source="Lang\en.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Viewbox
+		x:Name="wndViewbox"
+		Stretch="Uniform">
+		<Grid
+			x:Name="Main_Grid"
+			Width="560"
+			Height="540">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="50" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition
+					Width="20" />
+				<ColumnDefinition
+					Width="20" />
+			</Grid.ColumnDefinitions>
+			<Grid
+				x:Name="Bg_Grid"
+				Row="0"
+				Column="0"
+				ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
+				RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}">
+				<Canvas
+					Width="560"
+					Height="540">
+					<Path
+						x:Name="gray"
+						Width="560"
+						Height="540"
+						Canvas.Left="0"
+						Canvas.Top="0"
+						Stretch="Fill"
+						Fill="#FF151515"
+						Data="M545.5,4.00031 L25.4998,4.00031 L4.99991,24.0002 L4.99991,524 L25.4998,544 L545.5,544 L565,524 L565,24.0002 L545.5,4.00031 Z">
+						<UIElement.Effect>
+							<DropShadowEffect
+								BlurRadius="8"
+								ShadowDepth="0"
+								Opacity="0.599998"
+								Color="#FF000000"
+								Direction="315" />
+						</UIElement.Effect>
+					</Path>
+					<Path
+						Width="560"
+						Height="540"
+						Canvas.Left="0"
+						Canvas.Top="0"
+						Stretch="Fill"
+						Fill="#FF00AEC7"
+						Data="M545.5,4.00018 L565,24 L565,524 L545.5,544 L25.5,544 L5.00015,524 L5.00015,24 L25.5,4.00018 L165,4.00018 L405,4.00018 L545.5,4.00018 M564,523.586 L564,24.4143 L545.086,5.00018 L403.5,5.00018 L399,8.00018 L171,8.00018 L166.5,5.00018 L25.9142,5.00018 L6.00003,24.4143 L6.00003,523.586 L25.9142,543 L545.086,543 L564,523.586 M4.99991,528 L21.0001,544 L13.0001,544 L4.99991,536 L4.99991,528 M549,544 L565,528 L565,536 L557,544 L549,544 Z" />
+				</Canvas>
+			</Grid>
+			<Grid
+				Column="1">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="34" />
+					<RowDefinition
+						Height="112" />
+					<RowDefinition
+						Height="80" />
+					<RowDefinition
+						Height="8" />
+					<RowDefinition
+						Height="80" />
+					<RowDefinition
+						Height="8" />
+					<RowDefinition
+						Height="80" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<StackPanel
+					Grid.Row="1"
+					HorizontalAlignment="Left">
+					<TextBlock
+						Text="{DynamicResource MUI_Import_Title}"
+						FontSize="18"
+						Foreground="#FFFFFFFF" />
+					<TextBlock
+						Text="{DynamicResource MUI_Export_Info}"
+						FontSize="14"
+						Foreground="#999999"
+						TextWrapping="Wrap"
+						Margin="0,5,0,0" />
+					<TextBlock
+						x:Name="profile_name_TextBlock"
+						Text="ProfileName"
+						FontWeight="Bold"
+						FontSize="14"
+						Foreground="#FFFFFFFF" />
+				</StackPanel>
+				<Button
+					x:Name="replace_Button"
+					Grid.Row="2"
+					Width="460"
+					Height="80"
+					Template="{DynamicResource export_button_ControlTemplate}"
+					Click="replace_Button_Click">
+					<Label
+						Width="460"
+						Height="80"
+						VerticalContentAlignment="Center"
+						HorizontalContentAlignment="Left"
+						FontSize="16"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Content="{DynamicResource MUI_Import_Replace}"
+						Foreground="#FFFFFFFF"
+						Padding="15,0,0,0" />
+				</Button>
+				<Button
+					x:Name="skip_Button"
+					Grid.Row="4"
+					Width="460"
+					Height="80"
+					Template="{DynamicResource export_button_ControlTemplate}"
+					Click="skip_Button_Click">
+					<Label
+						Width="460"
+						Height="80"
+						VerticalContentAlignment="Center"
+						HorizontalContentAlignment="Left"
+						FontSize="16"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Content="{DynamicResource MUI_Export_Skip}"
+						Foreground="#FFFFFFFF"
+						Padding="15,0,0,0" />
+				</Button>
+				<Button
+					x:Name="keep_Button"
+					Grid.Row="6"
+					Width="460"
+					Height="80"
+					Template="{DynamicResource export_button_ControlTemplate}"
+					HorizontalContentAlignment="Left"
+					VerticalContentAlignment="Center"
+					Click="keep_Button_Click">
+					<Grid
+						Height="80">
+						<StackPanel
+							VerticalAlignment="Center">
+							<TextBlock
+								FontSize="16"
+								Text="{DynamicResource MUI_Export_Rename}"
+								Foreground="#FFFFFFFF"
+								TextWrapping="Wrap"
+								Padding="15,0,0,0" />
+							<TextBlock
+								x:Name="keep_content_TextBlock"
+								FontSize="14"
+								MaxWidth="460"
+								Text="{DynamicResource MUI_Import_Rename_Info}"
+								Foreground="#999999"
+								TextWrapping="Wrap"
+								Padding="15,0,0,0" />
+						</StackPanel>
+					</Grid>
+				</Button>
+			</Grid>
+			<Grid
+				Column="3">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="16" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<Button
+					x:Name="close_Button"
+					Grid.Row="1"
+					Width="20"
+					Height="16"
+					Template="{DynamicResource content_close_ControlTemplate}"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					Click="close_Button_Click" />
+			</Grid>
+		</Grid>
+	</Viewbox>
+</Window>

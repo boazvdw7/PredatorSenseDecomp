@@ -1,0 +1,81 @@
+<Window
+	x:Class="PredatorSense.ShowPresetKeys" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Height="152"
+	Width="180"
+	WindowStyle="None"
+	AllowsTransparency="True"
+	Background="#FFDADADA"
+	ResizeMode="CanMinimize"
+	FontFamily="Segoe UI" xmlns:predatorsense="clr-namespace:PredatorSense">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="Style\100\PSStyle.xaml" />
+				<ResourceDictionary
+					Source="Lang\en.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<StackPanel
+			Orientation="Horizontal">
+			<CheckBox
+				Name="PresetKeysMenu_All"
+				IsChecked="False"
+				Margin="10,10,0,0"
+				Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+			<TextBlock
+				Margin="10,10,0,0"
+				Style="{StaticResource ShowPresetKeys_TextBlockStyle}"
+				Text="{DynamicResource MUI_All}" />
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal">
+			<CheckBox
+				Name="PresetKeysMenu_WASD"
+				IsChecked="False"
+				Margin="10,38,0,0"
+				Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+			<TextBlock
+				Margin="10,38,0,0"
+				Style="{StaticResource ShowPresetKeys_TextBlockStyle}">WASD</TextBlock>
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal">
+			<CheckBox
+				Name="PresetKeysMenu_Arrowkeys"
+				IsChecked="False"
+				Margin="10,66,0,0"
+				Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+			<TextBlock
+				Margin="10,66,0,0"
+				Style="{StaticResource ShowPresetKeys_TextBlockStyle}"
+				Text="{DynamicResource MUI_Arrow_Keys}" />
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal">
+			<CheckBox
+				Name="PresetKeysMenu_Numberrows"
+				IsChecked="False"
+				Margin="10,94,0,0"
+				Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+			<TextBlock
+				Margin="10,94,0,0"
+				Style="{StaticResource ShowPresetKeys_TextBlockStyle}"
+				Text="{DynamicResource MUI_Num_Rows}" />
+		</StackPanel>
+		<StackPanel
+			Orientation="Horizontal">
+			<CheckBox
+				Name="PresetKeysMenu_Fnkeys"
+				IsChecked="False"
+				Margin="10,122,0,0"
+				Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+			<TextBlock
+				Margin="10,122,0,0"
+				Style="{StaticResource ShowPresetKeys_TextBlockStyle}"
+				Text="{DynamicResource MUI_Fn_Keys}" />
+		</StackPanel>
+	</Grid>
+</Window>

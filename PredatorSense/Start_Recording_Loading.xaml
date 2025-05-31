@@ -1,0 +1,80 @@
+<UserControl
+	x:Class="PredatorSense.Start_Recording_Loading" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:predatorsense="clr-namespace:PredatorSense">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DrawingBrush
+				x:Key="recording_bg"
+				Stretch="Uniform">
+				<DrawingBrush.Drawing>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FF191919"
+								Geometry="M0,0 L40,0 L40,40 L0,40 L0,0 Z" />
+							<GeometryDrawing
+								Brush="#FFFF0000"
+								Geometry="F1 M12.4484,30.54 L14.1904,32.9934 L15.9395,32.9934 L14.1375,30.4873 L15.406,29.2734 L15.406,26.7001 L14.0317,25.4334 L8.69934,25.4334 L8.69934,32.9934 L10.1793,32.9934 L10.1793,30.54 L12.4484,30.54 M13.926,27.2595 L13.926,28.714 L13.3453,29.2734 L10.1793,29.2734 L10.1793,26.7001 L13.3453,26.7001 L13.926,27.2595 Z" />
+							<GeometryDrawing
+								Brush="#FFFF0000"
+								Geometry="F1 M17.2327,25.54 L17.2327,32.9934 L23.7263,32.9934 L23.7263,31.7267 L18.7126,31.7267 L18.7126,29.9001 L22.4463,29.9001 L22.4463,28.6334 L18.7126,28.6334 L18.7126,26.8068 L23.6198,26.8068 L23.6198,25.54 L17.2327,25.54 Z" />
+							<GeometryDrawing
+								Brush="#FFFF0000"
+								Geometry="F1 M31.2996,31.7267 L26.9795,31.7267 L26.2861,31.071 L26.2861,27.3557 L26.9795,26.7001 L31.2996,26.7001 L31.2996,25.4334 L26.2861,25.4334 L24.8062,26.8093 L24.8062,31.6174 L26.2861,32.9934 L31.2996,32.9934 L31.2996,31.7267 Z" />
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingBrush.Drawing>
+			</DrawingBrush>
+			<DrawingBrush
+				x:Key="recording_circle"
+				Stretch="Uniform">
+				<DrawingBrush.Drawing>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#FFFF0000"
+								Geometry="M6,6.10352E-05 C9.31372,6.10352E-05 12,2.68634 12,6.00006 C12,9.3139 9.31372,11.9993 6,11.9993 C2.68616,11.9993 0,9.3139 0,6.00006 C0,2.68634 2.68616,6.10352E-05 6,6.10352E-05 Z" />
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingBrush.Drawing>
+			</DrawingBrush>
+			<Storyboard
+				x:Key="sb">
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="ellipse"
+					Storyboard.TargetProperty="Opacity"
+					RepeatBehavior="Forever"
+					AutoReverse="False">
+					<DiscreteDoubleKeyFrame
+						KeyTime="0:0:0:1"
+						Value="0" />
+					<DiscreteDoubleKeyFrame
+						KeyTime="0:0:0:2"
+						Value="1" />
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid>
+		<Viewbox>
+			<Border
+				Name="border_recording">
+				<Grid>
+					<Rectangle
+						Height="40"
+						Width="40"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Top"
+						Fill="{StaticResource recording_bg}" />
+					<Ellipse
+						Name="ellipse"
+						Height="12"
+						Width="12"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Top"
+						Fill="{StaticResource recording_circle}"
+						Margin="0,8,0,0" />
+				</Grid>
+			</Border>
+		</Viewbox>
+	</Grid>
+</UserControl>

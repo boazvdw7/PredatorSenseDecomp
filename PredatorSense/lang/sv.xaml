@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Diskret GPU inaktiv.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Överklockning är endast tillgängligt när nätadaptern är ansluten och minst 40 % batteritid återstår.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Zon</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Ladda batteriet till minst 40 % för att fortsätta överklockning.</s:String>
+	<s:String
+		x:Key="MUI_Path">Sökväg</s:String>
+	<s:String
+		x:Key="MUI_Home">Startsida</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Överklockning</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Snabbtangent</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Fläktontroll</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Övervakning</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows och menyknapp</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Tröga tangenter</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Temperaturenheter</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 är inaktiverad. Anslut nätadaptrarna för att aktivera GPU2.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Snabbknappprofil</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Belysningsprofil</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">CPU överklockning</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">GPU överklockning</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Överklockning är endast tillgängligt när nätadaprarna är anslutna och det minst 40 % batteriliv kvar.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Profihanterare</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Tangentbord</s:String>
+	<s:String
+		x:Key="MUI_Zone">Zon [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Ljuseffekter</s:String>
+	<s:String
+		x:Key="MUI_Speed">Hastighet</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logo</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Ljusfält</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">På/Av-knapp</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Slide-modul</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Andas</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Bakgrundsbelysning</s:String>
+	<s:String
+		x:Key="MUI_Static">Statisk</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dynamisk</s:String>
+	<s:String
+		x:Key="MUI_Off">Av</s:String>
+	<s:String
+		x:Key="MUI_All">Alla</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Pilknappar</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Nummerrader</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Fn-knappar</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Markera flera knappar</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Metod %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Klicka %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">för att markera förinställ knappar.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Tryck och håll Ctrl-knappen därefter klicka eller klicka och drag för att markera.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Riktning</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Belysning profilhanterare</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Snabbknapp profilhanterare</s:String>
+	<s:String
+		x:Key="MUI_Close">Stäng</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Ny snabbknappprofil</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Ny belysningsprofil</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Frekvens</s:String>
+	<s:String
+		x:Key="MUI_Loading">Laddar</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Core-klocka</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">CPU överklockning har stoppats.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">CPU överklockning har återupptagits.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">CPU överklockning har stoppats då återstående batteri är lägre än 40 %.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Makros</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Klicka Redigera för att anpassa snabbknapp</s:String>
+	<s:String
+		x:Key="MUI_Options">Alternativ</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">CPU överklockningomkopplare</s:String>
+	<s:String
+		x:Key="MUI_Fan">Fläkt</s:String>
+	<s:String
+		x:Key="MUI_Auto">Automatiskt</s:String>
+	<s:String
+		x:Key="MUI_Max">Max</s:String>
+	<s:String
+		x:Key="MUI_Custom">Anpassad</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">GPU överklockningsomkopplare</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Fläkthastighetsomkopplare</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Starta app</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Aktivera/Inaktivera avancerade inställ.</s:String>
+	<s:String
+		x:Key="MUI_Browse">Sök</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Om CoolBoost™ är PÅ, ökar det fläktens maxhastighet och tillåter snabbare fläkthastigheter under användning.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Fläktposition</s:String>
+	<s:String
+		x:Key="MUI_Min">Min</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Öppna</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Snake</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Wrap</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Starburst</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Afterglow</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Tryck för att inaktivera</s:String>
+	<s:String
+		x:Key="MUI_Wave">Våg</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neon</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Ripple</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Regndroppe</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Hinder</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Rotera</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Interaktion</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Överklockning är endast tillgängligt när nätadaprarna är anslutna och det minst 40 % batteriliv kvar.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Anslut nätadaptrarna för att återuppta överklockning.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Aktiverad</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Inaktiverad</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Profil för snabbknapp</s:String>
+	<s:String
+		x:Key="MUI_Edit">Redigera</s:String>
+	<s:String
+		x:Key="MUI_Import">Importera</s:String>
+	<s:String
+		x:Key="MUI_Export">Exportera</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Exportera alla</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Dubblett</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Tangenttilldelning</s:String>
+	<s:String
+		x:Key="MUI_Macro">Makro</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Bakgrundsbelysning</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Infoga tangenttryckning</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Infoga fördröjning</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Starta inspelning</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Stoppa inspelning</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">För att spela in en fördröjning</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Fast fördröjning</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Ingen fördröjning</s:String>
+	<s:String
+		x:Key="MUI_MS"> ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Avancerade inställningar</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Avbryt</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Ersätt eller skippa profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">Det finns redan en profil med samma namn i den här mappen.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Ersätt fil</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Hoppa över den här profilen</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Behåll båda</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Gör det här för nästa %N% konflikter.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Gör det här för nästa konflikt.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Observera</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Vill du verkligen ta bort makro "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_YES">Ja</s:String>
+	<s:String
+		x:Key="MUI_NO">Nej</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Temperatur</s:String>
+	<s:String
+		x:Key="MUI_CPU">Processor</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">System</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Gästanvändare har inte behörighet att köra %ProductName%.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Fläkthastighet</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Exporterad profil kallas "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Importera profil</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Importera och ersätt</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Importera men behåll båda profilerna</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Importerad fil kommer att kallas "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Vill du ta bort profil "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Ny profil</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Ny makro</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">Det finns redan en profil med samma namn i den här profillistan.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Det finns redan en profil med samma namn.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Ange ett annat namn.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Gå till sidan redigera Makro</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">Du har angett en tom Makro som knapp %Num%. Du dirigeras till sidan redigera Makro.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Påminn mig inte igen</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Historik kommer att rensas</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">För att starta en ny inspelningshistorik, kommer aktuell historik att rensas. Vill du fortsätta?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Det gick inte att exportera</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Du har inte tillräckligt med minne för att exportera markerade profil(er).</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Det gick inte att importera</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Profilen kan inte importeras på grund av ett oväntat problem.</s:String>
+	<s:String
+		x:Key="MUI_Name">Namn</s:String>
+	<s:String
+		x:Key="MUI_Group">Grupp </s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Markera makro</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Radera profil</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Det finns redan en grupp med samma namn.</s:String>
+	<s:String
+		x:Key="MUI_None">Inga</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Det finns redan en makro med samma namn.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Radera makro</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Ge makro nytt namn</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Du har överskridit maxantalet kommandon du kan spela in på denna makro.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profil</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Tidsfördröjning</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Tryck upp</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Tryck ner </s:String>
+	<s:String
+		x:Key="MUI_Color">Färg</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Grundfärger</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Senaste färger</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Fler färger...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Röd</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Grön</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Blå</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">SNABBARE</s:String>
+	<s:String
+		x:Key="MUI_Normal">NORMAL</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

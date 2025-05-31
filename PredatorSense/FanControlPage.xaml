@@ -1,0 +1,394 @@
+<UserControl
+	x:Class="PredatorSense.FanControlPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	Height="312"
+	Width="1152"
+	Background="#00FFFFFF"
+	FontFamily="Segoe UI" xmlns:predatorsense="clr-namespace:PredatorSense">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="Style\100\PSStyle.xaml" />
+				<ResourceDictionary
+					Source="Lang\en.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Viewbox
+		Stretch="Uniform">
+		<Grid
+			x:Name="Main_Grid"
+			Width="1152"
+			Height="312">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="36" />
+				<ColumnDefinition
+					Width="220" />
+				<ColumnDefinition
+					Width="32" />
+				<ColumnDefinition
+					Width="160" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="160" />
+				<ColumnDefinition
+					Width="112" />
+			</Grid.ColumnDefinitions>
+			<Grid
+				x:Name="fan_control_Grid"
+				Column="1">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="78" />
+					<RowDefinition
+						Height="56" />
+					<RowDefinition
+						Height="12" />
+					<RowDefinition
+						Height="56" />
+					<RowDefinition
+						Height="12" />
+					<RowDefinition
+						Height="56" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<CheckBox
+					x:Name="FanModeAuto"
+					Grid.Row="1"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Width="220"
+					Height="56"
+					Style="{DynamicResource FanModeAutoStyle}" />
+				<CheckBox
+					x:Name="FanModeMax"
+					Grid.Row="3"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Width="220"
+					Height="56"
+					Style="{DynamicResource FanModeMaxStyle}" />
+				<CheckBox
+					x:Name="FanModeCustom"
+					Grid.Row="5"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Width="220"
+					Height="56"
+					Style="{DynamicResource FanModeCustomStyle}" />
+				<Rectangle
+					Grid.Row="2"
+					Height="2"
+					Width="220"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Fill="#800000"
+					Opacity="0.7" />
+				<Rectangle
+					Grid.Row="4"
+					Height="2"
+					Width="220"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Fill="#800000"
+					Opacity="0.7" />
+			</Grid>
+			<Grid
+				x:Name="CPU_speed_control_Grid"
+				Column="3">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="151" />
+					<RowDefinition
+						Height="32" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					x:Name="CPU_textblock"
+					Grid.Row="1"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Top"
+					FontSize="18"
+					Foreground="#FFFFFF"
+					Text="{DynamicResource MUI_CPU}" />
+				<Slider
+					x:Name="CPU_ScrollBar"
+					Grid.Row="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					Style="{DynamicResource SpeedSliderStyle}"
+					Tag="0"
+					Thumb.DragStarted="ScrollBar_DragStarted"
+					Thumb.DragCompleted="ScrollBar_DragCompleted"
+					ValueChanged="ScrollBar_ValueChanged" />
+				<CheckBox
+					x:Name="CPU_Auto"
+					Grid.Row="3"
+					Width="80"
+					Height="20"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Top"
+					Style="{DynamicResource AutoCheckBoxStyle}"
+					Tag="0"
+					Content="{DynamicResource MUI_Auto}"
+					Checked="Custom_Auto_Checked_Unchecked"
+					Unchecked="Custom_Auto_Checked_Unchecked" />
+			</Grid>
+			<Grid
+				x:Name="GPU_speed_control_Grid"
+				Column="6">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="151" />
+					<RowDefinition
+						Height="32" />
+					<RowDefinition
+						Height="40" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					x:Name="GPU_textblock"
+					Grid.Row="1"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					FontSize="18"
+					Foreground="#FFFFFF"
+					Text="{DynamicResource MUI_GPU_NAME}" />
+				<Slider
+					x:Name="GPU1_ScrollBar"
+					Grid.Row="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					Style="{DynamicResource SpeedSliderStyle}"
+					Tag="1"
+					Thumb.DragStarted="ScrollBar_DragStarted"
+					Thumb.DragCompleted="ScrollBar_DragCompleted"
+					ValueChanged="ScrollBar_ValueChanged" />
+				<CheckBox
+					x:Name="GPU1_Auto"
+					Grid.Row="3"
+					Width="80"
+					Height="20"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Top"
+					Style="{DynamicResource AutoCheckBoxStyle}"
+					Tag="1"
+					Content="{DynamicResource MUI_Auto}"
+					Checked="Custom_Auto_Checked_Unchecked"
+					Unchecked="Custom_Auto_Checked_Unchecked" />
+			</Grid>
+			<Grid
+				x:Name="CPU_information_Grid"
+				Column="4">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="60" />
+					<RowDefinition
+						Height="80" />
+					<RowDefinition
+						Height="44" />
+					<RowDefinition
+						Height="37" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<Border
+					Grid.Row="1"
+					Grid.RowSpan="4"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					Style="{DynamicResource FanStyle}">
+					<Border.Background>
+						<ImageBrush
+							Stretch="Fill"
+							ImageSource="{DynamicResource Img_fan}">
+							<Brush.Transform>
+								<RotateTransform
+									x:Name="CPU_fan"
+									CenterX="100"
+									CenterY="100" />
+							</Brush.Transform>
+						</ImageBrush>
+					</Border.Background>
+				</Border>
+				<TextBlock
+					x:Name="CPU_FanRate"
+					Grid.Row="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					FontWeight="Bold"
+					FontSize="28"
+					Foreground="#FFFFFF" />
+				<TextBlock
+					x:Name="CPU_RPM"
+					Grid.Row="3"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					FontSize="12"
+					Foreground="#666666"
+					Text="{DynamicResource MUI_RPM}" />
+			</Grid>
+			<Grid
+				x:Name="GPU_information_Grid"
+				Column="5">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="60" />
+					<RowDefinition
+						Height="80" />
+					<RowDefinition
+						Height="44" />
+					<RowDefinition
+						Height="37" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<Border
+					Grid.Row="1"
+					Grid.RowSpan="4"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					Style="{DynamicResource FanStyle}">
+					<Border.Background>
+						<ImageBrush
+							Stretch="Fill"
+							ImageSource="{DynamicResource Img_fan}">
+							<Brush.Transform>
+								<RotateTransform
+									x:Name="GPU1_fan"
+									CenterX="100"
+									CenterY="100" />
+							</Brush.Transform>
+						</ImageBrush>
+					</Border.Background>
+				</Border>
+				<TextBlock
+					x:Name="GPU1_FanRate"
+					Grid.Row="2"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					FontWeight="Bold"
+					FontSize="28"
+					Foreground="#FFFFFF" />
+				<TextBlock
+					x:Name="GPU_RPM"
+					Grid.Row="3"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					FontSize="12"
+					Foreground="#666666"
+					Text="{DynamicResource MUI_RPM}" />
+			</Grid>
+			<StackPanel
+				Grid.Column="0"
+				Orientation="Horizontal"
+				VerticalAlignment="Top"
+				HorizontalAlignment="Right"
+				Margin="0,32,32,0"
+				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}">
+				<CheckBox
+					x:Name="ShowCoolBoosterInformationicon"
+					Width="16"
+					Height="16"
+					VerticalAlignment="Center"
+					Style="{DynamicResource ShowCoolBoosterInformationiconStyle}"
+					Margin="0,0,5,0" />
+				<TextBlock
+					x:Name="CoolBoost"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					FontSize="16"
+					Foreground="#FFFFFF"
+					Text="{DynamicResource MUI_Cool_Booster}"
+					Margin="0,0,10,0" />
+				<CheckBox
+					x:Name="ShowCoolBoosterStatusicon"
+					Width="52"
+					Height="20"
+					VerticalAlignment="Center"
+					Template="{DynamicResource SettingCheckBox_ControlTemplate}"
+					Checked="ShowCoolBoosterStatusicon_Checked"
+					Unchecked="ShowCoolBoosterStatusicon_Unchecked" />
+			</StackPanel>
+			<Popup
+				x:Name="ShowCoolBoosterInformationPopup"
+				StaysOpen="False"
+				IsOpen="False"
+				HorizontalOffset="-30"
+				VerticalOffset="5"
+				Placement="Bottom"
+				AllowsTransparency="True"
+				PlacementTarget="{Binding ElementName=ShowCoolBoosterInformationicon}"
+				Closed="Common_Popup_Closed"
+				Opened="Common_Popup_Opened">
+				<Canvas
+					Width="276"
+					Height="86">
+					<Path
+						Width="276"
+						Height="86"
+						Canvas.Left="0"
+						Canvas.Top="0"
+						Stretch="Fill"
+						Fill="#FFDADADA"
+						Data="F1 M4.00024,15.0001 L35.9977,15.0043 L41.9947,3.00421 L48.0017,15.0043 L280,15.0001 L279.999,89.0006 L3.99942,89.0006 L4.00024,15.0001 Z">
+						<UIElement.Effect>
+							<DropShadowEffect
+								BlurRadius="6"
+								ShadowDepth="0"
+								Opacity="0.599998"
+								Color="#FF000000"
+								Direction="315" />
+						</UIElement.Effect>
+					</Path>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="12" />
+							<RowDefinition
+								Height="10" />
+							<RowDefinition
+								Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="10" />
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="10" />
+						</Grid.ColumnDefinitions>
+						<TextBlock
+							Grid.Row="2"
+							Grid.Column="1"
+							FontSize="12"
+							Width="256"
+							Foreground="#191919"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Text="{DynamicResource MUI_Cool_Booster_Notification}"
+							TextWrapping="Wrap" />
+					</Grid>
+				</Canvas>
+			</Popup>
+			<TextBlock
+				Grid.Column="0"
+				VerticalAlignment="Top"
+				HorizontalAlignment="Left"
+				FontSize="16"
+				Foreground="#FFFFFF"
+				Margin="44,28,0,0"
+				Text="{DynamicResource MUI_Fan_Control}"
+				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}" />
+		</Grid>
+	</Viewbox>
+</UserControl>

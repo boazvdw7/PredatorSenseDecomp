@@ -1,0 +1,411 @@
+<UserControl
+	x:Class="PredatorSense.MonitoringPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	Background="#00FFFFFF"
+	FontFamily="Segoe UI" xmlns:predatorsense="clr-namespace:PredatorSense">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="Style\100\PSStyle.xaml" />
+				<ResourceDictionary
+					Source="Lang\en.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Viewbox
+		Stretch="Uniform">
+		<Grid
+			x:Name="Main_Grid"
+			Width="1152"
+			Height="312">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="6" />
+				<RowDefinition
+					Height="29" />
+				<RowDefinition
+					Height="5" />
+				<RowDefinition
+					Height="100" />
+				<RowDefinition
+					Height="27" />
+				<RowDefinition
+					Height="5" />
+				<RowDefinition
+					Height="100" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="300" />
+				<ColumnDefinition
+					Width="720" />
+				<ColumnDefinition
+					Width="15" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<TextBlock
+				x:Name="Unit_info_TextBlock"
+				Grid.Column="1"
+				Grid.Row="1"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Bottom"
+				Foreground="#808080"
+				FontSize="14" />
+			<Grid
+				Column="1"
+				Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="578" />
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<TextBlock
+					x:Name="CPU_MinTemplature"
+					Grid.Column="1"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom"
+					FontSize="12"
+					Foreground="#808080"
+					Text="{DynamicResource MUI_Min}" />
+				<TextBlock
+					x:Name="CPU_MaxTemplature"
+					Grid.Column="2"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom"
+					FontSize="12"
+					Foreground="#808080"
+					Text="{DynamicResource MUI_Max}" />
+			</Grid>
+			<Border
+				Grid.Column="1"
+				Grid.Row="3"
+				Width="720"
+				Height="100">
+				<Border.Background>
+					<ImageBrush
+						Stretch="Fill"
+						ImageSource="{DynamicResource Img_monitor_chartshadow}" />
+				</Border.Background>
+				<Grid
+					x:Name="CPU_chartGrid"
+					ClipToBounds="True">
+					<Panel.Background>
+						<ImageBrush
+							Stretch="Fill"
+							ImageSource="{DynamicResource Img_monitor_chart}" />
+					</Panel.Background>
+					<Popup
+						x:Name="CPU_dataPopup"
+						Placement="Relative"
+						AllowsTransparency="True"
+						PlacementTarget="{Binding ElementName=CPU_chartGrid}">
+						<Grid
+							Width="84"
+							Height="64">
+							<Path
+								Width="83.9998"
+								Height="64"
+								Stretch="Fill"
+								Data="M16.0001,8.00006 L88.0001,8.00006 L88.0001,56.0001 L75.9999,68.0001 L8.00006,68.0001 L8.00006,16.0001 L4.00024,4.00006 L16.0001,8.00006 Z">
+								<Shape.Fill>
+									<LinearGradientBrush
+										StartPoint="0.499292,-0.0173197"
+										EndPoint="0.499292,1.00221">
+										<GradientBrush.GradientStops>
+											<GradientStop
+												Color="#FF333333"
+												Offset="0" />
+											<GradientStop
+												Color="#FF1E1E1E"
+												Offset="1" />
+										</GradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Shape.Fill>
+							</Path>
+							<ContentControl
+								x:Name="CPU_dataPopupContent"
+								Margin="10.05,11.07,5.93,6.87" />
+						</Grid>
+					</Popup>
+				</Grid>
+			</Border>
+			<TextBlock
+				Grid.Column="1"
+				Grid.Row="3"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				FontSize="16"
+				Foreground="#FFFFFF"
+				Text="{DynamicResource MUI_CPU}"
+				Margin="10,10,0,0" />
+			<Grid
+				Column="3"
+				Row="3">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="61" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					x:Name="CPU_Templature"
+					Grid.Row="0"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom"
+					FontSize="28"
+					Foreground="#E60000" />
+				<StackPanel
+					Grid.Row="1"
+					Orientation="Horizontal"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom">
+					<TextBlock
+						x:Name="CPU_Usage"
+						FontSize="28"
+						Foreground="#FF7800" />
+					<TextBlock
+						VerticalAlignment="Bottom"
+						FontSize="18"
+						Foreground="#FF7800"
+						Text="%" />
+				</StackPanel>
+			</Grid>
+			<Grid
+				Column="1"
+				Row="4">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="578" />
+					<ColumnDefinition
+						Width="*" />
+					<ColumnDefinition
+						Width="*" />
+				</Grid.ColumnDefinitions>
+				<TextBlock
+					x:Name="GPU_MinTemplature"
+					Grid.Column="1"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom"
+					FontSize="12"
+					Foreground="#808080"
+					Text="{DynamicResource MUI_Min}" />
+				<TextBlock
+					x:Name="GPU_MaxTemplature"
+					Grid.Column="2"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom"
+					FontSize="12"
+					Foreground="#808080"
+					Text="{DynamicResource MUI_Max}" />
+			</Grid>
+			<Border
+				Grid.Column="1"
+				Grid.Row="6"
+				Width="720"
+				Height="100"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top">
+				<Border.Background>
+					<ImageBrush
+						Stretch="Fill"
+						ImageSource="{DynamicResource Img_monitor_chartshadow}" />
+				</Border.Background>
+				<Grid
+					ClipToBounds="True">
+					<Grid
+						x:Name="GPU_chartGrid"
+						ClipToBounds="True">
+						<Panel.Background>
+							<ImageBrush
+								Stretch="Fill"
+								ImageSource="{DynamicResource Img_monitor_chart}" />
+						</Panel.Background>
+						<Popup
+							x:Name="GPU_dataPopup"
+							Placement="Relative"
+							AllowsTransparency="True"
+							PlacementTarget="{Binding ElementName=GPU_chartGrid}">
+							<Grid
+								Width="83.9998"
+								Height="64">
+								<Path
+									Width="83.9998"
+									Height="64"
+									Stretch="Fill"
+									Data="M16.0001,8.00006 L88.0001,8.00006 L88.0001,56.0001 L75.9999,68.0001 L8.00006,68.0001 L8.00006,16.0001 L4.00024,4.00006 L16.0001,8.00006 Z">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.499292,-0.0173197"
+											EndPoint="0.499292,1.00221">
+											<GradientBrush.GradientStops>
+												<GradientStop
+													Color="#FF333333"
+													Offset="0" />
+												<GradientStop
+													Color="#FF1E1E1E"
+													Offset="1" />
+											</GradientBrush.GradientStops>
+										</LinearGradientBrush>
+									</Shape.Fill>
+								</Path>
+								<ContentControl
+									x:Name="GPU_dataPopupContent"
+									Margin="10.05,11.07,5.93,6.87" />
+							</Grid>
+						</Popup>
+						<Popup
+							x:Name="GPU_DiscretedataPopup"
+							Placement="Relative"
+							AllowsTransparency="True"
+							PlacementTarget="{Binding ElementName=GPU_chartGrid}">
+							<Grid
+								Width="168"
+								Height="64">
+								<Path
+									Width="168"
+									Height="64"
+									Canvas.Left="4"
+									Canvas.Top="4"
+									Stretch="Fill"
+									Data="M16.007,8.00269 L172,8.00235 L172,28.0023 L172,56.0024 L159.988,67.9932 L8.00177,68.0001 L8.00702,16.0027 L4.00018,4.00235 L16.007,8.00269 Z">
+									<Shape.Fill>
+										<LinearGradientBrush
+											StartPoint="0.249687,-0.0173155"
+											EndPoint="0.249687,1.00225">
+											<GradientBrush.GradientStops>
+												<GradientStop
+													Color="#FF333333"
+													Offset="0" />
+												<GradientStop
+													Color="#FF1E1E1E"
+													Offset="1" />
+											</GradientBrush.GradientStops>
+										</LinearGradientBrush>
+									</Shape.Fill>
+									<UIElement.Effect>
+										<DropShadowEffect
+											BlurRadius="8"
+											ShadowDepth="0.377947"
+											Opacity="1"
+											Color="#FF000000"
+											Direction="315" />
+									</UIElement.Effect>
+								</Path>
+								<ContentControl
+									x:Name="GPU_DiscretedataPopupContent"
+									Margin="10.05,8,5.93,6.87" />
+							</Grid>
+						</Popup>
+					</Grid>
+					<Grid
+						x:Name="GPU_DiscretePopup"
+						Width="167.986"
+						Height="47.9995"
+						HorizontalAlignment="Right"
+						VerticalAlignment="Bottom"
+						Visibility="Visible"
+						Margin="0,0,4,4"
+						MouseMove="GPU_DiscretePopup_MouseMove"
+						MouseLeave="GPU_DiscretePopup_MouseLeave">
+						<Path
+							Width="167.986"
+							Height="47.9995"
+							Canvas.Left="4.01385"
+							Canvas.Top="4"
+							Stretch="Fill"
+							Data="M160,47.9995 L4.01385,48.0063 L4.01642,4 L168.003,4.00079 L168,39.9995 L172,51.9995 L160,47.9995 Z">
+							<Shape.Fill>
+								<LinearGradientBrush
+									StartPoint="0.476015,0.00293353"
+									EndPoint="0.476015,0.919609">
+									<GradientBrush.GradientStops>
+										<GradientStop
+											Color="#FF333333"
+											Offset="0" />
+										<GradientStop
+											Color="#FF1E1E1E"
+											Offset="1" />
+									</GradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Shape.Fill>
+							<UIElement.Effect>
+								<DropShadowEffect
+									BlurRadius="8"
+									ShadowDepth="0.377947"
+									Opacity="1"
+									Color="#FF000000"
+									Direction="315" />
+							</UIElement.Effect>
+						</Path>
+						<TextBlock
+							x:Name="GPU_DiscretePopupTextBlock"
+							Margin="5.93, 3,10.05,11.07"
+							FontSize="12.5"
+							Foreground="#FFFFFF"
+							TextWrapping="Wrap"
+							Text="{DynamicResource MUI_GPU_Idle}" />
+					</Grid>
+				</Grid>
+			</Border>
+			<TextBlock
+				x:Name="GPU1_title_TextBlock"
+				Grid.Column="1"
+				Grid.Row="6"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				FontSize="16"
+				Foreground="#FFFFFF"
+				Margin="10,10,0,0"
+				Text="{DynamicResource MUI_GPU_NAME}" />
+			<Grid
+				Column="3"
+				Row="6">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="61" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					x:Name="GPU_Templature"
+					Grid.Row="0"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom"
+					FontSize="28"
+					Foreground="#E60000" />
+				<StackPanel
+					Grid.Row="1"
+					Orientation="Horizontal"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom">
+					<TextBlock
+						x:Name="GPU_Usage"
+						FontSize="28"
+						Foreground="#FF7800" />
+					<TextBlock
+						VerticalAlignment="Bottom"
+						FontSize="18"
+						Foreground="#FF7800"
+						Text="%" />
+				</StackPanel>
+			</Grid>
+			<TextBlock
+				Grid.Column="0"
+				Grid.Row="0"
+				VerticalAlignment="Top"
+				HorizontalAlignment="Left"
+				FontSize="16"
+				Foreground="#FFFFFF"
+				Margin="44,8,0,0"
+				Text="{DynamicResource MUI_Monitoring}"
+				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
+				Grid.RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}" />
+		</Grid>
+	</Viewbox>
+</UserControl>

@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Diszkrét GPU tétlen.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Az órajel-túlhúzás akkor érhető el, ha a tápadapter be van dugva, és az akku töltöttsége min. 40%.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Zóna</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">A túlhajtás folytatásához legalább 40%-ra töltse fel az akkumulátort.</s:String>
+	<s:String
+		x:Key="MUI_Path">Útvonal</s:String>
+	<s:String
+		x:Key="MUI_Home">Home</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Túlhajtás</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Gyorsbill.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Vent. szab.</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Megfigyelés</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows és menü bill</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Ragadós billentyűk</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Hőmérs. egységek</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 letiltva. Csatl. mindkét hálózati adaptert, h eng. a GPU2-t.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Gyorsb. profil</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Világítás profil</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">CPU túlhajtása</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">GPU túlhajtása</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">A túlh akkor érhető el, ha a két h. adap. be van dugva és legalább 40%-os az akkumulátor.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Profilkezelő</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Billentyűzet</s:String>
+	<s:String
+		x:Key="MUI_Zone">[1~4] zóna</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">vil. effektek</s:String>
+	<s:String
+		x:Key="MUI_Speed">Seb.</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logó</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Vil. sáv</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Be/ki gomb</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Dia modul</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Villog</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Háttérvil.</s:String>
+	<s:String
+		x:Key="MUI_Static">Statik</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dinamik</s:String>
+	<s:String
+		x:Key="MUI_Off">Ki</s:String>
+	<s:String
+		x:Key="MUI_All">Összes</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Nyílgombok</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Számsorok</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Fn bill.</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Több bill. kivál.</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Módsz. %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Kattintson a %icon%-ra</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">előre beáll. bill. kiválasztásához.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Tartsa lenyomva a CTRL bill-t, katt vagy katt és húzás a kivál-hoz.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Irány</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Vil. pofilkezelő</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Gyorsbill. profilkezelő</s:String>
+	<s:String
+		x:Key="MUI_Close">Bezár</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Új gyorsbill. profil</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Új. vil. profil</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Frekvencia</s:String>
+	<s:String
+		x:Key="MUI_Loading">Betöltés</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Mag óra</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">CPU túlhajtás leállt.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">CPU túlhajtása folytatódik.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">A CPU túlhajtása leállt, mert az akkumulátor töltöttsége 40% alatti.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Makrók</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Katt szerkeszt a gyorsb beállításához</s:String>
+	<s:String
+		x:Key="MUI_Options">Opciók</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">CPU túlhajtás kapcsoló</s:String>
+	<s:String
+		x:Key="MUI_Fan">Ven</s:String>
+	<s:String
+		x:Key="MUI_Auto">Auto</s:String>
+	<s:String
+		x:Key="MUI_Max">Max</s:String>
+	<s:String
+		x:Key="MUI_Custom">Egyéni</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">GPU túlhjtás kapcsoló</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Vent. seb. kapcs.</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Alk. indít.</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Spec. beáll. enged./letilt.</s:String>
+	<s:String
+		x:Key="MUI_Browse">Tallózás</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Ha a CoolBoost™ be van kapcs, az növeli a max. vent. seb., így gyorsabb lesz ventilátor intenzív haszn. során.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Vent. helyz.</s:String>
+	<s:String
+		x:Key="MUI_Min">Min</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Nyitott</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Kígyó</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Befedés</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Csillagképződés</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Utóvilágítás</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Nyomja meg-&gt;ki</s:String>
+	<s:String
+		x:Key="MUI_Wave">Hullám</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neion</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Fodroz</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Esőcsepp</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Kerítés</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Elforgatás</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Inerakció</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">A túlh akkor érhető el, ha a két h. adap. be van dugva és legalább 40%-os az akkumulátor.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Dugja be a két h. adaptert a túlh. folytatásához.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Engedélyezve</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Letiltva</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Gyorsbillentyű profil</s:String>
+	<s:String
+		x:Key="MUI_Edit">Szerkesztés</s:String>
+	<s:String
+		x:Key="MUI_Import">Importálás</s:String>
+	<s:String
+		x:Key="MUI_Export">Exportálás</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Összes exportálása</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Másolat</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Billentyű-hozzárendelés</s:String>
+	<s:String
+		x:Key="MUI_Macro">Makró</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Világítás</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Gombnyomás beszúrása</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Késleltetés beszúrása</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Felvétel elindítása</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Felvétel leállítása</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Késés rögzítése</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Fix késleltetés</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Nincs késleltetés</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Speciális beállítások</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Mégse</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Profilcsere v kihagyás</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">Már létezik egy profil ugyanilyen névvel ugyanebben a mappában.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Meglévő profil cseréje</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">A profil kihagyása</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Profilok megtartása</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Tegye ezt a következő %N% összeütközéseknél.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Tegye ezt a következő összeütközéseknél.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Figyelem</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Biztosan törli a(z) "%Name%" makrót?</s:String>
+	<s:String
+		x:Key="MUI_YES">Igen</s:String>
+	<s:String
+		x:Key="MUI_NO">Nem</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Hőmérséklet</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPU</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Rendszer</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">A Vendég (Guest) felhasználó nem futtathatja az %ProductName% keretrendszert.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Ventilátor sebessége</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Az exportált profil neve ez lesz: "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Profil importálása</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Importálás és csere</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Importálás, de mindkét profil megtartása</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Az importált profil neve ez lesz: "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Biztosan törli a(z) "%Name%" profilt?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Új profil</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Új makró</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">Már létezik egy profil ugyanilyen névvel a profil listában.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Már létezik egy profil ugyanilyen névvel.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Adjon meg egy másik nevet.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Lépjen a Makró szerkesztése oldalra</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">Hozzárendelt egy üres Makrót a(z) %Num% billentyűhöz. A Makró szerkesztése oldalra fog kerülni.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Ne emlékeztessen többé</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Az előzmény törölve lesz</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Új előzmény felvételéhez a jelenlegi előzmény törölve lesz. Szeretné folytatni?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Nem sikerült az exportálás</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Nincs elég tárhelye a kiválasztott profil(ok) exportálásához.</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Nem sikerült az importálás</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Nem lehet importálni ezt a profilt egy váratlan hiba miatt.</s:String>
+	<s:String
+		x:Key="MUI_Name">Név</s:String>
+	<s:String
+		x:Key="MUI_Group">Csoport</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Makró kiválaszt</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Profil törlése</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Már létezik egy csoport ugyanilyen névvel.</s:String>
+	<s:String
+		x:Key="MUI_None">Nincs</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Már létezik egy makró ugyanilyen névvel.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Makró törlése</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Makró átnevezése</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Meghaladta azon parancsok maximális számát, amelyeket felvehet ehhez a makróhoz.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profil</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Időbeni késl</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Engedje el</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Nyomja le</s:String>
+	<s:String
+		x:Key="MUI_Color">Szín</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Alapszínek</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Legutóbbi színek</s:String>
+	<s:String
+		x:Key="MUI_More_Color">További színek...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Vörös</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Zöld</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Kék</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBÓ</s:String>
+	<s:String
+		x:Key="MUI_Faster">GYORSABB</s:String>
+	<s:String
+		x:Key="MUI_Normal">SZABVÁNYOS</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

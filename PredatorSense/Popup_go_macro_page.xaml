@@ -1,0 +1,185 @@
+<Window
+	x:Class="PredatorSense.Popup_go_macro_page" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="PredatorSense          "
+	Height="200"
+	Width="560"
+	AllowsTransparency="True"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterOwner"
+	WindowStyle="None"
+	Background="#00FFFFFF"
+	FontFamily="Segoe UI" xmlns:predatorsense="clr-namespace:PredatorSense"
+	StateChanged="Window_StateChanged">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="Style\100\PSStyle.xaml" />
+				<ResourceDictionary
+					Source="Lang\en.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Viewbox
+		x:Name="wndViewbox"
+		Stretch="Uniform">
+		<Grid
+			x:Name="Main_Grid"
+			Width="560"
+			Height="200">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="59" />
+				<ColumnDefinition
+					Width="450" />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition
+					Width="20" />
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid
+				x:Name="Bg_Grid"
+				Row="0"
+				Column="0"
+				ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
+				RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}">
+				<Canvas
+					Width="560"
+					Height="200">
+					<Path
+						Width="560"
+						Height="200"
+						Canvas.Left="0"
+						Canvas.Top="0"
+						Stretch="Fill"
+						Fill="#FF151515"
+						Data="M544.5,4 L24.4999,4 L4,23.9998 L4.00015,184 L24.5001,204 L544.5,204 L564,184 L564,23.9998 L544.5,4 Z">
+						<UIElement.Effect>
+							<DropShadowEffect
+								BlurRadius="8"
+								ShadowDepth="0"
+								Opacity="0.599998"
+								Color="#FF000000"
+								Direction="315" />
+						</UIElement.Effect>
+					</Path>
+					<Path
+						Width="560"
+						Height="200"
+						Canvas.Left="0"
+						Canvas.Top="0"
+						Stretch="Fill"
+						Fill="#FF00AEC7"
+						Data="M544.5,4 L564,23.9998 L564,184 L544.5,204 L24.5001,204 L4.00024,184 L4.00012,23.9998 L24.5,4 L164,4 L404,4 L544.5,4 M563,183.586 L563,24.4142 L544.086,5 L402.5,5 L398,8 L170,8 L165.5,5 L24.9142,5 L5,24.4142 L5.00012,183.586 L24.9143,203 L544.086,203 L563,183.586 M4,188 L20.0002,204 L12.0002,204 L4,196 L4,188 M548,204 L564,188 L564,196 L556,204 L548,204 Z" />
+					<Path
+						Width="180.019"
+						Height="151.999"
+						Canvas.Left="50"
+						Canvas.Top="29"
+						Stretch="Fill"
+						Fill="#67000000"
+						Opacity="0.4"
+						Data="F1 M140.009,29.0006 L230.019,181 L50,181 L140.009,29.0006 M130.998,82.0043 L130.998,136.996 L148.996,136.996 L148.996,82.0043 L130.998,82.0043 M130.998,146.98 L130.998,165.007 L148.996,165.007 L148.996,146.979 L130.998,146.98 Z" />
+				</Canvas>
+			</Grid>
+			<Grid
+				Column="1">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="22" />
+					<RowDefinition
+						Height="30" />
+					<RowDefinition
+						Height="10" />
+					<RowDefinition
+						Height="*" />
+					<RowDefinition
+						Height="36" />
+					<RowDefinition
+						Height="23" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					x:Name="title_TextBlock"
+					Grid.Row="1"
+					Text="{DynamicResource MUI_Go_Macro_Page_Title}"
+					Width="Auto"
+					FontSize="18"
+					Foreground="#FFFFFFFF"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Bottom" />
+				<TextBlock
+					x:Name="content_TextBlock"
+					Grid.Row="3"
+					Text="{DynamicResource MUI_Go_Macro_Page_Info}"
+					Width="Auto"
+					FontSize="14"
+					Foreground="#999999"
+					MaxWidth="450"
+					TextWrapping="Wrap" />
+				<StackPanel
+					Grid.Row="4"
+					Orientation="Horizontal"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center">
+					<CheckBox
+						x:Name="remind_CheckBox"
+						Width="29"
+						Height="21"
+						Template="{StaticResource history_clear_ControlTemplate}"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Bottom"
+						Checked="remind_CheckBox_Checked"
+						Unchecked="remind_CheckBox_Unchecked" />
+					<TextBlock
+						Text="{DynamicResource MUI_Dont_Remind}"
+						Width="Auto"
+						FontSize="14"
+						Foreground="#999999"
+						TextWrapping="Wrap"
+						Margin="5,0,0,0"
+						VerticalAlignment="Center" />
+				</StackPanel>
+				<Button
+					x:Name="ok_Button"
+					Grid.Row="4"
+					Width="120"
+					Height="36"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Template="{DynamicResource basic_button_ControlTemplate}"
+					Click="ok_Button_Click">
+					<Label
+						Width="120"
+						Height="36"
+						VerticalContentAlignment="Center"
+						HorizontalContentAlignment="Center"
+						FontSize="14"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Content="{DynamicResource MUI_OK}"
+						Foreground="#FFFFFFFF" />
+				</Button>
+			</Grid>
+			<Grid
+				Column="3">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="17" />
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<Button
+					x:Name="close_Button"
+					Grid.Row="1"
+					Width="20"
+					Height="16"
+					Template="{DynamicResource content_close_ControlTemplate}"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					Click="close_Button_Click" />
+			</Grid>
+		</Grid>
+	</Viewbox>
+</Window>

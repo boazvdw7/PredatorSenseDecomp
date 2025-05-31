@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Sam. GPU je nečinná.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Přetaktování je k dispozici, pouze když je zapojen síťový adaptér a kapacita baterie má nejméně 40%.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Zóna</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Nabijte baterii nejméně na 40 % a pokračujte v přetaktování.</s:String>
+	<s:String
+		x:Key="MUI_Path">Cesta</s:String>
+	<s:String
+		x:Key="MUI_Home">Výchozí</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Přetaktování</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Klávesová zkratka</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Ovládání ventilátoru</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Sledování</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Okna a tlačítka nabídky</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Přilnavé klávesy</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Jednotky teploty</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 je zakázána. Zapojte oba síťové adaptéry pro povolení GPU2.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Profil klávesových zkratek</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Profil osvětlení</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">Přetaktování procesoru</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">Přetaktování grafického procesoru</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Přetaktování je možné, jen jsou-li oba síťové adaptéry zapojeny a baterie má min. 40 %.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Správce profilů</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Klávesnice</s:String>
+	<s:String
+		x:Key="MUI_Zone">Zóna [1–4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Světelné efekty</s:String>
+	<s:String
+		x:Key="MUI_Speed">Rychlost</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logo</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Světelný panel</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Tlačítko napájení</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Posuvný modul</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Dýchání</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Podsvícení</s:String>
+	<s:String
+		x:Key="MUI_Static">Statické</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dynamické</s:String>
+	<s:String
+		x:Key="MUI_Off">Vyp.</s:String>
+	<s:String
+		x:Key="MUI_All">Vše</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Klávesy šipek</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Řádky čísel</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Klávesy Fn</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Vybrat více kláves</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Metoda %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Klikněte na %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">pro výběr přednastavených kláves.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Stiskněte a podržte Ctrl a vyberte kliknutím či kliknutím a přetažením.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Trasa</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Správce profilů osvětlení</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Správce profilů klávesových zkratek</s:String>
+	<s:String
+		x:Key="MUI_Close">Zavřít</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Nový profil klávesových zkratek</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Nový profil osvětlení</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Frekvence</s:String>
+	<s:String
+		x:Key="MUI_Loading">Zátěž</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Hodiny jádra</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">Přetaktování CPU bylo zastaveno.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">Přetaktování CPU pokračuje.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">Přetaktování CPU bylo zastaveno, protože baterie má méně než 40 %.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Makra</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Kliknutím na Upravit přizpůsobte kláv. zkratku</s:String>
+	<s:String
+		x:Key="MUI_Options">Možnosti</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">Přepínač přetaktování CPU</s:String>
+	<s:String
+		x:Key="MUI_Fan">Ventilátor</s:String>
+	<s:String
+		x:Key="MUI_Auto">Automaticky</s:String>
+	<s:String
+		x:Key="MUI_Max">Max.</s:String>
+	<s:String
+		x:Key="MUI_Custom">Vlastní</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">Přepínač přetaktování GPU</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Přepínač rychlosti ventilátoru</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Spustit aplikaci</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Povolit/zakázat pokr. nastavení</s:String>
+	<s:String
+		x:Key="MUI_Browse">Procházet</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Funkce CoolBoost™ zvýší maximální rychlost ventilátoru a umožní vyšší rychlosti ventilátoru při náročném použití.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Poloha ventilátoru</s:String>
+	<s:String
+		x:Key="MUI_Min">Min.</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Otevřít</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Had</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Obal</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Rachejtle</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Odlesk</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Stisknutím vypněte</s:String>
+	<s:String
+		x:Key="MUI_Wave">Vlna</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neon</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Vlnění</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Kapka deště</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Bariéra</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Otočit</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Interakce</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Přetaktování je možné, jen jsou-li oba síťové adaptéry zapojeny a baterie má min. 40 %.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Zapojte oba síťové adaptéry pro obnovení přetaktování.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Povoleno</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Zakázáno</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Profil klávesových zkratek</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Duplikovat</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Edit">Upravit</s:String>
+	<s:String
+		x:Key="MUI_Import">Importovat</s:String>
+	<s:String
+		x:Key="MUI_Export">Exportovat</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Exportovat vše</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Přidělení kláves</s:String>
+	<s:String
+		x:Key="MUI_Macro">Makro</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Osvětlení</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Vložit klávesový úhoz</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Zpoždění vložení</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Spustit zaznamenávání</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Zastavit zaznamenávání</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Zaznamenat zpoždění</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Pevné zpoždění</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Žádné zpoždění</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Pokročilá nastavení</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Storno</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Nahradit nebo přeskočit profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">V této složce je již profil se stejným názvem.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Nahradit existující profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Přeskočit tento profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Zachovat oba profily</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Postupovat stejně u dalších %N% konfliktů.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Postupovat stejně u dalšího konfliktu.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Upozornění</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Opravdu chcete odstranit makro "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_YES">Ano</s:String>
+	<s:String
+		x:Key="MUI_NO">Ne</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Teplota</s:String>
+	<s:String
+		x:Key="MUI_CPU">Procesor</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Systém</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Hostující uživatel nemá oprávnění spustit aplikaci %ProductName%.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Rychlost ventilátoru</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Exportovaný profil bude pojmenován "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Importovat profil</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Importovat a nahradit</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Importovat, ale uchovat oba profily</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Importovaný profil bude pojmenován jako "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Opravdu chcete odstranit profil "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Nový profil</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Nové makro</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">V tomto seznamu profilů je již profil se stejným názvem.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Profil s tímto názvem již existuje.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Zadejte jiný název.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Přejděte na stranu pro upravení Makra</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">Přidělili jste prázdné Makro klávese %Num%. Budete přesměrováni na stranu pro upravení Makra.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Tento dialog již příště nezobrazovat</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Historie bude vymazána</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Pro zahájení nové historie zaznamenávání bude aktuální historie vymazána. Chcete pokračovat?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Export se nezdařil</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Nemáte dostatek úložného místa, abyste mohli exportovat vybraný profil(y).</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Import se nezdařil</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Tento profil nelze importovat kvůli nečekanému problému.</s:String>
+	<s:String
+		x:Key="MUI_Name">Název</s:String>
+	<s:String
+		x:Key="MUI_Group">Skupina</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Vybrat makro</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Odstranit profil</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Skupina s tímto názvem již existuje.</s:String>
+	<s:String
+		x:Key="MUI_None">Žádná</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Makro s tímto názvem již existuje.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Odstranit makro</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Přejmenovat makro</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Překročili jste maximální počet příkazů, které lze nahrát do tohoto makra.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profil</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Časové zpoždění</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Uvolnit klávesu</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Stisknout kláv.</s:String>
+	<s:String
+		x:Key="MUI_Color">Barva</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Základní barvy</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Nedávné barvy</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Více barvy...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Červ</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Zelená</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Modrá</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">RYCHLEJŠÍ</s:String>
+	<s:String
+		x:Key="MUI_Normal">NORMÁLNÍ</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

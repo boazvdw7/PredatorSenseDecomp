@@ -1,0 +1,492 @@
+<UserControl
+	x:Class="PredatorSense.PsLightingKeyboardUI" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:PredatorSense"
+	x:Name="PsLightingKeyboardUIWindows"
+	Width="916"
+	Height="476"
+	Background="#00FFFFFF"
+	FontFamily="Segoe UI">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="Style\100\PSStyle.xaml" />
+				<ResourceDictionary
+					Source="Lang\en.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<Style
+				x:Key="KeyboradUI_ListBoxContainerStyle"
+				TargetType="{x:Type ListBoxItem}">
+				<Setter
+					Property="FrameworkElement.FocusVisualStyle"
+					Value="{x:Null}" />
+				<Setter
+					Property="Padding"
+					Value="0" />
+				<Setter
+					Property="Template">
+					<Setter.Value>
+						<ControlTemplate
+							TargetType="{x:Type ListBoxItem}">
+							<Border
+								BorderBrush="{TemplateBinding Control.BorderBrush}"
+								BorderThickness="0">
+								<Grid
+									Width="{Binding Borderwidth}"
+									Height="{Binding Borderheighth}"
+									MouseDown="ListBoxItem_MouseDown"
+									MouseLeftButtonDown="ListBoxItem_MouseLeftButtonDown"
+									MouseUp="ListBoxItem_MouseUp">
+									<ContentPresenter
+										Content="{TemplateBinding ContentControl.Content}"
+										ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+										Margin="{TemplateBinding Control.Padding}"
+										HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+										VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+									<Path
+										x:Name="frame"
+										Stretch="Fill"
+										Fill="{x:Null}"
+										Data="{Binding SelectedRectStyle}">
+										<UIElement.Effect>
+											<DropShadowEffect
+												BlurRadius="4"
+												ShadowDepth="0"
+												Opacity="0.400002"
+												Color="#FF000000"
+												Direction="315" />
+										</UIElement.Effect>
+									</Path>
+									<Canvas
+										Width="{Binding Borderwidth}"
+										Height="{Binding Borderheighth}">
+										<Path
+											x:Name="v"
+											Width="9.31384"
+											Height="7.48535"
+											Stretch="Fill"
+											Data="M33.1005,34.8284 L34.9288,36.6568 L39.5858,32 L41,33.4142 L36.3431,38.071 L34.9287,39.4854 L31.6862,36.2427 L33.1005,34.8284 Z"
+											Canvas.Left="{Binding V_width_Canvasleft}"
+											Canvas.Top="{Binding V_width_Canvastop}"
+											Fill="{x:Null}" />
+									</Canvas>
+								</Grid>
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger
+									Property="ListBoxItem.IsSelected"
+									Value="True">
+									<Setter
+										TargetName="frame"
+										Property="Shape.Fill"
+										Value="#FFFFFFFF" />
+								</Trigger>
+								<Trigger
+									Property="ListBoxItem.IsSelected"
+									Value="True">
+									<Setter
+										TargetName="v"
+										Property="Shape.Fill"
+										Value="#FF00AEC7" />
+								</Trigger>
+								<Trigger
+									Property="UIElement.IsMouseOver"
+									Value="True">
+									<Setter
+										TargetName="frame"
+										Property="Shape.Fill"
+										Value="#FFB2B2B2" />
+								</Trigger>
+								<Trigger
+									Property="UIElement.IsMouseOver"
+									Value="True">
+									<Setter
+										TargetName="v"
+										Property="Shape.Fill"
+										Value="#FF999999" />
+								</Trigger>
+								<MultiTrigger>
+									<MultiTrigger.Conditions>
+										<Condition
+											Property="ListBoxItem.IsSelected"
+											Value="True" />
+										<Condition
+											Property="UIElement.IsMouseOver"
+											Value="True" />
+									</MultiTrigger.Conditions>
+									<MultiTrigger.Setters>
+										<Setter
+											TargetName="frame"
+											Property="Shape.Fill"
+											Value="#FFFFFFFF" />
+										<Setter
+											TargetName="v"
+											Property="Shape.Fill"
+											Value="#FF00AEC7" />
+									</MultiTrigger.Setters>
+								</MultiTrigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="Canvas.Left"
+					Value="{Binding Canvas_x}" />
+				<Setter
+					Property="Canvas.Top"
+					Value="{Binding Canvas_y}" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<FrameworkElement.DataContext>
+		<local:ViewModel />
+	</FrameworkElement.DataContext>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="28" />
+			<RowDefinition
+				Height="28" />
+			<RowDefinition
+				Height="13" />
+			<RowDefinition
+				Height="266" />
+			<RowDefinition
+				Height="141" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="37.5" />
+			<ColumnDefinition
+				Width="24.5" />
+			<ColumnDefinition
+				Width="794" />
+			<ColumnDefinition
+				Width="62" />
+		</Grid.ColumnDefinitions>
+		<Grid
+			Row="1"
+			Column="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="705" />
+				<ColumnDefinition
+					Width="16" />
+				<ColumnDefinition
+					Width="14" />
+				<ColumnDefinition
+					Width="56" />
+				<ColumnDefinition
+					Width="3" />
+			</Grid.ColumnDefinitions>
+			<CheckBox
+				x:Name="ShowInformationicon"
+				Style="{StaticResource ShowInformationiconStyle}"
+				Grid.Column="1"
+				HorizontalAlignment="Left"
+				Width="16"
+				Height="16" />
+			<Popup
+				x:Name="IconInfoMenuPopup"
+				StaysOpen="False"
+				IsOpen="False"
+				Placement="Bottom"
+				HorizontalOffset="-130"
+				VerticalOffset="0"
+				AllowsTransparency="True"
+				PlacementTarget="{Binding ElementName=ShowInformationicon}"
+				Closed="Common_Popup_Closed"
+				Opened="Common_Popup_Opened">
+				<Canvas
+					Width="276"
+					Height="174.01"
+					Background="{x:Null}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition
+								Height="21.38" />
+							<RowDefinition
+								Height="112.79" />
+							<RowDefinition
+								Height="29.83" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="10.61" />
+							<ColumnDefinition
+								Width="265.39" />
+						</Grid.ColumnDefinitions>
+						<Canvas
+							Width="276"
+							Height="Auto"
+							Left="0"
+							Top="0">
+							<Path
+								x:Name="bg"
+								Width="276"
+								Height="174.01"
+								Canvas.Left="0"
+								Canvas.Top="0"
+								Stretch="Fill"
+								Fill="#FFDADADA"
+								Data="F1 M3.00018,16.0137 L135.003,16.0137 L141.005,3.99991 L147.007,16.0137 L279,16.0137 L279,168.014 L3.00018,168.014 L3.00018,16.0137 Z" />
+						</Canvas>
+						<StackPanel
+							x:Name="SPText"
+							Grid.Row="1"
+							Grid.Column="1"
+							Grid.RowSpan="2"
+							Orientation="Vertical"
+							Width="254.78"
+							VerticalAlignment="Top"
+							HorizontalAlignment="Left">
+							<TextBlock
+								Foreground="#00AEC7"
+								Style="{StaticResource ShowIconInfo_TextStyle}"
+								Text="{DynamicResource MUI_Select_Muti_Keys}" />
+							<TextBlock
+								Height="5.1" />
+							<TextBlock
+								x:Name="Method1"
+								Foreground="#191919"
+								Grid.ColumnSpan="2"
+								Style="{StaticResource ShowIconInfo_TextStyle}"
+								Text="{DynamicResource MUI_Method_Number}"
+								HorizontalAlignment="Left" />
+							<TextBlock
+								Height="5.1" />
+							<StackPanel
+								Orientation="Horizontal"
+								Width="254.78"
+								VerticalAlignment="Top">
+								<Rectangle
+									x:Name="SelectRec_L"
+									Height="19"
+									Width="32"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Top">
+									<Shape.Fill>
+										<DrawingBrush>
+											<DrawingBrush.Drawing>
+												<GeometryDrawing
+													Brush="#FF000000"
+													Geometry="M0,1.52588E-05 L2.00018,1.52588E-05 L14.0001,4.57764E-05 L15.9999,4.57764E-05 L16,2.00002 L15.9999,6.00005 L14.0001,4.00005 L14.0001,2.00002 L2.00018,2.00002 L2.00018,14 L10,14 L10,16.0002 L2.00018,16.0002 L0,16.0002 L0,14 L0,2.00002 L0,1.52588E-05 M20.9999,12.0001 L17,13.0001 L19.9999,18.0003 L17.9999,19.0001 L14.9999,14.0001 L12,17.0001 L12,6.00008 L20.9999,12.0001 M24.0001,5.0002 L32.0001,5.0002 L27.9999,10 L24.0001,5.0002 Z" />
+											</DrawingBrush.Drawing>
+										</DrawingBrush>
+									</Shape.Fill>
+								</Rectangle>
+								<TextBlock
+									x:Name="Method1_Info1"
+									VerticalAlignment="Top"
+									HorizontalAlignment="Left"
+									FontStretch="Normal"
+									Foreground="#191919"
+									Style="{StaticResource ShowIconInfo_TextStyle}"
+									Text="{DynamicResource MUI_Method1_Info1}" />
+								<Rectangle
+									x:Name="SelectRec_R"
+									Height="19"
+									Width="32"
+									HorizontalAlignment="Left"
+									VerticalAlignment="Top">
+									<Shape.Fill>
+										<DrawingBrush>
+											<DrawingBrush.Drawing>
+												<GeometryDrawing
+													Brush="#FF000000"
+													Geometry="M0,1.52588E-05 L2.00018,1.52588E-05 L14.0001,4.57764E-05 L15.9999,4.57764E-05 L16,2.00002 L15.9999,6.00005 L14.0001,4.00005 L14.0001,2.00002 L2.00018,2.00002 L2.00018,14 L10,14 L10,16.0002 L2.00018,16.0002 L0,16.0002 L0,14 L0,2.00002 L0,1.52588E-05 M20.9999,12.0001 L17,13.0001 L19.9999,18.0003 L17.9999,19.0001 L14.9999,14.0001 L12,17.0001 L12,6.00008 L20.9999,12.0001 M24.0001,5.0002 L32.0001,5.0002 L27.9999,10 L24.0001,5.0002 Z" />
+											</DrawingBrush.Drawing>
+										</DrawingBrush>
+									</Shape.Fill>
+								</Rectangle>
+								<TextBlock
+									x:Name="Method1_Info2_up"
+									VerticalAlignment="Top"
+									HorizontalAlignment="Left"
+									FontStretch="Normal"
+									Foreground="#191919"
+									Style="{StaticResource ShowIconInfo_TextStyle}"
+									Text="{DynamicResource MUI_Method1_Info2}"
+									TextWrapping="Wrap" />
+							</StackPanel>
+							<TextBlock
+								x:Name="Method1_Info2_down"
+								VerticalAlignment="Top"
+								HorizontalAlignment="Left"
+								FontStretch="Normal"
+								Foreground="#191919"
+								Style="{StaticResource ShowIconInfo_TextStyle}"
+								Text="{DynamicResource MUI_Method1_Info2}"
+								TextWrapping="Wrap"
+								Grid.ColumnSpan="2" />
+							<TextBlock
+								Height="9.1" />
+							<TextBlock
+								x:Name="Method2"
+								Foreground="#191919"
+								Style="{StaticResource ShowIconInfo_TextStyle}"
+								Text="{DynamicResource MUI_Method_Number}" />
+							<TextBlock
+								Height="5.1" />
+							<TextBlock
+								Grid.RowSpan="4"
+								Foreground="#191919"
+								Width="254.78"
+								TextWrapping="Wrap"
+								Style="{StaticResource ShowIconInfo_TextStyle}"
+								Text="{DynamicResource MUI_Method2_Info}"
+								HorizontalAlignment="Left" />
+						</StackPanel>
+					</Grid>
+				</Canvas>
+			</Popup>
+			<CheckBox
+				x:Name="SelectPresetKeysicon"
+				Style="{StaticResource SelectPresetKeysStyle}"
+				Grid.Column="3" />
+			<Popup
+				x:Name="PresetKeysMenuPopup"
+				StaysOpen="False"
+				IsOpen="False"
+				Placement="Bottom"
+				HorizontalOffset="-124"
+				VerticalOffset="4"
+				AllowsTransparency="True"
+				PlacementTarget="{Binding ElementName=SelectPresetKeysicon}"
+				Closed="Common_Popup_Closed"
+				Opened="Common_Popup_Opened">
+				<Canvas
+					Width="180"
+					Height="152"
+					Background="#FFDADADA">
+					<Grid>
+						<StackPanel
+							Orientation="Horizontal">
+							<CheckBox
+								Name="PresetKeysMenu_All"
+								IsChecked="False"
+								Margin="10,10,0,0"
+								Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+							<TextBlock
+								Margin="10,10,0,0"
+								Style="{StaticResource ShowPresetKeys_TextBlockStyle}"
+								Text="{DynamicResource MUI_All}" />
+						</StackPanel>
+						<StackPanel
+							Orientation="Horizontal">
+							<CheckBox
+								Name="PresetKeysMenu_WASD"
+								IsChecked="False"
+								Margin="10,38,0,0"
+								Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+							<TextBlock
+								Margin="10,38,0,0"
+								Style="{StaticResource ShowPresetKeys_TextBlockStyle}">WASD</TextBlock>
+						</StackPanel>
+						<StackPanel
+							Orientation="Horizontal">
+							<CheckBox
+								Name="PresetKeysMenu_Arrowkeys"
+								IsChecked="False"
+								Margin="10,66,0,0"
+								Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+							<TextBlock
+								Margin="10,66,0,0"
+								Style="{StaticResource ShowPresetKeys_TextBlockStyle}"
+								Text="{DynamicResource MUI_Arrow_Keys}" />
+						</StackPanel>
+						<StackPanel
+							Orientation="Horizontal">
+							<CheckBox
+								Name="PresetKeysMenu_Numberrows"
+								IsChecked="False"
+								Margin="10,94,0,0"
+								Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+							<TextBlock
+								Margin="10,94,0,0"
+								Style="{StaticResource ShowPresetKeys_TextBlockStyle}"
+								Text="{DynamicResource MUI_Num_Rows}" />
+						</StackPanel>
+						<StackPanel
+							Orientation="Horizontal">
+							<CheckBox
+								Name="PresetKeysMenu_Fnkeys"
+								IsChecked="False"
+								Margin="10,122,0,0"
+								Template="{StaticResource ShowPresetKeys_CheckBoxStyle}" />
+							<TextBlock
+								Margin="10,122,0,0"
+								Style="{StaticResource ShowPresetKeys_TextBlockStyle}"
+								Text="{DynamicResource MUI_Fn_Keys}" />
+						</StackPanel>
+					</Grid>
+				</Canvas>
+			</Popup>
+		</Grid>
+		<ListBox
+			x:Name="US_listBox"
+			SelectionMode="Multiple"
+			Background="#00000000"
+			BorderThickness="0"
+			Visibility="Collapsed"
+			ItemContainerStyle="{StaticResource KeyboradUI_ListBoxContainerStyle}"
+			Grid.Row="3"
+			Grid.Column="2"
+			ItemsSource="{Binding USRectangles}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<Canvas />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ListBox>
+		<ListBox
+			x:Name="UK_listBox"
+			SelectionMode="Multiple"
+			Background="#00000000"
+			BorderThickness="0"
+			Visibility="Collapsed"
+			ItemContainerStyle="{StaticResource KeyboradUI_ListBoxContainerStyle}"
+			Grid.Row="3"
+			Grid.Column="2"
+			ItemsSource="{Binding UKRectangles}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<Canvas />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ListBox>
+		<ListBox
+			x:Name="JP_listBox"
+			SelectionMode="Multiple"
+			Background="#00000000"
+			BorderThickness="0"
+			Visibility="Collapsed"
+			ItemContainerStyle="{StaticResource KeyboradUI_ListBoxContainerStyle}"
+			Grid.Row="3"
+			Grid.Column="2"
+			ItemsSource="{Binding JPRectangles}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<Canvas />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ListBox>
+		<Canvas
+			x:Name="dragSelectionCanvas"
+			Visibility="Collapsed"
+			Grid.ColumnSpan="2">
+			<Border
+				x:Name="dragSelectionBorder"
+				BorderBrush="#FF0000FF"
+				BorderThickness="1"
+				Background="#FFADD8E6"
+				CornerRadius="1"
+				Opacity="0.5" />
+		</Canvas>
+		<Border
+			x:Name="KeyboardCanvasOff"
+			Background="#00FFFFFF"
+			Visibility="Hidden"
+			Grid.Row="3"
+			Grid.Column="2" />
+	</Grid>
+</UserControl>

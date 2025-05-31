@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">GPU discret e inactiv.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Overclockingul e disponibil doar când adaptorul de c.a. e conectat, iar bateria e la cel puțin 40 %.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Zonă</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Încărcați bateria la cel puțin 40 %, pentru a relua overclocking-ul.</s:String>
+	<s:String
+		x:Key="MUI_Path">Cale</s:String>
+	<s:String
+		x:Key="MUI_Home">Pag. princ.</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Overclocking</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Tastă rapid.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Contr. vent.</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Monitorizare</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Tas. Windows și men.</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Taste adezive</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Unități temperatură</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 este dezact. Conectați ambele adaptoare CA pt. activare GPU2.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Prof. tastă rap.</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Profil iluminare</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">Overclocking CPU</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">Overclocking GPU</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Overclocking e disp. doar când ambele adapt. CA sunt conect. și bat. e încărc. min. 40%.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Manager profile</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Tastatură</s:String>
+	<s:String
+		x:Key="MUI_Zone">Zonă [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Efecte lumină</s:String>
+	<s:String
+		x:Key="MUI_Speed">Vit.</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logo</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Bară lumin.</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">But. Por/Opr</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Modul glis.</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Pulsare</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Ilum. fundal</s:String>
+	<s:String
+		x:Key="MUI_Static">Static</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dinamic</s:String>
+	<s:String
+		x:Key="MUI_Off">Opr</s:String>
+	<s:String
+		x:Key="MUI_All">Toate</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Taste săg.</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Linii numer.</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Taste Fn</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Select. taste mult.</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Met. %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Clic %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">pt. sel. taste preset.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Apăs. lung tasta Ctrl, apoi clic sau clic și glisare pt. selectare.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Direcție</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Manager profil iluminare</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Manager prof. tastă rap.</s:String>
+	<s:String
+		x:Key="MUI_Close">Înch.</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Profil nou tastă rapidă</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Profil nou iluminare</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Frecvență</s:String>
+	<s:String
+		x:Key="MUI_Loading">Încărc.</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Tact nucl.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">Overclocking CPU a fost oprit.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">Overclocking CPU a fost reluat.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">Overclocking CPU a fost oprit deoarece nivelul bateriei este sub 40%.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Macrocomenzi</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Clic pe Editare pt. pers. tastă rap.</s:String>
+	<s:String
+		x:Key="MUI_Options">Opțiuni</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">Comutator overclocking CPU</s:String>
+	<s:String
+		x:Key="MUI_Fan">Vent.</s:String>
+	<s:String
+		x:Key="MUI_Auto">Aut.</s:String>
+	<s:String
+		x:Key="MUI_Max">Max</s:String>
+	<s:String
+		x:Key="MUI_Custom">Pers.</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">Comutator overclocking GPU</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Comutator viteză ventilator</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Lansare aplicație</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Activare/dezact. set. complexe</s:String>
+	<s:String
+		x:Key="MUI_Browse">Răsf.</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Dacă CoolBoost™ e PORNIT, crește viteza maximă a ventilatorului, permițând viteze mai mari la utiliz. intensivă.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Poz. ventil.</s:String>
+	<s:String
+		x:Key="MUI_Min">Min</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Deschidere</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Șarpe</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Încadrare</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Explozie</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Amurg</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Apăs. pt. opr.</s:String>
+	<s:String
+		x:Key="MUI_Wave">Val</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neon</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Undă</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Strop de ploaie</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Împrejmuire</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Rotire</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Interacțiune</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Overclocking e disp. doar când ambele adapt. CA sunt conect. și bat. e încărc. min. 40%.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Conectați ambele adaptoare CA pt. a relua overclocking.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Activat</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Dezact.</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Profil tastă rapidă</s:String>
+	<s:String
+		x:Key="MUI_Edit">Editare</s:String>
+	<s:String
+		x:Key="MUI_Import">Import</s:String>
+	<s:String
+		x:Key="MUI_Export">Export</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Export toate</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Duplicat</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Atribuire tastă</s:String>
+	<s:String
+		x:Key="MUI_Macro">Macro</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Iluminare</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Introducere tastă</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Introducere întârziere</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Pornire înregistrare</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Oprire înregistrare</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Înregistrare întârziere</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Întârziere fixă</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Fără întârziere</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Setări complexe</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Revocare</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Înlocuire sau omitere profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">Există deja un profil cu acelaşi nume în acest folder.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Înlocuire profil existent</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Ignorare acest profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Păstrare ambele profile</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Faceţi aceasta pentru următoarele %N% conflicte.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Faceţi aceasta pentru următorul conflict.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Atenţie</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Sigur doriţi să ştergeţi macroul "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_YES">Da</s:String>
+	<s:String
+		x:Key="MUI_NO">Nu</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Temperatură</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPU</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Sistem</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Utilizatorii oaspeţi nu pot executa %ProductName%.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Viteză ventilator</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Profilul exportat va fi denumit "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Import profil</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Importă şi înlocuieşte</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Importă, dar păstrează ambele profile</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Profilul pe care îl importaţi va fi numit "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Sigur doriţi să ştergeţi Profilul "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Profil nou</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Macro nou</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">Există deja un profil cu acest nume în lista de profile.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Există deja un profil cu acest nume.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Introduceţi alt nume.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Accesare pagină Editare Macrocomandă</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">Aţi atribuit o Macrocomandă goală tastei %Num%. Va fi deschisă pagina Editare Macrocomandă.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Nu îmi mai aminti</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Istoricul va fi şters</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Pentru a începe un nou istoric de înregistrare, istoricul curent va fi şters. Doriţi să continuaţi?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Export nereuşit</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Nu aveţi suficient spaţiu de stocare pentru a exporta profilele selectate.</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Import nereuşit</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Acest profil nu poate fi importat din cauza unei probleme neaşteptate.</s:String>
+	<s:String
+		x:Key="MUI_Name">Nume</s:String>
+	<s:String
+		x:Key="MUI_Group">Grup</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Sel. macrocom.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Ştergere profil</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Există deja un grup cu acest nume.</s:String>
+	<s:String
+		x:Key="MUI_None">Nici una</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Există deja o macrocomandă cu acest nume.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Ştergere macrocomandă</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Redenumire macrocomandă</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Aţi depăşit numărul maxim de comenzi ce pot fi înregistrate în această macrocomandă.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profil</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Decalaj</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Tastă eliberată</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Tastă apăsată</s:String>
+	<s:String
+		x:Key="MUI_Color">Culoare</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Culori de bază</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Culori recente</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Mai multe culori...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Roşu</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Verde</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Albast.</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">MAI RAPID</s:String>
+	<s:String
+		x:Key="MUI_Normal">NORMAL</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

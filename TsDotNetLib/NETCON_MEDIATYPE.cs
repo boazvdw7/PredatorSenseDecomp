@@ -1,0 +1,29 @@
+﻿using System;
+
+namespace TsDotNetLib
+{
+	// Token: 0x0200000D RID: 13
+	public enum NETCON_MEDIATYPE
+	{
+		// Token: 0x0400005F RID: 95
+		NCM_NONE,
+		// Token: 0x04000060 RID: 96
+		NCM_DIRECT,
+		// Token: 0x04000061 RID: 97
+		NCM_ISDN,
+		// Token: 0x04000062 RID: 98
+		NCM_LAN,
+		// Token: 0x04000063 RID: 99
+		NCM_PHONE,
+		// Token: 0x04000064 RID: 100
+		NCM_TUNNEL,
+		// Token: 0x04000065 RID: 101
+		NCM_PPPOE,
+		// Token: 0x04000066 RID: 102
+		NCM_BRIDGE,
+		// Token: 0x04000067 RID: 103
+		NCM_SHAREDACCESSHOST_LAN,
+		// Token: 0x04000068 RID: 104
+		NCM_SHAREDACCESSHOST_RAS
+	}
+}

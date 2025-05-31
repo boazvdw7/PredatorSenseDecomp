@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Discrete GPU inactief.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Overklokken kan alleen als de stroomadapter is aangesloten en de accu minstens 40% vol is.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Zone</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Laad de accu tenminste voor 40% op voordat u het overklokken hervat.</s:String>
+	<s:String
+		x:Key="MUI_Path">Pad</s:String>
+	<s:String
+		x:Key="MUI_Home">Start</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Overklokken</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Sneltoets</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Fanbesturing</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Controle</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows- en menutoets</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Plaktoetsen</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Temperatuureenheid</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 is uit. Verbind beide stroomadapters om GPU2 in te schakelen.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Sneltoetsprofiel</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Lichtprofiel</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">CPU Overklokken</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">GPU Overklokken</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Overklokken kan alleen met beide verbonden stroomadapters en acccu van 40% of meer vol.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Profielbeheer</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Toetsenbord</s:String>
+	<s:String
+		x:Key="MUI_Zone">Zone [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Lichteffecten</s:String>
+	<s:String
+		x:Key="MUI_Speed">Snelheid</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logo</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Lichtbalk</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Aan/uittoets</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Schuifmodule</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Ademhaling</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Tegenlicht</s:String>
+	<s:String
+		x:Key="MUI_Static">Statisch</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dynamisch</s:String>
+	<s:String
+		x:Key="MUI_Off">Uit</s:String>
+	<s:String
+		x:Key="MUI_All">Alle</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Pijltoetsen</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Getalrijen</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Fn-toetsen</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Kies diverse toetsen</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Methode %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Klik op %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">en kies presettoetsen.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Houd Ctrl-toets ingedrukt en klik of sleep om te selecteren.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Richting</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Lichtprofielbeheer</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Sneltoetsprofielbeheer</s:String>
+	<s:String
+		x:Key="MUI_Close">Sluiten</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Nieuw sneltoetsprofiel</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Nieuw lichtprofiel</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Frequentie</s:String>
+	<s:String
+		x:Key="MUI_Loading">Laden</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Core-klok</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">CPU overklokken is gestopt.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">CPU overklokken is hervat.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">CPU-overklokken is gestopt omdat de resterende accustroom minder dan 40% is.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Macro''s</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Klik Bewerken voor bewerken sneltoets</s:String>
+	<s:String
+		x:Key="MUI_Options">Opties</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">CPU overklokschakelaar</s:String>
+	<s:String
+		x:Key="MUI_Fan">Fan</s:String>
+	<s:String
+		x:Key="MUI_Auto">Auto</s:String>
+	<s:String
+		x:Key="MUI_Max">Max</s:String>
+	<s:String
+		x:Key="MUI_Custom">Aangepast</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">GPU overklokschakelaar</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Fan-snelheidschakelaar</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">App starten</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Geavanc. instellingen aan/uit</s:String>
+	<s:String
+		x:Key="MUI_Browse">Bladeren</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Als CoolBoost™ AAN staat, is de maximumsnelheid van de fan hoger en draait de fan sneller bij intensief gebruik.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Fan-positie</s:String>
+	<s:String
+		x:Key="MUI_Min">Min</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Open</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Slang</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Terugloop</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Stervorm</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Nagloeien</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Druk voor uitschakelen</s:String>
+	<s:String
+		x:Key="MUI_Wave">Golf</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neon</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Rimpel</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Regendruppel</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Heg</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Draaien</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Interactie</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Overklokken kan alleen met beide verbonden stroomadapters en acccu van 40% of meer vol.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Sluit beide stroomadapters aan en hervat overklokken.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Aan</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Uit</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Sneltoetsprofiel</s:String>
+	<s:String
+		x:Key="MUI_Edit">Bewerken</s:String>
+	<s:String
+		x:Key="MUI_Import">Importeren</s:String>
+	<s:String
+		x:Key="MUI_Export">Exporteren</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Alles exporteren</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Dupliceren</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Toetsen toekennen</s:String>
+	<s:String
+		x:Key="MUI_Macro">Macro</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Verlichting</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Toetsaanslag invoeg</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Vertraging invoegen</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Opname starten</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Opname stoppen</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Vertraging opnemen</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Vaste vertraging</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Geen vertraging</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Geavanceerde instellingen</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Annuleren</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Vervang profiel/oversl.</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">De map bevat al een profiel met deze naam.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Vervang bestaand profiel</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Dit profiel overslaan</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Profielen behouden</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Doe dit voor de volgende %N% conflicten.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Doe dit voor het volgende conflict.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Opgelet</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Wilt u Macro "%Name%" echt verwijderen?</s:String>
+	<s:String
+		x:Key="MUI_YES">Ja</s:String>
+	<s:String
+		x:Key="MUI_NO">Nee</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Temperatuur</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPU</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Systeem</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Gastgebruiker kan %ProductName% niet uitvoeren.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Fansnelheid</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Geëxporteerde profiel krijgt de naam "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Profiel importeren</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Importeren en vervangen</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Importeren en beide profielen behouden</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Geïmporteerde profiel krijgt de naam "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Wilt u Profiel "%Name%" echt verwijderen?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Nieuw profiel</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Nieuwe macro</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">Deze profiellijst bevat al een profiel met deze naam.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Er is al een profiel met deze naam.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Voer een andere naam in.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Ga naar de pagina Macro bewerken</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">U hebt een blanco Macro toegekend aan toets %Num%. De pagina Macro bewerken wordt geopend.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Niet nogmaals herinneren</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Geschiedenis wordt gewist</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Om een nieuwe opnamegeschiedenis te starten, moet de huidige geschiedenis worden gewist. Wilt u doorgaan?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Exporteren is mislukt</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Er is onvoldoende opslagruimte vrij om het geselecteerde profiel(en) te exporteren.</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Importeren is mislukt</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Dit profiel kan niet worden geïmporteren vanwege een onverwacht probleem.</s:String>
+	<s:String
+		x:Key="MUI_Name">Naam</s:String>
+	<s:String
+		x:Key="MUI_Group">Groep</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Macro kiezen</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Profiel verwijderen</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Er is al een groep met deze naam.</s:String>
+	<s:String
+		x:Key="MUI_None">Geen</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Er is al een macro met deze naam.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Macro verwijderen</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Macronaam wijzigen</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Het maximumaantal opdrachten dat voor deze macro kan worden opgenomen, is overschreden.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profiel</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Tijdvertraging</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Indrukken</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Loslaten</s:String>
+	<s:String
+		x:Key="MUI_Color">Kleur</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Basiskleuren</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Recente kleuren</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Meer kleur...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Rood</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Groen</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Blauw</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">SNELLER</s:String>
+	<s:String
+		x:Key="MUI_Normal">NORMAAL</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>
