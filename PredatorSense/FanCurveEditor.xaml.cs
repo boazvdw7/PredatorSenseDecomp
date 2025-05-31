@@ -16,7 +16,9 @@ namespace PredatorSense
     public partial class FanCurveEditor : Window
     {
         public ObservableCollection<FanCurvePoint> FanCurve { get; set; }
-        private CancellationTokenSource _cts;
+        private static CancellationTokenSource _globalCts; // Shared across all editors
+        private static ObservableCollection<FanCurvePoint> _globalFanCurve; // Shared curve
+
         private int? _draggingIndex = null;
         private Point _dragStart;
         private double _dragStartX, _dragStartY;
@@ -24,34 +26,37 @@ namespace PredatorSense
         public FanCurveEditor()
         {
             InitializeComponent();
-            FanCurve = new ObservableCollection<FanCurvePoint>
+
+            // Use global curve if available, else create default
+            if (_globalFanCurve == null)
             {
-                new FanCurvePoint { Temperature = 40, FanSpeed = 20 },
-                new FanCurvePoint { Temperature = 50, FanSpeed = 30 },
-                new FanCurvePoint { Temperature = 60, FanSpeed = 50 },
-                new FanCurvePoint { Temperature = 70, FanSpeed = 70 },
-                new FanCurvePoint { Temperature = 80, FanSpeed = 100 }
-            };
+                _globalFanCurve = new ObservableCollection<FanCurvePoint>
+                {
+                    new FanCurvePoint { Temperature = 40, FanSpeed = 20 },
+                    new FanCurvePoint { Temperature = 50, FanSpeed = 30 },
+                    new FanCurvePoint { Temperature = 60, FanSpeed = 50 },
+                    new FanCurvePoint { Temperature = 70, FanSpeed = 70 },
+                    new FanCurvePoint { Temperature = 80, FanSpeed = 100 }
+                };
+            }
+            FanCurve = _globalFanCurve;
             FanCurveGrid.ItemsSource = FanCurve;
             this.Loaded += (s, e) => DrawFanCurve();
         }
 
-        // This is a simplified example. In production, use a proper background worker and cancellation.
-        private bool _fanCurveActive = false;
-
         private void Apply_Click(object sender, RoutedEventArgs e)
         {
             // Cancel any previous polling
-            _cts?.Cancel();
+            _globalCts?.Cancel();
 
-            // Set fan mode to Custom (mode 2)
+            // Set fan mode to Custom
             CommonFunction.set_all_fan_mode(CommonFunction.Fan_Mode_Type.Custom);
 
             // Start background polling
-            _cts = new CancellationTokenSource();
-            Task.Run(() => PollFanCurve(_cts.Token), _cts.Token);
+            _globalCts = new CancellationTokenSource();
+            Task.Run(() => PollFanCurve(_globalCts.Token), _globalCts.Token);
 
-            MessageBox.Show("Fan curve applied and will now update automatically based on temperature.");
+            MessageBox.Show("Fan curve applied.");
         }
 
         private void PollFanCurve(CancellationToken token)
@@ -104,7 +109,8 @@ namespace PredatorSense
 
         protected override void OnClosed(EventArgs e)
         {
-            _cts?.Cancel();
+            // Do NOT cancel the global polling when the editor closes
+            // _globalCts?.Cancel(); // <-- Do not call this here
             base.OnClosed(e);
         }
 
@@ -115,7 +121,6 @@ namespace PredatorSense
             FanCurve.CollectionChanged += (s, e) => DrawFanCurve();
             FanCurveGrid.CellEditEnding += (s, e) => Dispatcher.BeginInvoke((Action)DrawFanCurve);
         }
-        //private Canvas ChartCanvas;
 
         private void DrawFanCurve()
         {
