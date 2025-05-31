@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36127.28 d17.14
+VisualStudioVersion = 17.14.36127.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredatorSense", "PredatorSense\PredatorSense.csproj", "{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TsDotNetLib", "..\TsDotNetLib\TsDotNetLib\TsDotNetLib.csproj", "{CA94B40E-02C6-42C0-9F7A-26674365E1E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TsDotNetLib", "TsDotNetLib\TsDotNetLib.csproj", "{CA94B40E-02C6-42C0-9F7A-26674365E1E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,5 +44,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A4F1AAE-4E61-412B-A0E3-1DB190A79333}
 	EndGlobalSection
 EndGlobal

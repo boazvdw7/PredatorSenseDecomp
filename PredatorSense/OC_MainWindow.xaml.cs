@@ -427,8 +427,15 @@ namespace PredatorSense
             }));
         }
 
-		// Token: 0x060000FA RID: 250 RVA: 0x0000B6F4 File Offset: 0x000098F4
-		private void get_fan_speed_info_data()
+        private void OpenFanCurveEditor_Click(object sender, RoutedEventArgs e)
+        {
+            var editor = new FanCurveEditor();
+            editor.Owner = this;
+            editor.ShowDialog();
+        }
+
+        // Token: 0x060000FA RID: 250 RVA: 0x0000B6F4 File Offset: 0x000098F4
+        private void get_fan_speed_info_data()
         {
             // Prepare data and result arrays
             int[] data_pool = new int[] { -1, -1, -1, -1, -1 };

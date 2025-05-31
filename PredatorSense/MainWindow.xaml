@@ -143,7 +143,7 @@
 				Grid.Column="0"
 				Grid.Row="0"
 				IsOpen="False"
-				StaysOpen="False"
+				StaysOpen="True"
 				Placement="Bottom"
 				HorizontalOffset="-231"
 				VerticalOffset="5"
@@ -153,14 +153,14 @@
 				Closed="setting_Popup_Closed"
 				Opened="setting_Popup_Opened">
 				<Canvas
-					Height="152"
+					Height="192"
 					Width="340"
 					ClipToBounds="True"
 					HorizontalAlignment="Left"
 					VerticalAlignment="Top">
 					<Path
 						Width="340"
-						Height="152"
+						Height="192"
 						Canvas.Left="0"
 						Canvas.Top="0"
 						Stretch="Fill"
@@ -237,14 +237,14 @@
 							VerticalAlignment="Center"
 							Text="{DynamicResource MUI_Win_And_Menu_Key}"
 							FontSize="14" />
-						<TextBlock
+                        <TextBlock
 							Grid.Column="1"
 							Grid.Row="4"
 							HorizontalAlignment="Left"
 							VerticalAlignment="Center"
 							Text="{DynamicResource MUI_Unit_Temperature}"
 							FontSize="14" />
-						<CheckBox
+                        <CheckBox
 							x:Name="stickykey_Checkbox"
 							Grid.Column="1"
 							Grid.Row="2"
@@ -266,6 +266,16 @@
 							Template="{DynamicResource SettingCheckBox_ControlTemplate}"
 							Checked="winmenukey_Checkbox_Checked"
 							Unchecked="winmenukey_Checkbox_Unchecked" />
+                        <Button
+                            Content="Fan Curve Editor" 
+                            Click="OpenFanCurveEditor_Click"
+                            Grid.Row="4"
+                            Template="{DynamicResource basic_button_ControlTemplate}"
+                            HorizontalAlignment="Right"
+							VerticalAlignment="Center"
+                            Padding="10"
+                            Margin="0,40,0,0"
+                            Foreground="White"/>
 						<StackPanel
 							Grid.Column="1"
 							Grid.Row="4"

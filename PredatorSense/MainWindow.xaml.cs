@@ -150,9 +150,15 @@ namespace PredatorSense
 			}
 			return IntPtr.Zero;
 		}
+        private void OpenFanCurveEditor_Click(object sender, RoutedEventArgs e)
+        {
+            var editor = new FanCurveEditor();
+            editor.Owner = this;
+            editor.ShowDialog();
+        }
 
-		// Token: 0x06000335 RID: 821 RVA: 0x000272B9 File Offset: 0x000254B9
-		private void stickykey_Checkbox_Checked(object sender, RoutedEventArgs e)
+        // Token: 0x06000335 RID: 821 RVA: 0x000272B9 File Offset: 0x000254B9
+        private void stickykey_Checkbox_Checked(object sender, RoutedEventArgs e)
 		{
 			this.SetStickyKey(true);
 			Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\AdvanceSettings", "StickyKey", 1U);

@@ -763,40 +763,33 @@ namespace PredatorSense
 			return (result & 255U) == 0U;
 		}
 
-		// Token: 0x060002E3 RID: 739 RVA: 0x00021FF4 File Offset: 0x000201F4
-		public static bool set_all_custom_fan_state(List<bool> auto, List<ulong> percentage)
-		{
-			bool flag = true;
-			ulong num = (auto[0] ? 1UL : 3UL);
-			ulong num2 = (auto[1] ? 1UL : 3UL);
-			ulong num3 = 9UL | (num << 16) | (num2 << 22);
-			uint num4 = WMIFunction.SetAcerGamingFanGroupBehavior(num3).GetAwaiter().GetResult();
-			if ((num4 & 255U) != 0U)
-			{
-				flag = false;
-			}
-			for (int i = 0; i < 2; i++)
-			{
-				if (i == 0)
-				{
-					num3 = 1UL;
-				}
-				else if (i == 1)
-				{
-					num3 = 4UL;
-				}
-				num3 |= percentage[i] << 8;
-				num4 = WMIFunction.SetAcerGamingFanGroupSpeed(num3).GetAwaiter().GetResult();
-				if ((num4 & 255U) != 0U)
-				{
-					flag = false;
-				}
-			}
-			return flag;
-		}
+        // Token: 0x060002E3 RID: 739 RVA: 0x00021FF4 File Offset: 0x000201F4
+        public static bool set_all_custom_fan_state(List<bool> auto, List<ulong> percentage)
+        {
+            bool flag = true;
+            ulong num = (auto[0] ? 1UL : 3UL);
+            ulong num2 = (auto[1] ? 1UL : 3UL);
+            ulong num3 = 9UL | (num << 16) | (num2 << 22);
+            uint num4 = WMIFunction.SetAcerGamingFanGroupBehavior(num3).GetAwaiter().GetResult();
+            if ((num4 & 255U) != 0U)
+            {
+                flag = false;
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                ulong speedCmd = (i == 0) ? 1UL : 4UL;
+                speedCmd |= (percentage[i] << 8);
+                num4 = WMIFunction.SetAcerGamingFanGroupSpeed(speedCmd).GetAwaiter().GetResult();
+                if ((num4 & 255U) != 0U)
+                {
+                    flag = false;
+                }
+            }
+            return flag;
+        }
 
-		// Token: 0x060002E4 RID: 740 RVA: 0x000220B0 File Offset: 0x000202B0
-		public static bool set_single_custom_fan_state(bool auto, ulong percentage, CommonFunction.Fan_Group_Type fan_group_type)
+        // Token: 0x060002E4 RID: 740 RVA: 0x000220B0 File Offset: 0x000202B0
+        public static bool set_single_custom_fan_state(bool auto, ulong percentage, CommonFunction.Fan_Group_Type fan_group_type)
 		{
 			bool flag = true;
 			ulong num = 0UL;

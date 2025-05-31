@@ -97,6 +97,9 @@
     <Compile Include="FanControlPage_F.xaml.cs">
       <DependentUpon>FanControlPage_F.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FanCurveEditor.xaml.cs">
+      <DependentUpon>FanCurveEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HotkeyProfileXML.cs" />
     <Compile Include="LightingProfileXML.cs" />
     <Compile Include="LoadingPage.xaml.cs">
@@ -211,6 +214,9 @@
     </Page>
     <Page Include="FanControlPage_F.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FanCurveEditor.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="lang\bg.xaml">
@@ -497,7 +503,7 @@
     <Resource Include="images\200\img_oc_indicator.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TsDotNetLib\TsDotNetLib\TsDotNetLib.csproj">
+    <ProjectReference Include="..\TsDotNetLib\TsDotNetLib.csproj">
       <Project>{ca94b40e-02c6-42c0-9f7a-26674365e1e4}</Project>
       <Name>TsDotNetLib</Name>
     </ProjectReference>
