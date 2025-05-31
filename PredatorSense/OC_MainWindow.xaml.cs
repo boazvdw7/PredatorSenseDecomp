@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.IO.Pipes;
 using System.Reflection;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Markup;
@@ -27,13 +29,14 @@ namespace PredatorSense
 		public OC_MainWindow(CommonFunction.AC_Mode_Type ac_mode, bool battery_boost_status)
 		{
 			this.InitializeComponent();
-			this.advance_C_TextBlock.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./Font/#Predator");
-			this.advance_F_TextBlock.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./Font/#Predator");
-			if (Startup._TTFont)
-			{
-				base.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./Font/#Predator");
-			}
-			base.Resources = Startup.styled;
+            this.advance_C_TextBlock.FontFamily = new System.Windows.Media.FontFamily(new Uri("pack://application:,,,/"), "./Font/#Predator");
+            this.advance_F_TextBlock.FontFamily = new System.Windows.Media.FontFamily(new Uri("pack://application:,,,/"), "./Font/#Predator");
+
+            if (Startup._TTFont)
+            {
+                base.FontFamily = new System.Windows.Media.FontFamily(new Uri("pack://application:,,,/"), "./Font/#Predator");
+            }
+            base.Resources = Startup.styled;
 			this.AdjustWindowSizeAndPos(false);
 			string text = Assembly.GetExecutingAssembly().FullName.Split(new char[] { ',' })[0];
 			if (Registry.ValueExistsLM("SOFTWARE\\OEM\\PredatorSense\\Log", text))
@@ -55,7 +58,7 @@ namespace PredatorSense
 			this.FanControl_Page = new FanControlPage();
 			this.FanControl_Page.Width = 1152.0;
 			this.FanControl_Page.Height = 312.0;
-			this.FanControl_Page.HorizontalAlignment = HorizontalAlignment.Left;
+            this.FanControl_Page.HorizontalAlignment = System.Windows.HorizontalAlignment.Left; 
 			this.FanControl_Page.VerticalAlignment = VerticalAlignment.Top;
 			Grid.SetRow(this.FanControl_Page, 0);
 			Grid.SetColumn(this.FanControl_Page, 0);
@@ -63,7 +66,7 @@ namespace PredatorSense
 			this.Monitoring_Page = new OC_MonitoringPage();
 			this.Monitoring_Page.Width = 1152.0;
 			this.Monitoring_Page.Height = 312.0;
-			this.Monitoring_Page.HorizontalAlignment = HorizontalAlignment.Left;
+			this.Monitoring_Page.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
 			this.Monitoring_Page.VerticalAlignment = VerticalAlignment.Top;
 			if (File.Exists(this.NVIDIA_Experience_file64))
 			{
@@ -103,10 +106,84 @@ namespace PredatorSense
 			{
 				this.stickykey_Checkbox.IsChecked = new bool?(false);
 			}
-		}
 
-		// Token: 0x060000EA RID: 234 RVA: 0x0000A7EA File Offset: 0x000089EA
-		private void Setting_Button_Click(object sender, RoutedEventArgs e)
+            // Replace this block in the constructor:
+            _trayIcon = new NotifyIcon();
+            var handle = new System.Windows.Interop.WindowInteropHelper(this).Handle;
+            if (handle != IntPtr.Zero)
+            {
+                var appIcon = System.Drawing.Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetEntryAssembly().Location);
+                _trayIcon.Icon = appIcon;
+            }
+            else
+            {
+                _trayIcon.Icon = SystemIcons.Application;
+            }
+
+            // With this improved version that loads the icon from the application's resources:
+            _trayIcon = new NotifyIcon();
+            try
+            {
+                // Try to get the icon from the application's resources (App.xaml or project .ico)
+                var iconUri = new Uri("pack://application:,,,/Resources/App.ico", UriKind.Absolute);
+                using (var stream = System.Windows.Application.GetResourceStream(iconUri)?.Stream)
+                {
+                    if (stream != null)
+                    {
+                        _trayIcon.Icon = new System.Drawing.Icon(stream);
+                    }
+                    else
+                    {
+                        // Fallback to the entry assembly icon
+                        var appIcon = System.Drawing.Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetEntryAssembly().Location);
+                        _trayIcon.Icon = appIcon ?? SystemIcons.Application;
+                    }
+                }
+            }
+            catch
+            {
+                // Fallback to the entry assembly icon
+                var appIcon = System.Drawing.Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetEntryAssembly().Location);
+                _trayIcon.Icon = appIcon ?? SystemIcons.Application;
+            }
+            _trayIcon.Text = "PredatorSense";
+            _trayIcon.DoubleClick += TrayIcon_DoubleClick;
+
+            this.StateChanged += OC_MainWindow_StateChanged;
+            this.Closing += OC_MainWindow_Closing;
+        }
+
+		private void TrayIcon_DoubleClick(object sender, EventArgs e)
+		{
+			this.Show();
+			this.Activate();
+			this.WindowState = WindowState.Normal;
+			_trayIcon.Visible = false;
+        }
+
+        private void OC_MainWindow_StateChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == WindowState.Minimized)
+            {
+                this.Hide();
+                _trayIcon.Visible = true;
+            }
+            else
+            {
+                _trayIcon.Visible = false;
+            }
+        }
+
+        private void OC_MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+			// Hide the window instead of closing it
+			e.Cancel = true;
+			this.Hide();
+			_trayIcon.Visible = true; // Show the tray icon
+        }
+
+        // Token: 0x060000EA RID: 234 RVA: 0x0000A7EA File Offset: 0x000089EA
+        private void Setting_Button_Click(object sender, RoutedEventArgs e)
 		{
 			if (!this.setting_Popup.IsOpen)
 			{
@@ -130,9 +207,9 @@ namespace PredatorSense
 		{
 			try
 			{
-				Application.Current.Shutdown();
-			}
-			catch (Exception)
+                System.Windows.Application.Current.Shutdown();
+            }
+            catch (Exception)
 			{
 			}
 		}
@@ -607,20 +684,20 @@ namespace PredatorSense
 			Environment.Exit(0);
 		}
 
-		// Token: 0x06000107 RID: 263 RVA: 0x0000BA9F File Offset: 0x00009C9F
-		private void gfe_Button_MouseEnter(object sender, MouseEventArgs e)
-		{
-			this.gfe_Button.Opacity = 0.9;
-		}
+        // Token: 0x06000107 RID: 263 RVA: 0x0000BA9F File Offset: 0x00009C9F
+        private void gfe_Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.gfe_Button.Opacity = 0.9;
+        }
 
-		// Token: 0x06000108 RID: 264 RVA: 0x0000BAB5 File Offset: 0x00009CB5
-		private void gfe_Button_MouseLeave(object sender, MouseEventArgs e)
-		{
-			this.gfe_Button.Opacity = 0.6;
-		}
+        // Token: 0x06000108 RID: 264 RVA: 0x0000BAB5 File Offset: 0x00009CB5
+        private void gfe_Button_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            this.gfe_Button.Opacity = 0.6;
+        }
 
-		// Token: 0x06000109 RID: 265 RVA: 0x0000BACB File Offset: 0x00009CCB
-		private void gfe_Button_Initialized(object sender, EventArgs e)
+        // Token: 0x06000109 RID: 265 RVA: 0x0000BACB File Offset: 0x00009CCB
+        private void gfe_Button_Initialized(object sender, EventArgs e)
 		{
 			this.gfe_Button.Opacity = 0.6;
 		}
@@ -706,5 +783,7 @@ namespace PredatorSense
 
 		// Token: 0x04000100 RID: 256
 		public string NVIDIA_Experience_file64 = "C:\\Program Files\\NVIDIA Corporation\\NVIDIA GeForce Experience\\NVIDIA GeForce Experience.exe";
-	}
+
+        private NotifyIcon _trayIcon;
+    }
 }

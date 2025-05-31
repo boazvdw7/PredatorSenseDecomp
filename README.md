@@ -13,6 +13,14 @@ This project is intended strictly for **educational and research purposes**.
 
 ## Implemented Features
 - **Fan Curve Editor:** Modify fan curves (located in advanced settings)
+- **Minimize to System Tray**
+
+## WIP Features
+- [x] **Fan Curve Editor:** Modify fan curves (located in advanced settings)
+- [x] **Minimize to System Tray**
+- [ ] **Custom Fan Profiles:** Create and manage custom fan profiles
+- [ ] **Individual Fan Control:** Control each fan independently
+- [ ] **Installer:** Create an installer for easy deployment
 
 ## Current state
 
