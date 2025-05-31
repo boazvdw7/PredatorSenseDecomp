@@ -18,9 +18,9 @@ This project is intended strictly for **educational and research purposes**.
 ## WIP Features
 - [x] **Fan Curve Editor:** Modify fan curves (located in advanced settings)
 - [x] **Minimize to System Tray**
+- [x] **Installer:** Create an installer for easy deployment
 - [ ] **Custom Fan Profiles:** Create and manage custom fan profiles
 - [ ] **Individual Fan Control:** Control each fan independently
-- [ ] **Installer:** Create an installer for easy deployment
 
 ## Current state
 
@@ -34,8 +34,8 @@ This project is intended strictly for **educational and research purposes**.
 
 The solution includes:
 
-- `TsDotNetLib/` – Decompiled core library (originally `TsDotNetLib.dll`)
-- `PredatorSense/` – Decompiled main application referencing the above library
+- `TsDotNetLib/` â€“ Decompiled core library (originally `TsDotNetLib.dll`)
+- `PredatorSense/` â€“ Decompiled main application referencing the above library
 
 Both components are restored as buildable Visual Studio projects.  
 References and paths have been adjusted to allow building from source.
@@ -59,5 +59,5 @@ References and paths have been adjusted to allow building from source.
 
 ## Credits
 
-- [dnSpy by 0xd4d](https://github.com/dnSpy/dnSpy) – indispensable tool for reverse engineering and debugging .NET binaries.
+- [dnSpy by 0xd4d](https://github.com/dnSpy/dnSpy) â€“ indispensable tool for reverse engineering and debugging .NET binaries.
 
