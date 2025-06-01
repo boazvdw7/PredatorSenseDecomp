@@ -53,6 +53,8 @@ Source: "C:\Software\dnSpy\PredatorSense\libs\AcrHttp.dll"; DestDir: "{app}"; Fl
 Source: "C:\Software\dnSpy\PredatorSense\libs\DeployTool.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Software\dnSpy\PredatorSense\libs\ListCheck.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Software\dnSpy\PredatorSense\libs\UpgradeTool.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Software\dnSpy\PredatorSense\images\*"; DestDir: "{app}\images"; Flags: ignoreversion recursesubdirs createallsubdirs
+
 
 
 

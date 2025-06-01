@@ -10,44 +10,44 @@
 	FontFamily="Segoe UI" xmlns:predatorsense="clr-namespace:PredatorSense"
 	Loaded="Window_Loaded"
 	StateChanged="Window_StateChanged">
-	<FrameworkElement.Resources>
-		<ResourceDictionary>
-			<ResourceDictionary.MergedDictionaries>
-				<ResourceDictionary
+    <FrameworkElement.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
 					Source="Style\100\PSStyle.xaml" />
-				<ResourceDictionary
+                <ResourceDictionary
 					Source="Lang\en.xaml" />
-			</ResourceDictionary.MergedDictionaries>
-		</ResourceDictionary>
-	</FrameworkElement.Resources>
-	<Viewbox
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </FrameworkElement.Resources>
+    <Viewbox
 		x:Name="wndViewbox"
 		Stretch="Uniform">
-		<Grid
+        <Grid
 			x:Name="Main_Grid"
 			Width="560"
 			Height="400">
-			<Grid.RowDefinitions>
-				<RowDefinition
+            <Grid.RowDefinitions>
+                <RowDefinition
 					Height="80" />
-				<RowDefinition
+                <RowDefinition
 					Height="10" />
-				<RowDefinition
+                <RowDefinition
 					Height="*" />
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
 					Width="*" />
-				<ColumnDefinition
+                <ColumnDefinition
 					Width="13" />
-				<ColumnDefinition
+                <ColumnDefinition
 					Width="7" />
-				<ColumnDefinition
+                <ColumnDefinition
 					Width="13" />
-				<ColumnDefinition
+                <ColumnDefinition
 					Width="102" />
-			</Grid.ColumnDefinitions>
-			<Image
+            </Grid.ColumnDefinitions>
+            <Image
 				x:Name="splash_Image"
 				Grid.Column="0"
 				Grid.Row="0"
@@ -55,9 +55,28 @@
 				Height="400"
 				HorizontalAlignment="Left"
 				VerticalAlignment="Top"
-                Source="/app_icon.ico"
-                Grid.RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}"
+				Grid.RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}"
 				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}" />
-			</Grid>
-	</Viewbox>
+            <Button
+				x:Name="min_Close_Button"
+				Grid.Column="3"
+				Grid.Row="1"
+				Width="13"
+				Height="10"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Top"
+				Template="{DynamicResource mini_CloseButton_ControlTemplate}"
+				Click="min_Close_Button_Click" />
+            <Button
+				x:Name="min_Minimize_Button"
+				Grid.Column="1"
+				Grid.Row="1"
+				Width="13"
+				Height="10"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Top"
+				Template="{DynamicResource mini_MinimizeButton_ControlTemplate}"
+				Click="min_Minimize_Button_Click" />
+        </Grid>
+    </Viewbox>
 </Window>
