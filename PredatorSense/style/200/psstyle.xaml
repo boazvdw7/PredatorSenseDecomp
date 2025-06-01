@@ -10029,7 +10029,8 @@
 		x:Key="Img_bg_newboard"
 		UriSource="../../Images/200/img_bg_newboard.png" />
 	<BitmapImage
-		x:Key="img_bg_newboard_oc"
+		x:Key="
+        "
 		UriSource="../../Images/200/img_bg_newboard_oc.png" />
 	<BitmapImage
 		x:Key="Img_bg_nitro"
@@ -10037,7 +10038,10 @@
 	<BitmapImage
 		x:Key="img_bg_newboard_nitro"
 		UriSource="../../Images/200/img_bg_newboard_nitro.png" />
-	<Style
+    <BitmapImage
+		x:Key="splash_Image"
+		UriSource="../../Images/200/splash.png" />
+    <Style
 		x:Key="PowerPlan_PowerSaver_RadioButton_Style"
 		TargetType="{x:Type RadioButton}">
 		<Setter

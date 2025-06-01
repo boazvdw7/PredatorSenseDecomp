@@ -10037,7 +10037,10 @@
 	<BitmapImage
 		x:Key="img_bg_newboard_nitro"
 		UriSource="../../Images/125/img_bg_newboard_nitro.png" />
-	<Style
+    <BitmapImage
+		x:Key="splash_Image"
+		UriSource="../../Images/125/splash.png" />
+    <Style
 		x:Key="PowerPlan_PowerSaver_RadioButton_Style"
 		TargetType="{x:Type RadioButton}">
 		<Setter

@@ -406,4 +406,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Custom
-.Output/
+Output/

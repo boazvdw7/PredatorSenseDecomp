@@ -55,28 +55,9 @@
 				Height="400"
 				HorizontalAlignment="Left"
 				VerticalAlignment="Top"
-				Grid.RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}"
+                Source="/app_icon.ico"
+                Grid.RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}"
 				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}" />
-			<Button
-				x:Name="min_Close_Button"
-				Grid.Column="3"
-				Grid.Row="1"
-				Width="13"
-				Height="10"
-				HorizontalAlignment="Right"
-				VerticalAlignment="Top"
-				Template="{DynamicResource mini_CloseButton_ControlTemplate}"
-				Click="min_Close_Button_Click" />
-			<Button
-				x:Name="min_Minimize_Button"
-				Grid.Column="1"
-				Grid.Row="1"
-				Width="13"
-				Height="10"
-				HorizontalAlignment="Right"
-				VerticalAlignment="Top"
-				Template="{DynamicResource mini_MinimizeButton_ControlTemplate}"
-				Click="min_Minimize_Button_Click" />
-		</Grid>
+			</Grid>
 	</Viewbox>
 </Window>

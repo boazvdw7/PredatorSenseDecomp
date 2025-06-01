@@ -335,6 +335,13 @@ namespace PredatorSense
         {
             if (_draggingIndex.HasValue && e.LeftButton == MouseButtonState.Pressed)
             {
+                // Always capture the mouse while dragging to avoid losing events
+                var ellipse = sender as Ellipse;
+                if (ellipse != null && !ellipse.IsMouseCaptured)
+                {
+                    ellipse.CaptureMouse();
+                }
+
                 var pos = e.GetPosition(ChartCanvas);
                 double width = ChartCanvas.ActualWidth > 0 ? ChartCanvas.ActualWidth : 300;
                 double height = ChartCanvas.ActualHeight > 0 ? ChartCanvas.ActualHeight : 300;
@@ -362,12 +369,18 @@ namespace PredatorSense
                 newTemp = Math.Max(minTemp, Math.Min(maxTemp, newTemp));
                 newSpeed = Math.Max(minSpeed, Math.Min(maxSpeed, newSpeed));
 
-                // Update the model (this will update the table and trigger redraw)
-                FanCurve[_draggingIndex.Value].Temperature = newTemp;
-                FanCurve[_draggingIndex.Value].FanSpeed = newSpeed;
+                // Only update if value actually changed
+                if (FanCurve[_draggingIndex.Value].Temperature != newTemp ||
+                    FanCurve[_draggingIndex.Value].FanSpeed != newSpeed)
+                {
+                    FanCurve[_draggingIndex.Value].Temperature = newTemp;
+                    FanCurve[_draggingIndex.Value].FanSpeed = newSpeed;
+                    DrawFanCurve();
+                }
+
+                e.Handled = true;
             }
         }
-
         private void Point_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             var ellipse = sender as Ellipse;

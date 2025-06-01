@@ -69,7 +69,7 @@ namespace PredatorSense
 			try
 			{
 				int num = this._count % 75 + 1;
-				CommonFunction.UpdateImage(this.splash_Image, "splash\\splash_" + num.ToString("000") + ".png");
+				CommonFunction.UpdateImage(this.splash_Image, "splash.png");
 			}
 			catch (Exception)
 			{
