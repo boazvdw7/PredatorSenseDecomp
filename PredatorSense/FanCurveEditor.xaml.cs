@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -9,9 +10,9 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using TsDotNetLib;
-using System.IO;
+using System.Windows.Threading;
 using System.Xml.Serialization;
+using TsDotNetLib;
 
 namespace PredatorSense
 {
@@ -23,9 +24,11 @@ namespace PredatorSense
         private static readonly string FanCurveConfigPath =
             System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PredatorSense", "fan_curve.xml");
 
+        private bool _isCustomCurveEnabled = false;
         private int? _draggingIndex = null;
         private Point _dragStart;
         private double _dragStartX, _dragStartY;
+        private ObservableCollection<FanCurvePoint> _editingFanCurve;
 
         public FanCurveEditor()
         {
@@ -35,36 +38,80 @@ namespace PredatorSense
             if (_globalFanCurve == null)
             {
                 _globalFanCurve = LoadFanCurve() ?? new ObservableCollection<FanCurvePoint>
-                    {
-                        new FanCurvePoint { Temperature = 40, FanSpeed = 20 },
-                        new FanCurvePoint { Temperature = 50, FanSpeed = 30 },
-                        new FanCurvePoint { Temperature = 60, FanSpeed = 50 },
-                        new FanCurvePoint { Temperature = 70, FanSpeed = 70 },
-                        new FanCurvePoint { Temperature = 80, FanSpeed = 100 }
-                    };
+            {
+                new FanCurvePoint { Temperature = 40, FanSpeed = 20 },
+                new FanCurvePoint { Temperature = 50, FanSpeed = 30 },
+                new FanCurvePoint { Temperature = 60, FanSpeed = 50 },
+                new FanCurvePoint { Temperature = 70, FanSpeed = 70 },
+                new FanCurvePoint { Temperature = 80, FanSpeed = 100 }
+            };
             }
-            FanCurve = _globalFanCurve;
+
+            // Deep copy the global curve for editing
+            _editingFanCurve = new ObservableCollection<FanCurvePoint>();
+            if (_globalFanCurve != null)
+            {
+                foreach (var pt in _globalFanCurve)
+                    _editingFanCurve.Add(new FanCurvePoint { Temperature = pt.Temperature, FanSpeed = pt.FanSpeed });
+            }
+            else
+            {
+                _editingFanCurve = new ObservableCollection<FanCurvePoint>
+                {
+                    new FanCurvePoint { Temperature = 40, FanSpeed = 20 },
+                    new FanCurvePoint { Temperature = 50, FanSpeed = 30 },
+                    new FanCurvePoint { Temperature = 60, FanSpeed = 50 },
+                    new FanCurvePoint { Temperature = 70, FanSpeed = 70 },
+                    new FanCurvePoint { Temperature = 80, FanSpeed = 100 }
+                };
+            }
+            FanCurve = _editingFanCurve;
             FanCurveGrid.ItemsSource = FanCurve;
+
+            // Load checkbox state
+            _isCustomCurveEnabled = LoadFanCurveEnabled();
+            fancurvekey_Checkbox.IsChecked = _isCustomCurveEnabled;
+            SetFanCurveUIEnabled(_isCustomCurveEnabled);
+
+            fancurvekey_Checkbox.Checked += fancurvekey_Checkbox_Checked;
+            fancurvekey_Checkbox.Unchecked += fancurvekey_Checkbox_Unchecked;
+
             this.Loaded += (s, e) => DrawFanCurve();
         }
 
+        private void SetFanCurveUIEnabled(bool enabled)
+        {
+            FanCurveGrid.IsEnabled = enabled;
+            ChartCanvas.IsEnabled = enabled;
+            ApplyButton.IsEnabled = enabled;
+        }
         private void Apply_Click(object sender, RoutedEventArgs e)
         {
-            // Cancel any previous polling
+            if (!_isCustomCurveEnabled)
+            {
+                MessageBox.Show("Enable the custom fan curve checkbox first.");
+                return;
+            }
+
+            // Copy edited curve to the global curve
+            _globalFanCurve.Clear();
+            foreach (var pt in _editingFanCurve)
+                _globalFanCurve.Add(new FanCurvePoint { Temperature = pt.Temperature, FanSpeed = pt.FanSpeed });
+
             _globalCts?.Cancel();
+            SaveFanCurve(_globalFanCurve);
+            SaveFanCurveEnabled(_isCustomCurveEnabled);
 
-            // Save the curve
-            SaveFanCurve(FanCurve);
-
-            // Set fan mode to Custom
             CommonFunction.set_all_fan_mode(CommonFunction.Fan_Mode_Type.Custom);
 
-            // Start background polling
             _globalCts = new CancellationTokenSource();
-            Task.Run(() => PollFanCurve(_globalCts.Token), _globalCts.Token);
+            // Use the main window as owner for UI updates
+            Dispatcher ownerDispatcher = this.Owner.Dispatcher;
+            Task.Run(() => PollFanCurve(_globalCts.Token, ownerDispatcher), _globalCts.Token);
 
             MessageBox.Show("Fan curve applied.");
         }
+
 
         private static void SaveFanCurve(ObservableCollection<FanCurvePoint> curve)
         {
@@ -77,8 +124,9 @@ namespace PredatorSense
                     serializer.Serialize(stream, new List<FanCurvePoint>(curve));
                 }
             }
-            catch {  
-            
+            catch
+            {
+
             }
         }
 
@@ -100,16 +148,21 @@ namespace PredatorSense
             return null;
         }
 
-        private void PollFanCurve(CancellationToken token)
+        private static void PollFanCurve(CancellationToken token, Dispatcher dispatcher)
         {
             while (!token.IsCancellationRequested)
             {
                 int cpuTemp = -1;
                 CommonFunction.get_wmi_system_health_info(ref cpuTemp, CommonFunction.System_Health_Information_Index.sCPU_Temperature);
 
-                // Find the closest point in the curve
-                FanCurvePoint selectedPoint = FanCurve[0];
-                foreach (var point in FanCurve)
+                if (_globalFanCurve == null || _globalFanCurve.Count == 0)
+                {
+                    Thread.Sleep(2000);
+                    continue;
+                }
+
+                FanCurvePoint selectedPoint = _globalFanCurve[0];
+                foreach (var point in _globalFanCurve)
                 {
                     if (cpuTemp >= point.Temperature)
                         selectedPoint = point;
@@ -118,16 +171,14 @@ namespace PredatorSense
                 }
 
                 int cpuPercent = selectedPoint.FanSpeed;
-                int gpuPercent = cpuPercent; // Or use a separate curve for GPU
+                int gpuPercent = cpuPercent;
 
-                // Update registry keys as FanControlPage does
                 Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 2U);
                 Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CPUFanPercentage", (uint)cpuPercent * 10U);
                 Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "GPU1FanPercentage", (uint)gpuPercent * 10U);
                 Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CPUFanCustomAuto", 0U);
                 Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "GPU1FanCustomAuto", 0U);
 
-                // Convert percent to slider value (0-10 scale)
                 int cpuSliderValue = (int)Math.Round(cpuPercent / 10.0);
                 int gpuSliderValue = (int)Math.Round(gpuPercent / 10.0);
 
@@ -135,23 +186,22 @@ namespace PredatorSense
                 gpuSliderValue = Math.Max(0, Math.Min(10, gpuSliderValue));
 
                 // Update the UI on the main thread
-                Dispatcher.Invoke(() =>
+                dispatcher.Invoke(() =>
                 {
-                    var mainWindow = this.Owner as OC_MainWindow;
-                    if (mainWindow != null)
+                    if (Application.Current.MainWindow is OC_MainWindow ocMain)
                     {
-                        mainWindow.FanControl_Page.SetCustomFanSpeedMode(cpuSliderValue, gpuSliderValue);
+                        ocMain.FanControl_Page.SetCustomFanSpeedMode(cpuSliderValue, gpuSliderValue);
                     }
                 });
 
-                Thread.Sleep(2000); // Poll every 2 seconds
+                Thread.Sleep(2000);
             }
         }
 
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-        }
+        //protected override void OnClosed(EventArgs e)
+        //{
+        //    base.OnClosed(e);
+        //}
 
         public override void OnApplyTemplate()
         {
@@ -186,8 +236,12 @@ namespace PredatorSense
                 int speedLabel = minSpeed + (maxSpeed - minSpeed) * i / 5;
                 ChartCanvas.Children.Add(new Line
                 {
-                    X1 = 0, X2 = width, Y1 = y, Y2 = y,
-                    Stroke = Brushes.LightGray, StrokeThickness = 1
+                    X1 = 0,
+                    X2 = width,
+                    Y1 = y,
+                    Y2 = y,
+                    Stroke = Brushes.LightGray,
+                    StrokeThickness = 1
                 });
                 // Y axis labels
                 var label = new TextBlock
@@ -206,8 +260,12 @@ namespace PredatorSense
                 int tempLabel = minTemp + (maxTemp - minTemp) * i / 5;
                 ChartCanvas.Children.Add(new Line
                 {
-                    X1 = x, X2 = x, Y1 = 0, Y2 = height,
-                    Stroke = Brushes.LightGray, StrokeThickness = 1
+                    X1 = x,
+                    X2 = x,
+                    Y1 = 0,
+                    Y2 = height,
+                    Stroke = Brushes.LightGray,
+                    StrokeThickness = 1
                 });
                 // X axis labels
                 var label = new TextBlock
@@ -318,6 +376,90 @@ namespace PredatorSense
                 ellipse.ReleaseMouseCapture();
                 _draggingIndex = null;
                 DrawFanCurve(); // Final redraw
+            }
+        }
+
+        private void fancurvekey_Checkbox_Checked(object sender, RoutedEventArgs e)
+        {
+            _isCustomCurveEnabled = true;
+            SetFanCurveUIEnabled(true);
+            SaveFanCurveEnabled(_isCustomCurveEnabled);
+
+            var mainWindow = this.Owner as OC_MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.main_fan_mode_switch(2); // 2 = Custom mode
+            }
+        }
+
+        private void fancurvekey_Checkbox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            _isCustomCurveEnabled = false;
+            SetFanCurveUIEnabled(false);
+            _globalCts?.Cancel();
+            SaveFanCurveEnabled(_isCustomCurveEnabled);
+
+            // Set fan mode to Auto in the main window
+            var mainWindow = this.Owner as OC_MainWindow;
+            if (mainWindow != null)
+            {
+                mainWindow.main_fan_mode_switch(0); // 0 = Auto mode
+            }
+        }
+
+
+        // Save/load the checkbox state in a simple text file:
+        private static readonly string FanCurveEnabledPath =
+            System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PredatorSense", "fan_curve_enabled.txt");
+
+        private static void SaveFanCurveEnabled(bool enabled)
+        {
+            try
+            {
+                Directory.CreateDirectory(System.IO.Path.GetDirectoryName(FanCurveEnabledPath));
+                File.WriteAllText(FanCurveEnabledPath, enabled ? "1" : "0");
+            }
+            catch { }
+        }
+
+        private static bool LoadFanCurveEnabled()
+        {
+            try
+            {
+                if (File.Exists(FanCurveEnabledPath))
+                    return File.ReadAllText(FanCurveEnabledPath).Trim() == "1";
+            }
+            catch { }
+            return false;
+        }
+
+        // In OnClosed, save the state:
+        protected override void OnClosed(EventArgs e)
+        {
+            SaveFanCurve(FanCurve);
+            SaveFanCurveEnabled(_isCustomCurveEnabled);
+            base.OnClosed(e);
+        }
+
+        public static void ApplyFanCurveIfEnabled(Window owner)
+        {
+            if (LoadFanCurveEnabled())
+            {
+                if (_globalFanCurve == null)
+                    _globalFanCurve = LoadFanCurve() ?? new ObservableCollection<FanCurvePoint>
+            {
+                new FanCurvePoint { Temperature = 40, FanSpeed = 20 },
+                new FanCurvePoint { Temperature = 50, FanSpeed = 30 },
+                new FanCurvePoint { Temperature = 60, FanSpeed = 50 },
+                new FanCurvePoint { Temperature = 70, FanSpeed = 70 },
+                new FanCurvePoint { Temperature = 80, FanSpeed = 100 }
+            };
+
+                _globalCts?.Cancel();
+                CommonFunction.set_all_fan_mode(CommonFunction.Fan_Mode_Type.Custom);
+
+                _globalCts = new CancellationTokenSource();
+                Task.Run(() => PollFanCurve(_globalCts.Token, owner.Dispatcher), _globalCts.Token);
             }
         }
     }

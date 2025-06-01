@@ -1,7 +1,7 @@
 <Window
 	x:Class="PredatorSense.OC_MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	x:Name="mainWindow"
-	Title="PredatorSense "
+	Title="PredatorSense"
 	Height="760"
 	Width="1320"
 	WindowStyle="None"
@@ -278,7 +278,7 @@
 							Template="{DynamicResource SettingCheckBox_ControlTemplate}"
 							Checked="stickykey_Checkbox_Checked"
 							Unchecked="stickykey_Checkbox_Unchecked" />
-						<CheckBox
+                        <CheckBox
 							x:Name="winmenukey_Checkbox"
 							Grid.Column="1"
 							Grid.Row="3"

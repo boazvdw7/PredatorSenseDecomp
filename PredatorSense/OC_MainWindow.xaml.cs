@@ -151,6 +151,11 @@ namespace PredatorSense
 
             this.StateChanged += OC_MainWindow_StateChanged;
             this.Closing += OC_MainWindow_Closing;
+
+            this.Loaded += (s, e) =>
+            {
+                FanCurveEditor.ApplyFanCurveIfEnabled(this);
+            };
         }
 
 		private void TrayIcon_DoubleClick(object sender, EventArgs e)
@@ -652,15 +657,15 @@ namespace PredatorSense
 			Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\AdvanceSettings", "WinAndMenuKey", 1U);
 		}
 
-		// Token: 0x06000104 RID: 260 RVA: 0x0000B9D9 File Offset: 0x00009BD9
-		private void winmenukey_Checkbox_Unchecked(object sender, RoutedEventArgs e)
+        // Token: 0x06000104 RID: 260 RVA: 0x0000B9D9 File Offset: 0x00009BD9
+        private void winmenukey_Checkbox_Unchecked(object sender, RoutedEventArgs e)
 		{
 			CommonFunction.set_win_menu_key_status(false);
 			Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\AdvanceSettings", "WinAndMenuKey", 0U);
 		}
 
-		// Token: 0x06000105 RID: 261 RVA: 0x0000B9F4 File Offset: 0x00009BF4
-		private void AdjustWindowSizeAndPos(bool owner_center)
+        // Token: 0x06000105 RID: 261 RVA: 0x0000B9F4 File Offset: 0x00009BF4
+        private void AdjustWindowSizeAndPos(bool owner_center)
 		{
 			double width = SystemParameters.WorkArea.Width;
 			double height = SystemParameters.WorkArea.Height;
