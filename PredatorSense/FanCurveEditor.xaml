@@ -1,7 +1,7 @@
 <Window x:Class="PredatorSense.FanCurveEditor"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Fan Curve Editor" Height="450" Width="700"
+        Title="Fan Curve Editor" Height="450" Width="800"
         xmlns:predatorsense="clr-namespace:PredatorSense"
         Background="#222" BorderBrush="#444">
     <FrameworkElement.Resources>
@@ -103,6 +103,10 @@
                     Unchecked="fancurvekey_Checkbox_Unchecked"/>
             </Grid>
         </Grid>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal" Margin="130,5,0,15" Grid.Column="0" Grid.Row="1">
+            <Button Content="Add Point" Height="20" Width="80" Margin="0,0,5,0" Click="AddPoint_Click" Background="GreenYellow"/>
+            <Button Content="Remove Point" Height="20" Width="100" Click="RemovePoint_Click" Background="OrangeRed"/>
+        </StackPanel>
         <Button Content="Apply"
                 Grid.Row="1"
                 Grid.Column="0"

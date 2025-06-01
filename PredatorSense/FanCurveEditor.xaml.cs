@@ -285,7 +285,7 @@ namespace PredatorSense
             ChartCanvas.Children.Add(new Line { X1 = x40, X2 = x40, Y1 = 0, Y2 = height, Stroke = Brushes.Orange, StrokeDashArray = new DoubleCollection { 2 }, StrokeThickness = 1 });
 
             // Draw curve
-            var polyline = new Polyline { Stroke = Brushes.Blue, StrokeThickness = 2 };
+            var polyline = new Polyline { Stroke = Brushes.DarkRed, StrokeThickness = 2 };
             List<Point> pointPositions = new List<Point>();
             foreach (var pt in FanCurve)
             {
@@ -473,6 +473,36 @@ namespace PredatorSense
 
                 _globalCts = new CancellationTokenSource();
                 Task.Run(() => PollFanCurve(_globalCts.Token, owner.Dispatcher), _globalCts.Token);
+            }
+        }
+
+        private void AddPoint_Click(object sender, RoutedEventArgs e)
+        {
+            // Insert a new point between the selected point and the next, or at the end
+            int insertIndex = FanCurveGrid.SelectedIndex;
+            if (insertIndex < 0 || insertIndex >= FanCurve.Count - 1)
+                insertIndex = FanCurve.Count - 2;
+
+            if (insertIndex < 0) insertIndex = 0;
+
+            // Calculate new point values between neighbors
+            var pt1 = FanCurve[insertIndex];
+            var pt2 = FanCurve[insertIndex + 1];
+            int newTemp = (pt1.Temperature + pt2.Temperature) / 2;
+            int newSpeed = (pt1.FanSpeed + pt2.FanSpeed) / 2;
+
+            FanCurve.Insert(insertIndex + 1, new FanCurvePoint { Temperature = newTemp, FanSpeed = newSpeed });
+            DrawFanCurve();
+        }
+
+        private void RemovePoint_Click(object sender, RoutedEventArgs e)
+        {
+            if (FanCurve.Count <= 2) return; // Always keep at least 2 points
+            int removeIndex = FanCurveGrid.SelectedIndex;
+            if (removeIndex > 0 && removeIndex < FanCurve.Count - 1)
+            {
+                FanCurve.RemoveAt(removeIndex);
+                DrawFanCurve();
             }
         }
     }
