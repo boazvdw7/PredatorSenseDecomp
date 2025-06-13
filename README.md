@@ -60,4 +60,5 @@ References and paths have been adjusted to allow building from source.
 ## Credits
 
 - [dnSpy by 0xd4d](https://github.com/dnSpy/dnSpy) – indispensable tool for reverse engineering and debugging .NET binaries.
+- [Predator Sense by Acer](https://www.acer.com/us-en/support/product-support/Predator_PH315-51) – Original authors of this application.
 
