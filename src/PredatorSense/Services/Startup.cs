@@ -1,0 +1,674 @@
+﻿using System;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Security.Principal;
+using System.ServiceProcess;
+using System.Text;
+using System.Threading;
+using System.Windows;
+using Microsoft.Win32;
+
+namespace PredatorSense
+{
+	// Token: 0x0200003F RID: 63
+	public class Startup
+	{
+		// Token: 0x060002A6 RID: 678
+		[DllImport("advapi32.dll", SetLastError = true)]
+		private static extern bool GetTokenInformation(IntPtr TokenHandle, Startup.TOKEN_INFORMATION_CLASS TokenInformationClass, IntPtr TokenInformation, uint TokenInformationLength, out uint ReturnLength);
+
+		// Token: 0x060002A7 RID: 679
+		[DllImport("advapi32.dll", EntryPoint = "ConvertSidToStringSid", SetLastError = true)]
+		private static extern bool externConvertSidToStringSid(IntPtr lpSid, ref IntPtr lpStringSid);
+
+		// Token: 0x060002A8 RID: 680
+		[DllImport("User32.dll")]
+		private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+		// Token: 0x060002A9 RID: 681
+		[DllImport("user32.dll")]
+		private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+		// Token: 0x060002AA RID: 682
+		[DllImport("shell32.dll")]
+		private static extern int ShellExecute(IntPtr hwnd, string lpszOp, string lpszFile, string lpszParams, string lpszDir, int FsShowCmd);
+
+		// Token: 0x060002AB RID: 683
+		[DllImport("gdi32.dll")]
+		internal static extern int GetDeviceCaps(IntPtr hdc, int Index);
+
+		// Token: 0x060002AC RID: 684
+		[DllImport("user32.dll")]
+		internal static extern IntPtr GetDC(IntPtr Hwnd);
+
+		// Token: 0x1700003C RID: 60
+		// (get) Token: 0x060002AD RID: 685 RVA: 0x0001F802 File Offset: 0x0001DA02
+		internal static double GetDpiX
+		{
+			get
+			{
+				return (double)Startup.GetDeviceCaps(Startup.GetDC(IntPtr.Zero), 88);
+			}
+		}
+
+		// Token: 0x060002AE RID: 686
+		[DllImport("User32.dll")]
+		private static extern bool ShowWindowAsync(IntPtr hWnd, int cmdShow);
+
+		// Token: 0x060002AF RID: 687
+		[DllImport("User32.dll")]
+		private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+		// Token: 0x060002B0 RID: 688 RVA: 0x0001F818 File Offset: 0x0001DA18
+		[STAThread]
+		public static void Main(string[] args)
+		{
+			if (args != null && args.Length >= 2 && string.Equals(args[0], "--cleanup-watchdog", StringComparison.OrdinalIgnoreCase))
+			{
+				Startup.RunCleanupWatchdog(args[1]);
+				return;
+			}
+			try
+			{
+				string empty = string.Empty;
+				string text = "en";
+				try
+				{
+					Startup.EnsureProcessesAlive();
+					Startup.langRd = Application.LoadComponent(new Uri("/PredatorSense;component/Lang/" + CultureInfo.CurrentUICulture.Parent.Name + ".xaml", UriKind.Relative)) as ResourceDictionary;
+					text = CultureInfo.CurrentUICulture.Parent.Name;
+					RegistryKey registryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\OEM\\PredatorSense", false);
+					if (registryKey != null)
+					{
+						object value = registryKey.GetValue("Lang");
+						if (value != null)
+						{
+							text = value.ToString();
+							string text2 = "/PredatorSense;component/Lang/" + text + ".xaml";
+							Startup.langRd = Application.LoadComponent(new Uri(text2, UriKind.Relative)) as ResourceDictionary;
+						}
+						registryKey.Close();
+					}
+				}
+				catch
+				{
+					Startup.langRd = Application.LoadComponent(new Uri("/PredatorSense;component/Lang/en.xaml", UriKind.Relative)) as ResourceDictionary;
+					text = "en";
+				}
+				if (text.Equals("en") || text.Equals("de") || text.Equals("it") || text.Equals("fr") || text.Equals("es") || text.Equals("nl") || text.Equals("nb") || text.Equals("fi") || text.Equals("pl") || text.Equals("ru") || text.Equals("cs") || text.Equals("hu") || text.Equals("tr"))
+				{
+					Startup._TTFont = true;
+				}
+				string text3 = "100";
+				double getDpiX = Startup.GetDpiX;
+				if (getDpiX != 96.0)
+				{
+					if (getDpiX >= 120.0 && getDpiX < 144.0)
+					{
+						text3 = "125";
+					}
+					else if (getDpiX >= 144.0 && getDpiX < 192.0)
+					{
+						text3 = "150";
+					}
+					else if (getDpiX >= 192.0)
+					{
+						text3 = "200";
+					}
+				}
+				Startup._Image_path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + text3 + "\\";
+			Startup.styled = Application.LoadComponent(new Uri("/PredatorSense;component/Style/" + text3 + "/PSStyle.xaml", UriKind.Relative)) as ResourceDictionary;
+			ThemeManager.ApplyThemeResources(ThemeManager.IsDarkModeEnabled());
+			// Check if fans are stuck from a previous crash and reset them
+			Startup.CheckAndFixStuckFans();
+			if (Startup.IsGuest() || Startup.IsDomainGuest)
+				{
+					string text4 = "PredatorSense";
+					try
+					{
+						RegistryKey registryKey2 = Registry.LocalMachine.OpenSubKey("SOFTWARE\\OEM\\PredatorSense", false);
+						if (registryKey2 != null)
+						{
+							object value2 = registryKey2.GetValue("Product_Name");
+							if (value2 != null)
+							{
+								text4 = value2.ToString();
+							}
+							registryKey2.Close();
+						}
+					}
+					catch
+					{
+					}
+					MessageBox.Show(Startup.langRd["MUI_MSG_Guest"].ToString().Replace("%ProductName%", text4), text4, MessageBoxButton.OK, MessageBoxImage.Asterisk);
+				}
+				else
+				{
+					bool flag = false;
+					object[] customAttributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(GuidAttribute), false);
+					string value3 = ((GuidAttribute)customAttributes.First<object>()).Value;
+					Startup.s_Mutex = new Mutex(true, value3, out flag);
+					if (!Startup.s_Mutex.WaitOne(0, false))
+					{
+						IntPtr intPtr = IntPtr.Zero;
+						intPtr = Startup.FindWindow(null, "PredatorSense ");
+						if (intPtr != IntPtr.Zero)
+						{
+							Startup.SetForegroundWindow(intPtr);
+							Startup.ShowWindowAsync(intPtr, 9);
+						}
+					}
+					else
+					{
+						Startup.StartCleanupWatchdogProcess();
+						new App
+						{
+							Resources = Startup.langRd
+						}.Run();
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "PredatorSense", MessageBoxButton.OK, MessageBoxImage.Hand);
+				Application.Current.Shutdown();
+				return;
+				}
+			finally
+			{
+				if (Startup.s_Mutex != null)
+				{
+					Startup.s_Mutex.Close();
+					Startup.s_Mutex = null;
+			}
+		}
+	}
+
+		// Token: 0x1700003D RID: 61
+		// (get) Token: 0x060002B1 RID: 689 RVA: 0x0001FBD8 File Offset: 0x0001DDD8
+		public static bool IsDomainGuest
+		{
+			get
+			{
+				AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
+				using (WindowsIdentity current = WindowsIdentity.GetCurrent())
+				{
+					uint num = 0U;
+					bool flag = Startup.GetTokenInformation(current.Token, Startup.TOKEN_INFORMATION_CLASS.TokenGroups, IntPtr.Zero, num, out num);
+					IntPtr intPtr = Marshal.AllocHGlobal((int)num);
+					flag = Startup.GetTokenInformation(current.Token, Startup.TOKEN_INFORMATION_CLASS.TokenGroups, intPtr, num, out num);
+					if (flag)
+					{
+						uint num2 = (uint)Marshal.ReadInt32(intPtr);
+						IntPtr intPtr2 = (IntPtr)(intPtr.ToInt64() + Marshal.OffsetOf(typeof(Startup.TOKEN_GROUPS), "Groups").ToInt64());
+						for (uint num3 = 0U; num3 < num2; num3 += 1U)
+						{
+                            Startup.SID_AND_ATTRIBUTES sidAndAttributes = (Startup.SID_AND_ATTRIBUTES)Marshal.PtrToStructure(intPtr2, typeof(Startup.SID_AND_ATTRIBUTES));
+                            string text = Startup.ConvertSidToStringSid(ref sidAndAttributes.Sid);
+                            if (text.EndsWith("-514") && text.StartsWith("S-1-5-21"))
+							{
+								return true;
+							}
+							intPtr2 = (IntPtr)(intPtr2.ToInt64() + (long)Marshal.SizeOf(typeof(Startup.SID_AND_ATTRIBUTES)));
+						}
+					}
+				}
+				return false;
+			}
+		}
+
+		// Token: 0x060002B2 RID: 690 RVA: 0x0001FCF8 File Offset: 0x0001DEF8
+		private static string ConvertSidToStringSid(ref IntPtr Sid)
+		{
+			string text = "";
+			IntPtr zero = IntPtr.Zero;
+			bool flag = Startup.externConvertSidToStringSid(Sid, ref zero);
+			if (flag)
+			{
+				text = Marshal.PtrToStringAnsi(zero);
+			}
+			Marshal.FreeHGlobal(zero);
+			return text;
+		}
+
+		// Token: 0x060002B3 RID: 691 RVA: 0x0001FD30 File Offset: 0x0001DF30
+		public static bool IsGuest()
+		{
+			using (WindowsIdentity current = WindowsIdentity.GetCurrent())
+			{
+				WindowsPrincipal windowsPrincipal = new WindowsPrincipal(current);
+				if (windowsPrincipal.IsInRole(WindowsBuiltInRole.Guest))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		// Token: 0x060002B4 RID: 692 RVA: 0x0001FD7C File Offset: 0x0001DF7C
+		private static void EnsureProcessesAlive()
+		{
+			bool svcRunning = Startup.IsServiceRunning("PSSvc") || Startup.IsProcessRunning("PSSvc");
+			bool adminAgentRunning = Startup.IsProcessRunning("PSAdminAgent") || Startup.FindWindow("PSADMINAGENT", "PSAdminAgent") != IntPtr.Zero;
+			bool agentRunning = Startup.IsProcessRunning("PSAgent") || Startup.FindWindow("PSAGENT", "PSAgent") != IntPtr.Zero;
+			if (!svcRunning)
+			{
+				Startup.TryStartService("PSSvc");
+			}
+			if (!adminAgentRunning)
+			{
+				Startup.TryStartHelperExecutable("PSAdminAgent.exe", null);
+			}
+			if (!agentRunning)
+			{
+				Startup.TryStartHelperExecutable("PSAgent.exe", null);
+			}
+			Thread.Sleep(250);
+			svcRunning = Startup.IsServiceRunning("PSSvc") || Startup.IsProcessRunning("PSSvc");
+			adminAgentRunning = Startup.IsProcessRunning("PSAdminAgent") || Startup.FindWindow("PSADMINAGENT", "PSAdminAgent") != IntPtr.Zero;
+			agentRunning = Startup.IsProcessRunning("PSAgent") || Startup.FindWindow("PSAGENT", "PSAgent") != IntPtr.Zero;
+			if (!svcRunning || !adminAgentRunning || !agentRunning)
+			{
+				string text = "-noui";
+				if (svcRunning)
+				{
+					text += " -nopssvc";
+				}
+				if (adminAgentRunning)
+				{
+					text += " -nopsadminagent";
+				}
+				if (agentRunning)
+				{
+					text += " -nopsagent";
+				}
+				Startup.TryStartHelperExecutable("PSLauncher.exe", text);
+			}
+		}
+
+		private static bool IsProcessRunning(string processName)
+		{
+			try
+			{
+				Process[] processesByName = Process.GetProcessesByName(processName);
+				try
+				{
+					return processesByName.Length != 0;
+				}
+				finally
+				{
+					for (int i = 0; i < processesByName.Length; i++)
+					{
+						processesByName[i].Dispose();
+					}
+				}
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		private static bool IsServiceRunning(string serviceName)
+		{
+			try
+			{
+				using (ServiceController serviceController = new ServiceController(serviceName))
+				{
+					return serviceController.Status == ServiceControllerStatus.Running;
+				}
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		private static void TryStartService(string serviceName)
+		{
+			try
+			{
+				using (ServiceController serviceController = new ServiceController(serviceName))
+				{
+					if (serviceController.Status == ServiceControllerStatus.Stopped || serviceController.Status == ServiceControllerStatus.StopPending)
+					{
+						serviceController.Start();
+						serviceController.WaitForStatus(ServiceControllerStatus.Running, TimeSpan.FromSeconds(3.0));
+					}
+				}
+			}
+			catch
+			{
+			}
+		}
+
+		private static void TryStartHelperExecutable(string exeName, string arguments)
+		{
+			string text = Startup.ResolveHelperExecutablePath(exeName);
+			if (string.IsNullOrEmpty(text))
+			{
+				return;
+			}
+			try
+			{
+				Process.Start(new ProcessStartInfo
+				{
+					FileName = text,
+					Arguments = arguments ?? string.Empty,
+					WorkingDirectory = Path.GetDirectoryName(text),
+					UseShellExecute = true,
+					WindowStyle = ProcessWindowStyle.Hidden
+				});
+			}
+			catch
+			{
+				try
+				{
+					Startup.ShellExecute(IntPtr.Zero, null, text, arguments, Path.GetDirectoryName(text), 0);
+				}
+				catch
+				{
+				}
+			}
+		}
+
+		private static string ResolveHelperExecutablePath(string exeName)
+		{
+			string[] array = new string[]
+			{
+				Path.Combine(AppDomain.CurrentDomain.BaseDirectory, exeName),
+				Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, exeName)
+			};
+			for (int i = 0; i < array.Length; i++)
+			{
+				if (!string.IsNullOrEmpty(array[i]) && File.Exists(array[i]))
+				{
+					return array[i];
+				}
+			}
+			string text = AppDomain.CurrentDomain.BaseDirectory;
+			try
+			{
+				DirectoryInfo directoryInfo = new DirectoryInfo(text);
+				int num = 0;
+				while (directoryInfo != null && num < 8)
+				{
+					string text2 = Path.Combine(directoryInfo.FullName, "libs", exeName);
+					if (File.Exists(text2))
+					{
+						return text2;
+					}
+					directoryInfo = directoryInfo.Parent;
+					num++;
+				}
+			}
+			catch
+			{
+			}
+			return null;
+		}
+
+		// Token: 0x04000359 RID: 857
+		private const int LOGPIXELSX = 88;
+
+		// Token: 0x0400035A RID: 858
+		private const int ANYSIZE_ARRAY = 100;
+
+		// Token: 0x0400035B RID: 859
+		private const int SW_RESTORE = 9;
+
+		// Token: 0x0400035C RID: 860
+		public static ResourceDictionary langRd = null;
+
+		// Token: 0x0400035D RID: 861
+		public static ResourceDictionary styled = null;
+
+		// Token: 0x0400035E RID: 862
+		public static bool _TTFont = false;
+
+		// Token: 0x0400035F RID: 863
+		private static Mutex s_Mutex;
+
+		// Token: 0x04000360 RID: 864
+		public static string _Image_path;
+
+		// Token: 0x04000361 RID: 865
+		public static bool _support_OC = false;
+
+		// Token: 0x02000040 RID: 64
+		private enum TOKEN_INFORMATION_CLASS
+		{
+			// Token: 0x04000363 RID: 867
+			TokenUser = 1,
+			// Token: 0x04000364 RID: 868
+			TokenGroups,
+			// Token: 0x04000365 RID: 869
+			TokenPrivileges,
+			// Token: 0x04000366 RID: 870
+			TokenOwner,
+			// Token: 0x04000367 RID: 871
+			TokenPrimaryGroup,
+			// Token: 0x04000368 RID: 872
+			TokenDefaultDacl,
+			// Token: 0x04000369 RID: 873
+			TokenSource,
+			// Token: 0x0400036A RID: 874
+			TokenType,
+			// Token: 0x0400036B RID: 875
+			TokenImpersonationLevel,
+			// Token: 0x0400036C RID: 876
+			TokenStatistics,
+			// Token: 0x0400036D RID: 877
+			TokenRestrictedSids,
+			// Token: 0x0400036E RID: 878
+			TokenSessionId,
+			// Token: 0x0400036F RID: 879
+			TokenGroupsAndPrivileges,
+			// Token: 0x04000370 RID: 880
+			TokenSessionReference,
+			// Token: 0x04000371 RID: 881
+			TokenSandBoxInert,
+			// Token: 0x04000372 RID: 882
+			TokenAuditPolicy,
+			// Token: 0x04000373 RID: 883
+			TokenOrigin
+		}
+
+		// Token: 0x02000041 RID: 65
+		private struct TOKEN_GROUPS
+		{
+			// Token: 0x04000374 RID: 884
+			[MarshalAs(UnmanagedType.U4)]
+			public uint GroupCount;
+
+			// Token: 0x04000375 RID: 885
+			[MarshalAs(UnmanagedType.ByValArray, SizeConst = 100)]
+			public Startup.SID_AND_ATTRIBUTES[] Groups;
+		}
+
+		// Token: 0x02000042 RID: 66
+		private struct SID_AND_ATTRIBUTES
+		{
+			// Token: 0x04000376 RID: 886
+			public IntPtr Sid;
+
+			// Token: 0x04000377 RID: 887
+			public int Attributes;
+		}
+
+		private static void StartCleanupWatchdogProcess()
+		{
+			try
+			{
+				int currentPid = Process.GetCurrentProcess().Id;
+				string command = "$parentPid=" + currentPid.ToString(CultureInfo.InvariantCulture) + "; " +
+					"try { Wait-Process -Id $parentPid -ErrorAction SilentlyContinue } catch {} ; " +
+					"Start-Sleep -Milliseconds 750; " +
+					"$remaining=Get-Process -Name 'PredatorSense' -ErrorAction SilentlyContinue; if ($remaining) { exit 0 }; " +
+					"$names=@('PSSvc','PSAgent','PSAdminAgent','PSLauncher','PSToastCreator','DeployTool','ListCheck','UpgradeTool','PSCreateDefaultProfile'); " +
+					"foreach($name in $names){ Get-Process -Name $name -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue }; " +
+					"try { Stop-Service -Name 'PSSvc' -Force -ErrorAction SilentlyContinue } catch {}";
+				string encodedCommand = Convert.ToBase64String(Encoding.Unicode.GetBytes(command));
+				Process.Start(new ProcessStartInfo
+				{
+					FileName = "powershell.exe",
+					Arguments = "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -EncodedCommand " + encodedCommand,
+					UseShellExecute = false,
+					CreateNoWindow = true,
+					WindowStyle = ProcessWindowStyle.Hidden
+				});
+			}
+			catch
+			{
+				try
+				{
+					// Fallback to legacy self-watchdog if PowerShell launch is unavailable.
+					string executablePath = Assembly.GetExecutingAssembly().Location;
+					int currentPid = Process.GetCurrentProcess().Id;
+					Process.Start(new ProcessStartInfo
+					{
+						FileName = executablePath,
+						Arguments = "--cleanup-watchdog " + currentPid.ToString(CultureInfo.InvariantCulture),
+						UseShellExecute = false,
+						CreateNoWindow = true,
+						WindowStyle = ProcessWindowStyle.Hidden
+					});
+				}
+				catch
+				{
+				}
+			}
+		}
+
+		private static void RunCleanupWatchdog(string parentPidArg)
+		{
+			int parentPid;
+			if (!int.TryParse(parentPidArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out parentPid))
+			{
+				return;
+			}
+			try
+			{
+				Process processById = Process.GetProcessById(parentPid);
+				try
+				{
+					processById.WaitForExit();
+				}
+				finally
+				{
+					processById.Dispose();
+				}
+			}
+			catch
+			{
+			}
+			Thread.Sleep(750);
+			Startup.TerminatePredatorSenseDependencies(parentPid);
+		}
+
+		public static void CleanupBackgroundProcessesOnExit()
+		{
+			int currentPid = -1;
+			try
+			{
+				currentPid = Process.GetCurrentProcess().Id;
+			}
+			catch
+			{
+			}
+			try
+			{
+				Startup.TerminatePredatorSenseDependencies(currentPid);
+			}
+			catch
+			{
+			}
+			try
+			{
+				Thread.Sleep(300);
+				Startup.TerminatePredatorSenseDependencies(currentPid);
+			}
+			catch
+			{
+			}
+		}
+
+		private static void TerminatePredatorSenseDependencies(int parentPid)
+		{
+			string[] array = new string[] { "PSSvc", "PSAgent", "PSAdminAgent", "PSLauncher", "PSToastCreator", "DeployTool", "ListCheck", "UpgradeTool", "PSCreateDefaultProfile" };
+			for (int i = 0; i < 3; i++)
+			{
+				try
+				{
+					using (ServiceController serviceController = new ServiceController("PSSvc"))
+					{
+						if (serviceController.Status != ServiceControllerStatus.Stopped && serviceController.Status != ServiceControllerStatus.StopPending)
+						{
+							serviceController.Stop();
+							serviceController.WaitForStatus(ServiceControllerStatus.Stopped, TimeSpan.FromSeconds(3.0));
+						}
+					}
+				}
+				catch
+				{
+				}
+				foreach (string processName in array)
+				{
+					Process[] processesByName = Process.GetProcessesByName(processName);
+					for (int j = 0; j < processesByName.Length; j++)
+					{
+						Process process = processesByName[j];
+						try
+						{
+							if (process.Id != parentPid)
+							{
+								process.Kill(true);
+							}
+						}
+						catch
+						{
+						}
+						finally
+						{
+							process.Dispose();
+						}
+					}
+				}
+				Thread.Sleep(200);
+			}
+		}
+
+		private static void CheckAndFixStuckFans()
+		{
+			try
+			{
+				// Check if fans are in a stuck state (non-auto mode) which indicates a previous crash
+				int currentFanMode = TsDotNetLib.Registry.CheckLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 0U);
+				
+				// If fan mode is not Auto (0), the app crashed or was killed while in a custom mode
+				// Automatically reset to Auto mode to prevent fans from getting stuck
+				if (currentFanMode != 0)
+				{
+					try
+					{
+						TsDotNetLib.Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 0U);
+						// Give the system a moment to process the registry change
+						Thread.Sleep(100);
+					}
+					catch
+					{
+						// If we can't write to registry, at least try to set via WMI
+					}
+				}
+			}
+			catch
+			{
+				// Silently fail - this is just a safety check
+			}
+		}
+	}
+}

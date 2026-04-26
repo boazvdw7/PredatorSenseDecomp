@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Diskret GPU inaktiv.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Overklokking er bare mulig med innplugget batterieliminator og minst 40 % gjenværende batteritid.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Sone</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Lad batteriet til minst 40 % for å fortsette overklokking.</s:String>
+	<s:String
+		x:Key="MUI_Path">Bane</s:String>
+	<s:String
+		x:Key="MUI_Home">Startside</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Overklokking</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Hurtigtast</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Viftekontroll</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Overvåking</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows- og menytast</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Klebrige taster</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Temperaturenheter</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 deaktivert. Plugg inn batterieliminatorer for å aktivere GPU2.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Hurtigtastprofil</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Belysningsprofil</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">CPU-Overklokking</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">GPU-Overklokking</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Overklokking er bare mulig med begge batterieliminatorer på og 40 %+ batterilevetid.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Profilstyring</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Tastatur</s:String>
+	<s:String
+		x:Key="MUI_Zone">Sone [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Lyseffekter</s:String>
+	<s:String
+		x:Key="MUI_Speed">Hastighet</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logo</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Lysstripe</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Strømknapp</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Skyvemodul</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Pusting</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Bakgrunnslys</s:String>
+	<s:String
+		x:Key="MUI_Static">Statisk</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dynamisk</s:String>
+	<s:String
+		x:Key="MUI_Off">Av</s:String>
+	<s:String
+		x:Key="MUI_All">Alle</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Piltaster</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Nummerrader</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Fn-taster</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Velg flere taster</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Metode %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Klikk på %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">for å velge forhåndsinnstilte taster.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Trykk på og hold Ctrl-tasten, og klikk / klikk/dra for å velge.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Retning</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Belysningsprofilstyring</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Hurtigtastprofilstyring</s:String>
+	<s:String
+		x:Key="MUI_Close">Lukk</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Ny hurtigtastprofil</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Ny belysningsprofil</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Frekvens</s:String>
+	<s:String
+		x:Key="MUI_Loading">Last</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Kjerneklokke</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">CPU-overklokking er stoppet.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">CPU-overklokking er gjenopptatt.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">CPU-overklokking stoppet fordi gjenværende batterinivå er lavere enn 40%.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Makroer</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Velg Rediger for å endre hurtigtasten</s:String>
+	<s:String
+		x:Key="MUI_Options">Alternativer</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">CPU-overklokkingsbryter</s:String>
+	<s:String
+		x:Key="MUI_Fan">Vifte</s:String>
+	<s:String
+		x:Key="MUI_Auto">Auto</s:String>
+	<s:String
+		x:Key="MUI_Max">Maks.</s:String>
+	<s:String
+		x:Key="MUI_Custom">Tilpasset</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">GPU-overklokkingsbryter</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Viftehastighetsbryter</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Start app</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Slå avanserte innst. av/på</s:String>
+	<s:String
+		x:Key="MUI_Browse">Bla gjennom</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Hvis CoolBoost™ er på, øker det maksimal viftehastighet og muliggjør høyere viftehastigheter under kraftig bruk.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Vifteposisjon</s:String>
+	<s:String
+		x:Key="MUI_Min">Min</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Åpen</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Slange</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Omkrets</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Stjerneskudd</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Etterglød</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Trykk for å slå av</s:String>
+	<s:String
+		x:Key="MUI_Wave">Bølge</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neon</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Krusning</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Regndråpe</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Hekk</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Roter</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Samspill</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Overklokking er bare mulig med begge batterieliminatorer på og 40 %+ batterilevetid.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">To batterieliminatorer kreves for overklokking.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Aktivert</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Deaktivert</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Hurtigtastprofil</s:String>
+	<s:String
+		x:Key="MUI_Edit">Rediger</s:String>
+	<s:String
+		x:Key="MUI_Import">Importer</s:String>
+	<s:String
+		x:Key="MUI_Export">Eksporter</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Eksporter alle</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Duplikat</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Nøkkeltilordning</s:String>
+	<s:String
+		x:Key="MUI_Macro">Makro</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Tastaturbaklys</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Sett inn tastetrykk</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Sett inn forsinkelse</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Start innspilling</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Stopp innspilling</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Registrere forsinkelse</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Fast forsinkelse</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Ingen forsinkelse</s:String>
+	<s:String
+		x:Key="MUI_MS"> ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Avanserte innstillinger</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Avbryt</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Erstatt eller hopp over profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">Det finnes allerede en profil med samme navn i denne mappen.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Erstatt eksisterende profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Hopp over denne profilen</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Behold begge profiler</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Gjør dette for de neste %N% konfliktene.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Gjør dette for den neste konflikten.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Viktig</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Er du sikker på at du vil slette makro "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_YES">Ja</s:String>
+	<s:String
+		x:Key="MUI_NO">Nei</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Temperatur</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPU</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">System</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Gjestebruker kan ikke kjøre %ProductName%.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Viftehastighet</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Du eksporterer en profil kalt "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Importer profil</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Importer og erstatt</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Importer, men behold begge profiler</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Du importerer en profil kalt "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Vil du slette profilen "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Ny profil</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Ny makro</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">Det finnes allerede en profil med samme navn i profillisten.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Det finnes allerede en profil med samme navn.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Skriv inn et annet navn.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Gå til Makroredigeringssiden</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">Du har tilordnet en tom makro til %Num%. Du vil bli ført til makroredigeringssiden.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Ikke påminn meg igjen</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Loggen vil tømmes</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">For å starte en ny innspillingslogg vil gjeldende logg tømmes. Vil du fortsette?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Eksport mislyktes</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Du har ikke nok plass til å eksportere valgt(e) profil(er).</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Import mislyktes</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Denne profilen kan ikke importeres – et uventet problem oppstod.</s:String>
+	<s:String
+		x:Key="MUI_Name">Navn</s:String>
+	<s:String
+		x:Key="MUI_Group">Gruppe</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Velg makro</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Slett profil</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Det finnes allerede en gruppe med samme navn.</s:String>
+	<s:String
+		x:Key="MUI_None">Ingen</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Det finnes allerede en makro med samme navn.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Slett makro</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Endre navn på makro</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Du har overskredet maksimalt antall kommandoer du kan registrere i denne makroen.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profil</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Tidsforsinkelse</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Tast opp</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Tast ned</s:String>
+	<s:String
+		x:Key="MUI_Color">Farge</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Grunnfarger</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Nylige farger</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Mer farge...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Rød</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Grønn</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Blå</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">RASKERE</s:String>
+	<s:String
+		x:Key="MUI_Normal">NORMAL</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

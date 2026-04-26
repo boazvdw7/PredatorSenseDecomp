@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">GPU discreta inatt.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">L''overclocking è disponibile solo quando l''adattatore CA è collegato e la batteria è almeno al 40%.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Zona</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Caricare la batteria almeno al 40% per riprendere l’overclock.</s:String>
+	<s:String
+		x:Key="MUI_Path">Percorso</s:String>
+	<s:String
+		x:Key="MUI_Home">Home</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Overclock</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Tasti rapidi</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Cont ventola</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Monitoraggio</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Tasti Windows e menu</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Tasti adesivo</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Unità temperatura</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 disattivata. Collegare gli adattatori CA per attivare la GPU2.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Profilo rapido</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Profilo illumin</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">Overclock CPU</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">Overclock GPU</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Overclock disponibile con adattatori CA collegati e batteria almeno al 40%.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Gest profilo</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Tastiera</s:String>
+	<s:String
+		x:Key="MUI_Zone">Zona [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Effetti luce</s:String>
+	<s:String
+		x:Key="MUI_Speed">Veloc</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logo</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Barra luce</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Puls accens</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Modulo slide</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Lampeggio</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Retroillumin</s:String>
+	<s:String
+		x:Key="MUI_Static">Static</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dinamic</s:String>
+	<s:String
+		x:Key="MUI_Off">Off</s:String>
+	<s:String
+		x:Key="MUI_All">Tutto</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Tasti freccia</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Righe num</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Tasti Fn</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Seleziona più tasti</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Metodo %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Clic %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">per selez tasti pred.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Tenere premuto Ctrl quindi clic o clic e trascinare per selezionare.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Direzione</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Gestione profilo illumin</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Gestione profilo rapido</s:String>
+	<s:String
+		x:Key="MUI_Close">Chiudi</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Nuovo profilo rapido</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Nuovo profilo illumin</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Frequenza</s:String>
+	<s:String
+		x:Key="MUI_Loading">Caricam</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Clock nucleo</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">Overclock CPU interrotto.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">Overclock GPU ripristinato.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">L’overclock CPU è stato interrotto perché la batteria è inferiore al 40%.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Macro</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Clic su Modifica per personaliz tasti</s:String>
+	<s:String
+		x:Key="MUI_Options">Opzioni</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">Tasto overclock CPU</s:String>
+	<s:String
+		x:Key="MUI_Fan">Vent</s:String>
+	<s:String
+		x:Key="MUI_Auto">Auto</s:String>
+	<s:String
+		x:Key="MUI_Max">Max</s:String>
+	<s:String
+		x:Key="MUI_Custom">Person</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">Tasto overclock GPU</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Tasto velocità ventola</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Avvia app</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Abilita/Disab impostaz avanzate</s:String>
+	<s:String
+		x:Key="MUI_Browse">Scorri</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Se CoolBoost™ è ON, aumenta la velocità massima ventola per velocità superiori ventola durante uso intensivo.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Pos. ventola</s:String>
+	<s:String
+		x:Key="MUI_Min">Min</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Apri</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Serpente</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Incarto</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Raggiera</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Bagliore</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Premere per dis</s:String>
+	<s:String
+		x:Key="MUI_Wave">Onda</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neon</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Increspatura</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Goccia</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Siepe</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Rotazione</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Interazione</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Overclock disponibile con adattatori CA collegati e batteria almeno al 40%.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Collegare gli adattatori CA per riprendere l’overclock.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Attiv.</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Disatt</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Profilo tasti di selezione rapida</s:String>
+	<s:String
+		x:Key="MUI_Edit">Modifica</s:String>
+	<s:String
+		x:Key="MUI_Import">Importa</s:String>
+	<s:String
+		x:Key="MUI_Export">Esporta</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Esporta tutto</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Duplica</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Assegnazione tasti</s:String>
+	<s:String
+		x:Key="MUI_Macro">Macro</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Illuminazione</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Inserisci tocco tasti</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Inserisci ritardo</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Avvia registrazione</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Arresta la registrazione</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Registra ritardo</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Ritardo fisso</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Nessun ritardo</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Impostazioni avanzate</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Annulla</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Sostituisci/ignora profilo</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">C'è già un profilo con lo stesso nome in questa cartella.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Sostituisci profilo esist</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Salta questo profilo</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Tieni entrambi prof</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Esegui per i prossimi %N% conflitti</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Esegui per il prossimo conflitto</s:String>
+	<s:String
+		x:Key="MUI_Attention">Attenzione</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Vuoi davvero eliminare Macro "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_YES">Sì</s:String>
+	<s:String
+		x:Key="MUI_NO">No</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Temperatura</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPU</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Sistema</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Gli utenti client non sono autorizzati a eseguire %ProductName%.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Velocità ventola</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Il profilo esportato sarà nominato "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Importa profilo</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Importa e sostituisci</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Importa, ma conserva entrambi profili</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Il profilo importato sarà nominato "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Vuoi davvero eliminare il Profilo "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Nuovo profilo</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Nuova macro</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">È già presente un profilo con lo stesso nome nell’elenco profili.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">È già presente un profilo con lo stesso nome.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Inserire un altro nome.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Vai alla pagina Modifica Macro</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">È stata assegnata una Macro vuota al tasto %Num%. Sarà aperta la pagina Modifica Macro.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Non ricordare più</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Sarà cancellata la cronologia</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Per avviare una nuova cronologia registrazioni, la cronologia corrente sarà cancellata. Continuare?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Esportazione non riuscita</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Memoria insufficiente per esportare i profili selezionati.</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Importazione non riuscita</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Impossibile importare il profilo a causa di un problema imprevisto.</s:String>
+	<s:String
+		x:Key="MUI_Name">Nome</s:String>
+	<s:String
+		x:Key="MUI_Group">Gruppo</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Seleziona macro</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Elimina profilo</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">È già presente un gruppo con lo stesso nome.</s:String>
+	<s:String
+		x:Key="MUI_None">Nessuno</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">È già presente una macro con lo stesso nome.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Elimina macro</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Rinomina macro</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">È stato superato il numero massimo di comandi che è possibile registrare per la macro.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profilo</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Ritardo</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Rilascia tasto</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Premi tasto</s:String>
+	<s:String
+		x:Key="MUI_Color">Colore</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Colori di base</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Colori recenti</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Altri colori...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Rosso</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Verde</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Blu</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">PIÙ VELOCE</s:String>
+	<s:String
+		x:Key="MUI_Normal">NORMALE</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

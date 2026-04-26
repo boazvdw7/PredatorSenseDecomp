@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">分離したGPUが無作動状態です。</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">オーバークロックは AC アダプタが接続され、バッテリー残量が 40% 以上ある場合にしか実行できません。</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">ゾーン</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">オーバークロックを再開するには、バッテリーの残量が 40% 以上必要です。</s:String>
+	<s:String
+		x:Key="MUI_Path">パス</s:String>
+	<s:String
+		x:Key="MUI_Home">ホーム</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">オーバークロック</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">ホットキー</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">ファン制御</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">モニタリング</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows およびメニューキー</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">固定キー</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">温度単位</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2無効。両ACアダプタを接続し、GPU2を有効にします。</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">ホットキー プロファイル</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">照明プロファイル</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">CPU オーバークロック</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">GPU オーバークロック</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">両ACアダプタが接続され、40%以上のバッテリー残量があればオーバークロックが可能です。</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">プロファイル マネージャ</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">キーボード</s:String>
+	<s:String
+		x:Key="MUI_Zone">ゾーン [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">照明効果</s:String>
+	<s:String
+		x:Key="MUI_Speed">速度</s:String>
+	<s:String
+		x:Key="MUI_Logo">ロゴ</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">照明バー</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">電源ボタン</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">スライドモジュール</s:String>
+	<s:String
+		x:Key="MUI_Breathing">微風</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">逆光</s:String>
+	<s:String
+		x:Key="MUI_Static">スタティック</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">ダイナミック</s:String>
+	<s:String
+		x:Key="MUI_Off">オフ</s:String>
+	<s:String
+		x:Key="MUI_All">すべて</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">方向キー</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">数列</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Fn キー</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">複数のキーを選択します</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">方法 %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">%icon% をクリックして</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">プリセットキーを選択します。</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Ctrlキーを押しながらクリックまたはクリック・アンド・ドラッグで選択。</s:String>
+	<s:String
+		x:Key="MUI_Direction">方向</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">照明プロファイル マネージャ</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">ホットキー プロファイル マネージャ</s:String>
+	<s:String
+		x:Key="MUI_Close">閉じる</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">ホットキー プロファイルの新規作成</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">照明プロファイルの新規作成</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">頻度</s:String>
+	<s:String
+		x:Key="MUI_Loading">読込み中</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">コアクロック</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">CPU オーバークロック停止。</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">CPU オーバークロック再開。</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">バッテリー残量が 40% 以下になったため、CPU オーバークロックが停止しました。</s:String>
+	<s:String
+		x:Key="MUI_Macros">マクロ</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">編集クリックでホットキーを変更</s:String>
+	<s:String
+		x:Key="MUI_Options">オプション</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">CPU オーバークロックの切り替え</s:String>
+	<s:String
+		x:Key="MUI_Fan">ファン</s:String>
+	<s:String
+		x:Key="MUI_Auto">自動</s:String>
+	<s:String
+		x:Key="MUI_Max">最大</s:String>
+	<s:String
+		x:Key="MUI_Custom">カスタム</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">GPU オーバークロックの切り替え</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">ファン速度の切り替え</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">アプリを起動</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">詳細設定を有効/無効にする</s:String>
+	<s:String
+		x:Key="MUI_Browse">参照</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">CoolBoost™ をオンにすると、最大ファン速度が加速され、稼働量が増大した時にファン速度がより早くなります。</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">ファンの位置</s:String>
+	<s:String
+		x:Key="MUI_Min">最低</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">開く</s:String>
+	<s:String
+		x:Key="MUI_Marquee">スネーク</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">ラップ</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">星型</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">残光</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">オフにします</s:String>
+	<s:String
+		x:Key="MUI_Wave">ウェーブ</s:String>
+	<s:String
+		x:Key="MUI_Neon">ネオン</s:String>
+	<s:String
+		x:Key="MUI_Ripple">リップル</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">雨だれ</s:String>
+	<s:String
+		x:Key="MUI_Hedge">ヘッジ</s:String>
+	<s:String
+		x:Key="MUI_Rotate">回転</s:String>
+	<s:String
+		x:Key="MUI_Interaction">対話</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">両ACアダプタが接続され、40%以上のバッテリー残量があればオーバークロックが可能です。</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">両ACアダプタを接続してオーバークロックを再開します。</s:String>
+	<s:String
+		x:Key="MUI_Enabled">有効</s:String>
+	<s:String
+		x:Key="MUI_Disabled">無効</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">ホットキーのプロファイル</s:String>
+	<s:String
+		x:Key="MUI_Edit">編集</s:String>
+	<s:String
+		x:Key="MUI_Import">インポート</s:String>
+	<s:String
+		x:Key="MUI_Export">エクスポート</s:String>
+	<s:String
+		x:Key="MUI_Export_All">すべてエクスポート</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">コピー</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">キーの割り当て</s:String>
+	<s:String
+		x:Key="MUI_Macro">マクロ</s:String>
+	<s:String
+		x:Key="MUI_Lighting">バックライト</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">キーストロークを挿入</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">遅延を挿入</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">記録を開始</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">記録を中止</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">遅延を録画</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">固定遅延</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">遅延させない</s:String>
+	<s:String
+		x:Key="MUI_MS">ミリ秒</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">詳細設定</s:String>
+	<s:String
+		x:Key="MUI_Cancel">キャンセル</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">プロファイルの交換またはスキップ</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">この場所には同じ名前のファイルが既に存在します。</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">既存のプロファイルを交換</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">このプロファイルをスキップ</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">両方のプロファイルを維持</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">次の %N% 件の競合についてもこの方法で解決してください。</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">次の競合についてもこの方法で解決してください。</s:String>
+	<s:String
+		x:Key="MUI_Attention">注意</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">マクロ "%Name%" を削除しますか?</s:String>
+	<s:String
+		x:Key="MUI_YES">はい</s:String>
+	<s:String
+		x:Key="MUI_NO">いいえ</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">温度</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPU</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">システム</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">ゲストユーザーは %ProductName% を起動することはできません。</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">ファン速度</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">エクスポート中のプロファイルは "%Name%" になります</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">プロファイルのインポート</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">インポートして置き換え</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">インポートして両プロファイルを維持する</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">インポート中のプロファイルは "%Name%" になります</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">プロファイル "%Name%" を削除しますか？</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">新規プロファイル</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">新規マクロ</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">プロファイル リストにはすでに同じ名前を持つプロファイルがあります。</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">同じ名前を持つプロファイルがすでに存在します。</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">別の名前を入力してください。</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">マクロ編集ページに移動</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">空のマクロを %Num% キーに割り当てました。マクロ編集ページが開きます。</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">次回からこのメッセージを表示しない</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">履歴が消去されます</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">新しい記録履歴を開始するには、現在の履歴を消去します。よろしいですか?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">エクスポートできませんでした。</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">スペースが不足しているため、選択したプロファイルをエクスポートできません。</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">インポートできませんでした。</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">予期しない問題が発生したため、このプロファイルはインポートできません。</s:String>
+	<s:String
+		x:Key="MUI_Name">名前</s:String>
+	<s:String
+		x:Key="MUI_Group">グループ</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">マクロを選択</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">プロファイルを削除</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">同じ名前を持つグループがすでに存在します。</s:String>
+	<s:String
+		x:Key="MUI_None">なし</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">同じ名前を持つマクロがすでに存在します。</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">マクロを削除</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">マクロに別名を付ける</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">このマクロに記録できるコマンドの上限を超えました。</s:String>
+	<s:String
+		x:Key="MUI_Profile">プロファイル </s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">遅延 </s:String>
+	<s:String
+		x:Key="MUI_Key_up">キーを放す </s:String>
+	<s:String
+		x:Key="MUI_Key_Down">キーを押す </s:String>
+	<s:String
+		x:Key="MUI_Color">色</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">基本色</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">最近使った色</s:String>
+	<s:String
+		x:Key="MUI_More_Color">その他の色...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">赤</s:String>
+	<s:String
+		x:Key="MUI_Green_G">緑</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">青</s:String>
+	<s:String
+		x:Key="MUI_Turbo">ターボ</s:String>
+	<s:String
+		x:Key="MUI_Faster">高速</s:String>
+	<s:String
+		x:Key="MUI_Normal">標準</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

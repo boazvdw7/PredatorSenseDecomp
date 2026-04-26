@@ -1,0 +1,25 @@
+﻿using System;
+
+namespace TsDotNetLib
+{
+	// Token: 0x02000002 RID: 2
+	public enum DEVICE_RADIO_STATE
+	{
+		// Token: 0x04000002 RID: 2
+		DRS_RADIO_ON,
+		// Token: 0x04000003 RID: 3
+		DRS_SW_RADIO_OFF,
+		// Token: 0x04000004 RID: 4
+		DRS_HW_RADIO_OFF,
+		// Token: 0x04000005 RID: 5
+		DRS_SW_HW_RADIO_OFF,
+		// Token: 0x04000006 RID: 6
+		DRS_HW_RADIO_ON_UNCONTROLLABLE,
+		// Token: 0x04000007 RID: 7
+		DRS_RADIO_INVALID,
+		// Token: 0x04000008 RID: 8
+		DRS_HW_RADIO_OFF_UNCONTROLLABLE,
+		// Token: 0x04000009 RID: 9
+		DRS_RADIO_MAX = 6
+	}
+}

@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Diskr. GPU ei-aktiiv.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Ylikellotus on käytettävissä vain, kun verkkolaite on liitetty ja akkua on jäljellä vähintään 40 %.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Vyöh</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Lataa akkuun vähintään 40 % ylikellotuksen jatkamiseksi.</s:String>
+	<s:String
+		x:Key="MUI_Path">Polku</s:String>
+	<s:String
+		x:Key="MUI_Home">Koti</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Ylikellotus</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Pikanäppäin</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Tuuletinohj</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Valvonta</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows ja valik.näp</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Tarttuvat näppäimet</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Lämpötilayksiköt</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 pois päältä. Ota GPU2 käyttöön liittämällä verkkolaitteet.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Pikanäppäinprof</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Valaistusprof</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">CPU Ylikellotus</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">GPU Ylikellotus</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Ylikellotus käytettävissä vain, kun verkkolaitteet liitetty ja akkua jäljellä väh. 40%.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Profiilinhall.</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Näppäimistö</s:String>
+	<s:String
+		x:Key="MUI_Zone">Vyöh [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Valotehosteet</s:String>
+	<s:String
+		x:Key="MUI_Speed">Nopeus</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logo</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Valopalkki</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Virtapainike</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Liukumoduuli</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Hengitys</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Taustavalo</s:String>
+	<s:String
+		x:Key="MUI_Static">Staatt</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dynaam</s:String>
+	<s:String
+		x:Key="MUI_Off">Off</s:String>
+	<s:String
+		x:Key="MUI_All">Kaikki</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Nuolinäpp</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Numerorivit</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Fn-näpp</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Valitse useita näppäimiä</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Tapa %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Naps. %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">näpp. valitsemiseksi.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Paina Ctrl ja valitse napsauttamalla/napsauttamalla ja vetämällä.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Suunta</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Valaistusprof. hallinta</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Pikanäppäinprof hallinta</s:String>
+	<s:String
+		x:Key="MUI_Close">Sulje</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Uusi pikanäppäinprofiili</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Uusi valaistusprofiili</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Taajuus</s:String>
+	<s:String
+		x:Key="MUI_Loading">Lataa</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Ydinkello</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">CPU:n ylikellotus on pysäytetty.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">CPU:n ylikellotus on palautettu.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">CPU:n ylikellotus on pysäytetty, koska akun varausta on jäljellä alle 40%.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Makrot</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Mukauta p-näpp napsauttamalla Muokkaa</s:String>
+	<s:String
+		x:Key="MUI_Options">Asetuks</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">CPU:n ylikellotuskytkin</s:String>
+	<s:String
+		x:Key="MUI_Fan">Fan</s:String>
+	<s:String
+		x:Key="MUI_Auto">Auto</s:String>
+	<s:String
+		x:Key="MUI_Max">Max</s:String>
+	<s:String
+		x:Key="MUI_Custom">Mukaut</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">GPU:n ylikellotuskytkin</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Tuulettimen nopeuskytkin</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Käynnistä sovellus</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Lisäasetukset päälle/pois</s:String>
+	<s:String
+		x:Key="MUI_Browse">Selaa</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Jos CoolBoost™ on päällä, se lisää tuulettimen maksiminopeutta ja sallii suuremmat nopeudet raskaassa käytössä.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Tuulett sij.</s:String>
+	<s:String
+		x:Key="MUI_Min">Min</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Avaa</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Käärme</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Kääre</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Tähtisade</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Iltarusko</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Paina pois</s:String>
+	<s:String
+		x:Key="MUI_Wave">Aalto</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neon</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Väre</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Sadepisara</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Pensasaita</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Kierrä</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Vuorovaikutus</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Ylikellotus käytettävissä vain, kun verkkolaitteet liitetty ja akkua jäljellä väh. 40%.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Jatka ylikellotusta liittämällä kumpikin verkkolaite.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Päällä</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Pois</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Pikanäppäin-profiili</s:String>
+	<s:String
+		x:Key="MUI_Edit">Muokkaa</s:String>
+	<s:String
+		x:Key="MUI_Import">Tuo</s:String>
+	<s:String
+		x:Key="MUI_Export">Vie</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Vie kaikki</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Monista</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Näppäinvaraus</s:String>
+	<s:String
+		x:Key="MUI_Macro">Makro</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Valaistus</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Lisää painallus</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Lisää viive</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Käynnistä tallennus</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Lopeta tallennus</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Tallenna viive</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Kiinteä viive</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Ei viivettä</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Lisäasetukset</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Peruuta</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Korvaa/ohita profiili</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">Tässä kansiossa on jo samanniminen profiili.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Korvaa nykyinen profiili</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Ohita tämä profiili</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Säilytä molemmat</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Tee tämä seuraavia %N% ristiriitaa varten.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Tee tämä seuraavaa ristiriitaa varten.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Huomio</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Haluatko varmasti poistaa makron "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_YES">Kyllä</s:String>
+	<s:String
+		x:Key="MUI_NO">Ei</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Lämpötila</s:String>
+	<s:String
+		x:Key="MUI_CPU">Suoritin</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Järjestelmä</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Vieraskäyttäjä ei voi suorittaa %ProductName% -ohjelmaa.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Tuulettimen nopeus</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Vietävän profiilin nimeksi tulee "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Tuo profiili</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Tuo ja korvaa</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Tuo, mutta säilytä molemmat profiilit</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Tuotavan profiilin nimeksi tulee "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Haluatko varmasti poistaa Profiilin "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Uusi profiili</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Uusi makro</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">Profiililuettelossa on jo samanniminen profiili.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Samanniminen profiili on jo olemassa.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Anna toinen nimi.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Siirry Makron muokkaussivulle</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">Olet määrittänyt tyhjän Makron näppäimelle %Num%. Sinut viedään Makron muokkaussivulle.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Älä muistuta minua uudelleen</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Historia tyhjennetään</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Nykyinen historia tyhjennetään kun aloitat uuden tallennushistorian. Haluatko jatkaa?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Vienti epäonnistui</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Sinulla ei ole riittävästi tallennustilaa, jotta valitut profiilit voitaisiin viedä.</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Tuonti epäonnistui</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Profiilia ei voida tuoda odottamattoman ongelman takia.</s:String>
+	<s:String
+		x:Key="MUI_Name">Nimi</s:String>
+	<s:String
+		x:Key="MUI_Group">Ryhmä</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Valitse makro</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Poista profiili</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Samalla nimellä on jo ryhmä.</s:String>
+	<s:String
+		x:Key="MUI_None">Ei mitään</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Samalla nimellä on jo makro.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Poista makro</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Nimeä makro uudelleen</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Tähän makroon tallennettavien komentojen enimmäismäärä on ylittynyt.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profiili</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Aikaviive</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Näppäin ylös</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Näppäin alas</s:String>
+	<s:String
+		x:Key="MUI_Color">Väri</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Perusvärit</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Viimeiset värit</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Lisää värejä...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Pun.</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Vihreä</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Sin.</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">NOPEAMPI</s:String>
+	<s:String
+		x:Key="MUI_Normal">NORMAALI</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

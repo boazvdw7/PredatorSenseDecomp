@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Ayrık GPU boşta.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Hız aşırtma sadece AC adaptörü takılı iken ve en az %40 pil ömrü kalmışken kullanılabilir.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Bölge</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Hız aşırtmaya sürdürmek için pili en az %40''a şarj edin.</s:String>
+	<s:String
+		x:Key="MUI_Path">Yol</s:String>
+	<s:String
+		x:Key="MUI_Home">Ana Sayfa</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Hız aşırtma</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Kısayol tuşu</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Fan Kontrolü</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">İzleme</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows ve menü tuşu</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Yapışkan tuşlar</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Sıcaklık birimleri</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 engelli. Heriki AC adaptörü takarak GPU2''yi etkinleştirin.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Hızlı Erişim Tuşu Profili</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Aydınlatma Profili</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">CPU Hız Aşırtma</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">GPU Hız Aşırtma</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Hız aşırtma sadece heriki AC adaptörü takılı ve enaz %40 pil ömrü varken kullanılabilir.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Profil Yöneticisi</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Klavye</s:String>
+	<s:String
+		x:Key="MUI_Zone">Bölge [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Işık Efektleri</s:String>
+	<s:String
+		x:Key="MUI_Speed">Hız</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logo</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Işık çubuğu</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Güç düğmesi</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Kaydırma modülü</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Nefes alma</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Arka aydınlatma</s:String>
+	<s:String
+		x:Key="MUI_Static">Statik</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dinamik</s:String>
+	<s:String
+		x:Key="MUI_Off">Kapama</s:String>
+	<s:String
+		x:Key="MUI_All">Tümü</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Ok tuşları</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Sayı satırları</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Fn tuşları</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Çoklu Tuşları Seç</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Yöntem %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">%icon% üzerine tıklayın</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">önceden ayarlı tuşları seçin.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Ctrl''ye basılı tutun, sonra tıklayın veya tıklayıp sürüklerek seçin.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Yön</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Aydınlatma Profili Yöneticisi</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Hızlı Erişim Tuşu Profil Yöneticisi</s:String>
+	<s:String
+		x:Key="MUI_Close">Kapat</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Yeni Hızlı Tuş Profili</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Yeni Aydınlatma Profili</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Frekans</s:String>
+	<s:String
+		x:Key="MUI_Loading">Yklnyor</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Çekirdek Saat</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">CPU hız aşırtma durduruldu.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">CPU hız aşırtma devam ettirildi.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">Kalan pil %40''un altına gerilediğinden CPU hız aşırtma durdu.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Makrolar</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">H.Erş. tşnu özllş.için Dznl''ye tıkl.</s:String>
+	<s:String
+		x:Key="MUI_Options">Seçenekler</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">CPU Hız Aşırtma Svici</s:String>
+	<s:String
+		x:Key="MUI_Fan">Fan</s:String>
+	<s:String
+		x:Key="MUI_Auto">Oto</s:String>
+	<s:String
+		x:Key="MUI_Max">Maks</s:String>
+	<s:String
+		x:Key="MUI_Custom">Özel</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">GPU Hız Aşırtma Svici</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Fan Hız Svici</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Uygulamayı Başlat</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Gel.Ayrlrı Etkinleştir/Engelle</s:String>
+	<s:String
+		x:Key="MUI_Browse">Gözat</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">CoolBoost™ AÇIK''sa, maks. fan hızını artırarak ağır kullanımda daha hızlı fan hızlarına olanak sağlar.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Fan Konumu</s:String>
+	<s:String
+		x:Key="MUI_Min">Min</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Aç</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Yılan</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Sargı</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Yıldız yağmuru</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Gör. tutulması</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Kapatmak için basın</s:String>
+	<s:String
+		x:Key="MUI_Wave">Dalga</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neon</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Küçük dalga</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Yağmur damlası</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Çit</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Döndür</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Etkileşim</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Hız aşırtma sadece heriki AC adaptörü takılı ve enaz %40 pil ömrü varken kullanılabilir.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Heriki AC adaptörü de bağlayarak hız aşırtmayı srdrün.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Etkin</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Devre dışı</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Hızlı erişim tuşu profili</s:String>
+	<s:String
+		x:Key="MUI_Edit">Düzenle</s:String>
+	<s:String
+		x:Key="MUI_Import">İçeri aktar</s:String>
+	<s:String
+		x:Key="MUI_Export">Dışa aktarım</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Tümünü dışarı aktar</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Kopyala</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Tuş ataması</s:String>
+	<s:String
+		x:Key="MUI_Macro">Makro</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Işıklandırma</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Tuş vuruşu ekle</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Gecikme ekle</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Kaydı başlat</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Kaydı durdur</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Gecikmeyi kaydet</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Sabit gecikme</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Gecikme yok</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Gelişmiş ayarlar</s:String>
+	<s:String
+		x:Key="MUI_Cancel">İptal</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Prfl Dğştir veya Atla</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">Bu klasörde zaten aynı adlı bir profil var.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Mvct Prfl Değiştir</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Bu profili geç</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Heriki Prfli de tut</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Bir sonraki %N% çakışmasında bunu yap.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Bir sonraki çakışmada bunu yap.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Dikkat</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">%Name% makroyu silmek istediğinizden emin misiniz?</s:String>
+	<s:String
+		x:Key="MUI_YES">Evet</s:String>
+	<s:String
+		x:Key="MUI_NO">Hayır</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Sıcaklık</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPU</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Sistem</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Konuk kullanıcı %ProductName% 'ü çalıştıramaz.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Fan hızı</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">Tamam</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Dışarı aktarılan profilin adı "%Name%" olacak</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Profili İçeri aktar</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">İçeri aktar ve değiştir</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">İçeri aktar, fakat profilleri tut</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">İçeri aktarılan profilin adı "%Name%" olacak</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">"%Name%" Profilini silmek ister misiniz?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Yeni profil</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Yeni profil</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">Profil listesinde aynı ada sahip bir profil zaten var.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Aynı ada sahip bir profil zaten var.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Lütfen başka bir ad girin.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Makro Düzenleme Sayfasına gidin</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">%Num% tuşuna boş bir Makro atadınız. Makro düzenleme sayfasına gideceksiniz.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Bana bir daha hatırlatma</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Geçmiş Temizlenecek</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Yeni bir kayıt geçmişi başlatmak için, mevcut geçmiş temizlenecektir. İlerlemek ister misiniz?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Dışarı Aktarılamadı</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Seçilen profil(leri) dışarı aktarabilmek için yeterli depolama alanınız bulunmamaktadır.</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">İçeri Aktarılamadı</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Beklenmeyen bir sorun sebebiyle bu profil içeri aktarılamaz.</s:String>
+	<s:String
+		x:Key="MUI_Name">Adı</s:String>
+	<s:String
+		x:Key="MUI_Group">Grup</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Makro seç</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Profili sil</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Ayna adda bir grup daha var.</s:String>
+	<s:String
+		x:Key="MUI_None">Yok</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Ayna adda bir makro daha var.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Makroyu sil</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Makroyu adlandır</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Bu makroya kaydedebileceğiniz maksimum komut sayısını aştınız.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profil</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Zaman gecikmesi</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Kaldır</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Bas</s:String>
+	<s:String
+		x:Key="MUI_Color">Renk</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Temel renkler</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Son renkler</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Diğer renkler...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Krmzı</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Yeşil</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Mavi</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">DAHA HIZLI</s:String>
+	<s:String
+		x:Key="MUI_Normal">NORMAL</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>
