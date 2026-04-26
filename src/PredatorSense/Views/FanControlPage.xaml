@@ -210,7 +210,7 @@
 					HorizontalAlignment="Center"
 					VerticalAlignment="Top"
 					FontSize="12"
-					Foreground="{DynamicResource UiMainTextBrush}"
+					Foreground="{DynamicResource UiFanTextBrush}"
 					Text="{DynamicResource MUI_RPM}" />
 			</Grid>
 			<Grid
@@ -261,7 +261,7 @@
 					HorizontalAlignment="Center"
 					VerticalAlignment="Top"
 					FontSize="12"
-					Foreground="{DynamicResource UiMainTextBrush}"
+					Foreground="{DynamicResource UiFanTextBrush}"
 					Text="{DynamicResource MUI_RPM}" />
 			</Grid>
 			<StackPanel
@@ -361,7 +361,6 @@
 				VerticalAlignment="Top"
 				HorizontalAlignment="Left"
 				FontSize="16"
-				Foreground="{DynamicResource UiMainTextBrush}"
 				Margin="44,28,0,0"
 				Text="{DynamicResource MUI_Fan_Control}"
 				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}" />

@@ -295,7 +295,7 @@
 					HorizontalAlignment="Center"
 					VerticalAlignment="Top"
 					FontSize="12"
-					Foreground="{DynamicResource UiMainTextBrush}"
+					Foreground="{DynamicResource UiFanTextBrush}"
 					Text="{DynamicResource MUI_RPM}" />
 			</Grid>
 			<Grid
@@ -346,7 +346,7 @@
 					HorizontalAlignment="Center"
 					VerticalAlignment="Top"
 					FontSize="12"
-					Foreground="{DynamicResource UiMainTextBrush}"
+					Foreground="{DynamicResource UiFanTextBrush}"
 					Text="{DynamicResource MUI_RPM}" />
 			</Grid>
 			<StackPanel

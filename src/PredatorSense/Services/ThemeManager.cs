@@ -21,8 +21,6 @@ namespace PredatorSense
 			"btn_gfe",
 			"Img_monitor_chartshadow",
 			"Img_monitor_chart",
-			"Img_fan",
-			"Img_fan_position",
 			"Img_oc_dashboard_normal",
 			"Img_oc_dashboard_faster",
 			"Img_oc_dashboard_turbo",
@@ -45,6 +43,7 @@ namespace PredatorSense
 			{
 				return;
 			}
+			
 
 			SetBrush("UiWindowBackgroundBrush", darkMode ? "#1B1D21" : "#F3F3F3");
 			SetBrush("UiWindowBorderBrush", darkMode ? "#30333A" : "#D0D0D0");
@@ -53,23 +52,24 @@ namespace PredatorSense
 			SetBrush("UiTitleBarBackgroundBrush", darkMode ? "#20242B" : "#F3F4F5");
 			SetBrush("UiTitleBarBorderBrush", darkMode ? "#353B45" : "#DADCE0");
 			SetBrush("UiMainTextBrush", darkMode ? "#F1F3F5" : "#1F1F1F");
+			SetBrush("UiFanTextBrush", darkMode ? "#F1F3F5" : "#F1F3F5");
 			SetBrush("UiMutedTextBrush", darkMode ? "#A9B0BC" : "#808080");
 			SetBrush("UiSubtleTextBrush", darkMode ? "#9098A8" : "#666666");
 			SetBrush("UiPopupBackgroundBrush", darkMode ? "#2A2F38" : "#FFFFFF");
 			SetBrush("UiPopupBorderBrush", darkMode ? "#404754" : "#DDDDDD");
-			SetBrush("UiButtonBackgroundBrush", darkMode ? "#2D333D" : "#F8F8F8");
+			SetBrush("UiButtonBackgroundBrush", darkMode ? "#454a52" : "#F8F8F8");
 			SetBrush("UiButtonBorderBrush", darkMode ? "#454D5B" : "#D0D0D0");
 			SetBrush("UiPngOverlayBrush", darkMode ? "#22FFFFFF" : "#00FFFFFF");
-
-			Startup.styled["UiPngImageEffect"] = darkMode
-				? (object)new DropShadowEffect
-				{
-					Color = (Color)ColorConverter.ConvertFromString("#DCE2EA"),
-					BlurRadius = 8.0,
-					ShadowDepth = 0.0,
-					Opacity = 0.2
-				}
-				: null;
+			
+			// Startup.styled["UiPngImageEffect"] = darkMode
+			// 	? (object)new DropShadowEffect
+			// 	{
+			// 		Color = (Color)ColorConverter.ConvertFromString("#878787"),
+			// 		BlurRadius = 8.0,
+			// 		ShadowDepth = 0.0,
+			// 		Opacity = 0.2
+			// 	}
+			// 	: null;
 
 			ApplyImageBrightnessResources(darkMode);
 		}

@@ -256,6 +256,7 @@
 					Content="Settings"
 					Background="{DynamicResource UiButtonBackgroundBrush}"
 					BorderBrush="{DynamicResource UiButtonBorderBrush}"
+					Foreground="{DynamicResource UiMainTextBrush}"
 					Click="Setting_Button_Click" />
 			</Grid>
 			<Popup
@@ -469,7 +470,9 @@
 							VerticalAlignment="Center"
                             Padding="10,4"
                             Margin="0,6,0,0"
-                            Foreground="{DynamicResource UiMainTextBrush}"/>
+                            Foreground="{DynamicResource UiMainTextBrush}"
+							Background="{DynamicResource UiButtonBackgroundBrush}"
+							BorderBrush="{DynamicResource UiButtonBorderBrush}"/>
                         <StackPanel
 							Grid.Column="1"
 							Grid.Row="4"

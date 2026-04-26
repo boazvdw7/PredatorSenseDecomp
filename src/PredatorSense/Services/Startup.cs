@@ -252,27 +252,164 @@ namespace PredatorSense
 		// Token: 0x060002B4 RID: 692 RVA: 0x0001FD7C File Offset: 0x0001DF7C
 		private static void EnsureProcessesAlive()
 		{
-			string text = "-noui";
-			int num = 3;
-			if (Process.GetProcessesByName("PSSvc").Length != 0)
+			bool svcRunning = Startup.IsServiceRunning("PSSvc") || Startup.IsProcessRunning("PSSvc");
+			bool adminAgentRunning = Startup.IsProcessRunning("PSAdminAgent") || Startup.FindWindow("PSADMINAGENT", "PSAdminAgent") != IntPtr.Zero;
+			bool agentRunning = Startup.IsProcessRunning("PSAgent") || Startup.FindWindow("PSAGENT", "PSAgent") != IntPtr.Zero;
+			if (!svcRunning)
 			{
-				text += " -nopssvc";
-				num--;
+				Startup.TryStartService("PSSvc");
 			}
-			if (Startup.FindWindow("PSADMINAGENT", "PSAdminAgent") != IntPtr.Zero)
+			if (!adminAgentRunning)
 			{
-				text += " -nopsadminagent";
-				num--;
+				Startup.TryStartHelperExecutable("PSAdminAgent.exe", null);
 			}
-			if (Startup.FindWindow("PSAGENT", "PSAgent") != IntPtr.Zero)
+			if (!agentRunning)
 			{
-				text += " -nopsagent";
-				num--;
+				Startup.TryStartHelperExecutable("PSAgent.exe", null);
 			}
-			if (num > 0)
+			Thread.Sleep(250);
+			svcRunning = Startup.IsServiceRunning("PSSvc") || Startup.IsProcessRunning("PSSvc");
+			adminAgentRunning = Startup.IsProcessRunning("PSAdminAgent") || Startup.FindWindow("PSADMINAGENT", "PSAdminAgent") != IntPtr.Zero;
+			agentRunning = Startup.IsProcessRunning("PSAgent") || Startup.FindWindow("PSAGENT", "PSAgent") != IntPtr.Zero;
+			if (!svcRunning || !adminAgentRunning || !agentRunning)
 			{
-				Startup.ShellExecute(IntPtr.Zero, null, Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\PSLauncher.exe", text, null, 0);
+				string text = "-noui";
+				if (svcRunning)
+				{
+					text += " -nopssvc";
+				}
+				if (adminAgentRunning)
+				{
+					text += " -nopsadminagent";
+				}
+				if (agentRunning)
+				{
+					text += " -nopsagent";
+				}
+				Startup.TryStartHelperExecutable("PSLauncher.exe", text);
 			}
+		}
+
+		private static bool IsProcessRunning(string processName)
+		{
+			try
+			{
+				Process[] processesByName = Process.GetProcessesByName(processName);
+				try
+				{
+					return processesByName.Length != 0;
+				}
+				finally
+				{
+					for (int i = 0; i < processesByName.Length; i++)
+					{
+						processesByName[i].Dispose();
+					}
+				}
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		private static bool IsServiceRunning(string serviceName)
+		{
+			try
+			{
+				using (ServiceController serviceController = new ServiceController(serviceName))
+				{
+					return serviceController.Status == ServiceControllerStatus.Running;
+				}
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		private static void TryStartService(string serviceName)
+		{
+			try
+			{
+				using (ServiceController serviceController = new ServiceController(serviceName))
+				{
+					if (serviceController.Status == ServiceControllerStatus.Stopped || serviceController.Status == ServiceControllerStatus.StopPending)
+					{
+						serviceController.Start();
+						serviceController.WaitForStatus(ServiceControllerStatus.Running, TimeSpan.FromSeconds(3.0));
+					}
+				}
+			}
+			catch
+			{
+			}
+		}
+
+		private static void TryStartHelperExecutable(string exeName, string arguments)
+		{
+			string text = Startup.ResolveHelperExecutablePath(exeName);
+			if (string.IsNullOrEmpty(text))
+			{
+				return;
+			}
+			try
+			{
+				Process.Start(new ProcessStartInfo
+				{
+					FileName = text,
+					Arguments = arguments ?? string.Empty,
+					WorkingDirectory = Path.GetDirectoryName(text),
+					UseShellExecute = true,
+					WindowStyle = ProcessWindowStyle.Hidden
+				});
+			}
+			catch
+			{
+				try
+				{
+					Startup.ShellExecute(IntPtr.Zero, null, text, arguments, Path.GetDirectoryName(text), 0);
+				}
+				catch
+				{
+				}
+			}
+		}
+
+		private static string ResolveHelperExecutablePath(string exeName)
+		{
+			string[] array = new string[]
+			{
+				Path.Combine(AppDomain.CurrentDomain.BaseDirectory, exeName),
+				Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, exeName)
+			};
+			for (int i = 0; i < array.Length; i++)
+			{
+				if (!string.IsNullOrEmpty(array[i]) && File.Exists(array[i]))
+				{
+					return array[i];
+				}
+			}
+			string text = AppDomain.CurrentDomain.BaseDirectory;
+			try
+			{
+				DirectoryInfo directoryInfo = new DirectoryInfo(text);
+				int num = 0;
+				while (directoryInfo != null && num < 8)
+				{
+					string text2 = Path.Combine(directoryInfo.FullName, "libs", exeName);
+					if (File.Exists(text2))
+					{
+						return text2;
+					}
+					directoryInfo = directoryInfo.Parent;
+					num++;
+				}
+			}
+			catch
+			{
+			}
+			return null;
 		}
 
 		// Token: 0x04000359 RID: 857
