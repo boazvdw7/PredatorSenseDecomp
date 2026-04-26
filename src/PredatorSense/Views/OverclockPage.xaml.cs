@@ -577,7 +577,7 @@ namespace PredatorSense
 			this.lock_gpu_oc_button(false);
 			ThreadStart threadStart = delegate
 			{
-				CommonFunction.set_gpu_oc_level(level).GetAwaiter();
+				CommonFunction.set_gpu_oc_level(level).GetAwaiter().GetResult();
 				Thread.Sleep(1000);
 				List<int> max_gpu_freq = CommonFunction.get_gpu_frequency(CommonFunction.Frequency_Mode.fMax).GetAwaiter().GetResult();
 				Thread.Sleep(1000);

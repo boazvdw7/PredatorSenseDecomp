@@ -8,6 +8,24 @@
 - `installer/` - Inno Setup installer script
 - `libs/` - External runtime binaries used by predator sense
 
+## New Features
+
+- Windows 11 support + bugfixes
+- Fan Curve Modifier
+- Dark/light skin
+- Ported to latest .NET version
+- Modern WPF UI (will be replaced with WinUI in the near future)
+- Open-Source
+
+## Future Plans
+
+- Add profiles to fan curve
+- x64 support
+- Replace WPF with WinUI
+- Expand compatibility for other predator models
+- Manual GPU Overlock
+- Add CPU Overclock
+
 ## Installation
 
 ### Prerequisites
@@ -23,3 +41,8 @@
 ### Issues
 
 If you have any other issues please open an issue on GitHub.
+
+
+## Note for Acer
+
+Sorry to decompile your software, but you took down the download from the driver page.

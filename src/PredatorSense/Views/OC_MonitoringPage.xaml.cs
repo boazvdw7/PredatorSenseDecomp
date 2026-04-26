@@ -885,7 +885,7 @@ namespace PredatorSense
 			this.lock_gpu_oc_radiobutton(false);
 			ThreadStart threadStart = delegate
 			{
-				CommonFunction.set_gpu_oc_level(level).GetAwaiter();
+				CommonFunction.set_gpu_oc_level(level).GetAwaiter().GetResult();
 				Thread.Sleep(2000);
 				this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
 				{

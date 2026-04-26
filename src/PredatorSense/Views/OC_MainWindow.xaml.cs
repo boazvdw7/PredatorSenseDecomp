@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -441,6 +442,7 @@ namespace PredatorSense
 					do
 					{
 						this.get_temperature_frequency_usage_info_data();
+						this.get_gpu_frequency_data();
 						Thread.Sleep(5000);
 					}
 					while (!token.IsCancellationRequested);
@@ -563,6 +565,40 @@ namespace PredatorSense
             var editor = new FanCurveEditor();
             editor.Owner = this;
             editor.ShowDialog();
+        }
+
+        private void get_gpu_frequency_data()
+        {
+            try
+            {
+                int gpu_frequency = -1;
+                try
+                {
+                    List<int> freq_data = CommonFunction.get_gpu_frequency(CommonFunction.Frequency_Mode.fNormal).GetAwaiter().GetResult();
+                    if (freq_data != null && freq_data.Count > 0)
+                    {
+                        gpu_frequency = freq_data[0];
+                    }
+                }
+                catch
+                {
+                }
+
+                base.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
+                {
+                    if (gpu_frequency > 0)
+                    {
+                        this.Monitoring_Page.CPU_frequency_TextBlock.Text = gpu_frequency.ToString();
+                    }
+                    else
+                    {
+                        this.Monitoring_Page.CPU_frequency_TextBlock.Text = "--";
+                    }
+                }));
+            }
+            catch
+            {
+            }
         }
 
         // Token: 0x060000FA RID: 250 RVA: 0x0000B6F4 File Offset: 0x000098F4
