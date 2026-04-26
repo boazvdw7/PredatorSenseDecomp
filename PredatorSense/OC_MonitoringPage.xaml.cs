@@ -958,6 +958,13 @@ namespace PredatorSense
 			oc_MainWindow.dont_do_oc_flag = false;
 		}
 
+		public void SetOverclockingSectionVisible(bool visible)
+		{
+			Visibility visibility = visible ? Visibility.Visible : Visibility.Hidden;
+			this.OC_Grid.Visibility = visibility;
+			this.OverclockingHeader_TextBlock.Visibility = visibility;
+		}
+
 		// Token: 0x06000131 RID: 305 RVA: 0x0000EA0C File Offset: 0x0000CC0C
 		public void update_discrete_gpu_state(bool state)
 		{

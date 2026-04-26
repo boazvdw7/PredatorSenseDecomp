@@ -1,22 +1,30 @@
 <Window
-	x:Class="PredatorSense.OC_MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="PredatorSense.OC_MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework"
 	x:Name="mainWindow"
 	Title="PredatorSense"
 	Height="760"
 	Width="1320"
 	WindowStyle="None"
-	AllowsTransparency="True"
+	AllowsTransparency="False"
 	UseLayoutRounding="True"
 	Focusable="True"
-	ResizeMode="CanMinimize"
+	ResizeMode="CanResize"
 	WindowStartupLocation="CenterScreen"
 	FontFamily="Segoe UI" xmlns:predatorsense="clr-namespace:PredatorSense"
-	Background="{x:Null}"
+	Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
 	StateChanged="Window_StateChanged"
 	Loaded="Window_Loaded"
 	MouseLeftButtonDown="mainWindow_MouseLeftButtonDown"
 	SourceInitialized="mainWindow_SourceInitialized"
 	Closing="mainWindow_Closing">
+	<shell:WindowChrome.WindowChrome>
+		<shell:WindowChrome
+			CaptionHeight="0"
+			ResizeBorderThickness="8"
+			GlassFrameThickness="0"
+			CornerRadius="10"
+			UseAeroCaptionButtons="False" />
+	</shell:WindowChrome.WindowChrome>
 	<FrameworkElement.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
@@ -27,42 +35,124 @@
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
 	</FrameworkElement.Resources>
-	<Viewbox
-		x:Name="wndViewbox"
-		Stretch="Uniform">
+	<Border
+		Background="#F3F3F3"
+		BorderBrush="#D0D0D0"
+		BorderThickness="1"
+		CornerRadius="10"
+		ClipToBounds="True">
 		<Grid
 			x:Name="Main_Grid"
-			Width="1320"
-			Height="760"
+			TextElement.Foreground="#1F1F1F"
 			MouseDown="Main_Grid_MouseDown">
 			<Panel.Background>
-				<ImageBrush
-					ImageSource="{DynamicResource Img_bg}" />
+				<SolidColorBrush Color="#F3F3F3" />
 			</Panel.Background>
 			<Grid.RowDefinitions>
 				<RowDefinition
-					Height="92" />
+					Height="52" />
 				<RowDefinition
 					Height="*" />
 				<RowDefinition
-					Height="44" />
+					Height="0" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition
-					Width="84" />
+					Width="0" />
 				<ColumnDefinition
 					Width="*" />
 				<ColumnDefinition
-					Width="84" />
+					Width="0" />
 			</Grid.ColumnDefinitions>
-			<Image
-				Grid.Column="1"
+			<Border
+				Grid.Column="0"
 				Grid.Row="1"
-				Width="1152"
-				Height="624"
-				HorizontalAlignment="Left"
-				VerticalAlignment="Top"
-				Source="{DynamicResource img_bg_newboard_oc}" />
+				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				Margin="10,10,10,10"
+				Background="#F3F3F3"
+				BorderBrush="#D0D0D0"
+				BorderThickness="1"
+				CornerRadius="8" />
+			<Border
+				Grid.Column="0"
+				Grid.Row="0"
+				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
+				Background="#F3F3F3"
+				BorderBrush="#D0D0D0"
+				BorderThickness="0,0,0,1">
+				<Grid
+					Height="52"
+					MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<StackPanel
+						Grid.Column="0"
+						Orientation="Horizontal"
+						VerticalAlignment="Center"
+						Margin="14,0,0,0">
+						<Image
+							Width="16"
+							Height="16"
+							Source="app_icon.ico" />
+						<TextBlock
+							Text="PredatorSense Settings"
+							Foreground="#1F1F1F"
+							FontSize="18"
+							FontWeight="SemiBold"
+							Margin="10,0,0,0"
+							VerticalAlignment="Center" />
+					</StackPanel>
+					<StackPanel
+						Grid.Column="1"
+						Orientation="Horizontal"
+						VerticalAlignment="Center"
+						Margin="0,0,8,0">
+						<Button
+							x:Name="gfe_Button"
+							Width="92"
+							Height="30"
+							Margin="0,0,8,0"
+							Content="GeForce"
+							Background="#F3F3F3"
+							BorderBrush="#D0D0D0"
+							Click="gfe_Button_Click"
+							Initialized="gfe_Button_Initialized"
+							MouseEnter="gfe_Button_MouseEnter"
+							MouseLeave="gfe_Button_MouseLeave" />
+						<Button
+							x:Name="Setting_Button"
+							Width="86"
+							Height="30"
+							Margin="0,0,8,0"
+							Content="Settings"
+							Background="#F3F3F3"
+							BorderBrush="#D0D0D0"
+							Click="Setting_Button_Click" />
+						<Button
+							x:Name="Maximize_Button"
+							Width="38"
+							Height="30"
+							Content="&#xE922;"
+							FontFamily="Segoe MDL2 Assets"
+							Background="#F3F3F3"
+							BorderBrush="#D0D0D0"
+							Click="Maximize_Button_Click" />
+						<Button
+							x:Name="Close_Button"
+							Width="38"
+							Height="30"
+							Content="&#xE8BB;"
+							FontFamily="Segoe MDL2 Assets"
+							Background="#F3F3F3"
+							BorderBrush="#D0D0D0"
+							Click="Close_Button_Click" />
+					</StackPanel>
+				</Grid>
+			</Border>
 			<Rectangle
 				x:Name="MainTitle_Rectangle"
 				Grid.Column="0"
@@ -73,64 +163,16 @@
 				VerticalAlignment="Top"
 				Fill="#00FFFFFF"
 				Focusable="False"
-				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}" />
-			<Button
-				x:Name="Close_Button"
-				Grid.Column="0"
-				Grid.Row="0"
-				Width="26"
-				Height="20"
-				HorizontalAlignment="Right"
-				VerticalAlignment="Center"
-				Margin="0,42,85,0"
-				Template="{DynamicResource CloseButton_ControlTemplate}"
 				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
-				Click="Close_Button_Click" />
-			<Button
-				x:Name="Minimize_Button"
-				Grid.Column="0"
-				Grid.Row="0"
-				Width="28"
-				Height="20"
-				HorizontalAlignment="Right"
-				VerticalAlignment="Center"
-				Margin="0,42,126,0"
-				Template="{DynamicResource MinimizeButton_ControlTemplate}"
-				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
-				Click="Minimize_Button_Click" />
-			<Button
-				x:Name="Setting_Button"
-				Grid.Column="0"
-				Grid.Row="0"
-				Width="26"
-				Height="26"
-				HorizontalAlignment="Right"
-				VerticalAlignment="Center"
-				Margin="0,42,169,0"
-				Template="{DynamicResource SettingButton_ControlTemplate}"
-				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
-				Click="Setting_Button_Click" />
-			<Button
-				x:Name="gfe_Button"
-				Grid.Column="0"
-				Grid.Row="0"
-				Width="104"
-				Height="28"
-				HorizontalAlignment="Right"
-				VerticalAlignment="Center"
-				Margin="0,42,210,0"
-				Template="{DynamicResource GFE_Button_ControlTemplate}"
-				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
-				Click="gfe_Button_Click"
-				Initialized="gfe_Button_Initialized"
-				MouseEnter="gfe_Button_MouseEnter"
-				MouseLeave="gfe_Button_MouseLeave" />
+				Visibility="Collapsed" />
 			<Grid
 				x:Name="Content_Grid"
-				Column="1"
+				Column="0"
 				Row="1"
-				HorizontalAlignment="Left"
-				VerticalAlignment="Top">
+				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				Margin="10,10,10,10">
 				<Grid.RowDefinitions>
 					<RowDefinition
 						Height="*" />
@@ -138,29 +180,6 @@
 						Height="*" />
 				</Grid.RowDefinitions>
 			</Grid>
-			<TextBlock
-				x:Name="OC_text"
-				Grid.Row="0"
-				Grid.Column="0"
-				HorizontalAlignment="Left"
-				VerticalAlignment="Top"
-				FontSize="16"
-				Foreground="#FFFFFF"
-				Text="{DynamicResource MUI_Overclocking}"
-				Margin="128,388,0,0"
-				Grid.RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}"
-				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}" />
-			<TextBlock
-				Grid.Row="0"
-				Grid.Column="0"
-				HorizontalAlignment="Left"
-				VerticalAlignment="Top"
-				FontSize="16"
-				Foreground="#FFFFFF"
-				Text="{DynamicResource MUI_Monitoring}"
-				Margin="400,388,0,0"
-				Grid.RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}"
-				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}" />
 			<Popup
 				x:Name="setting_Popup"
 				Grid.Column="0"
@@ -176,19 +195,19 @@
 				Closed="setting_Popup_Closed"
 				Opened="setting_Popup_Opened">
 				<Canvas
-					Height="192"
+					Height="220"
 					Width="340"
 					ClipToBounds="True"
 					HorizontalAlignment="Left"
 					VerticalAlignment="Top">
 					<Path
 						Width="340"
-						Height="192"
+						Height="220"
 						Canvas.Left="0"
 						Canvas.Top="0"
 						Stretch="Fill"
-						Fill="#FFDADADA"
-						Data="F1 M3.00006,16.0137 L241.003,16.0137 L247.005,3.99994 L253.007,16.0137 L343,16.0137 L343,156.014 L3.00006,156.014 L3.00006,16.0137 Z">
+						Fill="#F3F3F3"
+						Data="F1 M3.00006,16.0137 L241.003,16.0137 L247.005,3.99994 L253.007,16.0137 L343,16.0137 L343,200.014 L3.00006,200.014 L3.00006,16.0137 Z">
 						<UIElement.Effect>
 							<DropShadowEffect
 								BlurRadius="6"
@@ -200,7 +219,7 @@
 					</Path>
 					<Grid
 						Width="340"
-						Height="188">
+						Height="216">
 						<Grid.RowDefinitions>
 							<RowDefinition
 								Height="20" />
@@ -212,6 +231,8 @@
 								Height="*" />
 							<RowDefinition
 								Height="*" />
+							<RowDefinition
+								Height="Auto" />
 							<RowDefinition
 								Height="*" />
 						</Grid.RowDefinitions>
@@ -227,17 +248,22 @@
 							Grid.Column="1"
 							Grid.Row="2"
 							BorderThickness="0,0,0,1"
-							BorderBrush="#999999" />
+							BorderBrush="#D0D0D0" />
 						<Border
 							Grid.Column="1"
 							Grid.Row="3"
 							BorderThickness="0,0,0,1"
-							BorderBrush="#999999" />
+							BorderBrush="#D0D0D0" />
 						<Border
 							Grid.Column="1"
 							Grid.Row="4"
 							BorderThickness="0,0,0,1"
-							BorderBrush="#999999" />
+							BorderBrush="#D0D0D0" />
+						<Border
+							Grid.Column="1"
+							Grid.Row="5"
+							BorderThickness="0,0,0,1"
+							BorderBrush="#D0D0D0" />
 						<TextBlock
 							Grid.Column="1"
 							Grid.Row="1"
@@ -245,6 +271,7 @@
 							VerticalAlignment="Center"
 							Text="{DynamicResource MUI_Advanced_Settings}"
 							FontSize="14"
+							Foreground="{DynamicResource UiMainTextBrush}"
 							FontWeight="Bold" />
 						<TextBlock
 							Grid.Column="1"
@@ -252,53 +279,72 @@
 							HorizontalAlignment="Left"
 							VerticalAlignment="Center"
 							Text="{DynamicResource MUI_Sticky_Key}"
-							FontSize="14" />
+							FontSize="14"
+							Foreground="{DynamicResource UiMainTextBrush}" />
 						<TextBlock
 							Grid.Column="1"
 							Grid.Row="3"
 							HorizontalAlignment="Left"
 							VerticalAlignment="Center"
 							Text="{DynamicResource MUI_Win_And_Menu_Key}"
-							FontSize="14" />
+							FontSize="14"
+							Foreground="{DynamicResource UiMainTextBrush}" />
                         <TextBlock
 							Grid.Column="1"
 							Grid.Row="4"
 							HorizontalAlignment="Left"
 							VerticalAlignment="Center"
 							Text="{DynamicResource MUI_Unit_Temperature}"
-							FontSize="14" />
+							FontSize="14"
+							Foreground="{DynamicResource UiMainTextBrush}" />
                         <CheckBox
 							x:Name="stickykey_Checkbox"
 							Grid.Column="1"
 							Grid.Row="2"
-							Width="52"
+							Width="18"
 							Height="20"
 							HorizontalAlignment="Right"
 							VerticalAlignment="Center"
-							Template="{DynamicResource SettingCheckBox_ControlTemplate}"
 							Checked="stickykey_Checkbox_Checked"
 							Unchecked="stickykey_Checkbox_Unchecked" />
                         <CheckBox
 							x:Name="winmenukey_Checkbox"
 							Grid.Column="1"
 							Grid.Row="3"
-							Width="52"
+							Width="18"
 							Height="20"
 							HorizontalAlignment="Right"
 							VerticalAlignment="Center"
-							Template="{DynamicResource SettingCheckBox_ControlTemplate}"
 							Checked="winmenukey_Checkbox_Checked"
 							Unchecked="winmenukey_Checkbox_Unchecked" />
+						<TextBlock
+							Grid.Column="1"
+							Grid.Row="5"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Center"
+							Text="Dark Mode"
+							FontSize="14"
+							Foreground="{DynamicResource UiMainTextBrush}" />
+						<CheckBox
+							x:Name="darkmode_Checkbox"
+							Grid.Column="1"
+							Grid.Row="5"
+							Width="18"
+							Height="20"
+							HorizontalAlignment="Right"
+							VerticalAlignment="Center"
+							Checked="darkmode_Checkbox_Checked"
+							Unchecked="darkmode_Checkbox_Unchecked" />
                         <Button
                             Content="Fan Curve Editor" 
                             Click="OpenFanCurveEditor_Click"
-                            Grid.Row="4"
-                            Template="{DynamicResource basic_button_ControlTemplate}"
+                            Grid.Column="1"
+                            Grid.Row="6"
                             HorizontalAlignment="Right"
 							VerticalAlignment="Center"
-                            Padding="10"
-                            Margin="0,40,0,0"
-                            Foreground="White"/>
+                            Padding="10,4"
+                            Margin="0,6,0,0"
+                            Foreground="{DynamicResource UiMainTextBrush}"/>
                         <StackPanel
 							Grid.Column="1"
 							Grid.Row="4"
@@ -315,7 +361,6 @@
 								GroupName="temperature"
 								HorizontalAlignment="Left"
 								VerticalAlignment="Center"
-								Style="{DynamicResource SettingRadioButton_Style}"
 								Checked="C_RadioButton_Checked" />
 							<TextBlock
 								x:Name="advance_C_TextBlock"
@@ -326,7 +371,7 @@
 								Margin="1,0,0,0"
 								Text="˚C"
 								FontSize="16"
-								Foreground="#808080" />
+								Foreground="{DynamicResource UiMutedTextBrush}" />
 						</StackPanel>
 						<StackPanel
 							Grid.Column="1"
@@ -344,7 +389,6 @@
 								GroupName="temperature"
 								HorizontalAlignment="Left"
 								VerticalAlignment="Center"
-								Style="{DynamicResource SettingRadioButton_Style}"
 								Checked="F_RadioButton_Checked" />
 							<TextBlock
 								x:Name="advance_F_TextBlock"
@@ -355,7 +399,7 @@
 								Margin="1,0,0,0"
 								Text="˚F"
 								FontSize="16"
-								Foreground="#808080" />
+								Foreground="{DynamicResource UiMutedTextBrush}" />
 						</StackPanel>
 					</Grid>
 				</Canvas>
@@ -364,10 +408,8 @@
 				x:Name="Mask_Rectangle"
 				Grid.Column="0"
 				Grid.Row="0"
-				Width="1320"
-				Height="760"
-				HorizontalAlignment="Left"
-				VerticalAlignment="Top"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
 				Fill="#00FFFFFF"
 				Visibility="Hidden"
 				Panel.ZIndex="2"
@@ -377,15 +419,13 @@
 				x:Name="main_mask_Rectangle"
 				Grid.Column="0"
 				Grid.Row="0"
-				Width="1320"
-				Height="760"
-				HorizontalAlignment="Left"
-				VerticalAlignment="Top"
+				HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
 				Fill="{DynamicResource main_mask_DrawingBrush}"
 				Visibility="Hidden"
 				Panel.ZIndex="2"
 				Grid.RowSpan="{Binding Path=RowDefinitions.Count, ElementName=Main_Grid}"
 				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}" />
 		</Grid>
-	</Viewbox>
+	</Border>
 </Window>

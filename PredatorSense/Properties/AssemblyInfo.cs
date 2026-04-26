@@ -18,3 +18,4 @@ using System.Windows;
 [assembly: AssemblyFileVersion("3.1.3002.0")]
 [assembly: Guid("0AFB8E6A-6B0B-4EAA-B8C0-740C5AB19F47")]
 [assembly: AssemblyTitle("PredatorSense")]
+[assembly: SupportedOSPlatform("windows")]

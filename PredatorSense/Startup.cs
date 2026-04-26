@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
+using System.ServiceProcess;
 using System.Threading;
 using System.Windows;
 using Microsoft.Win32;
@@ -65,6 +66,11 @@ namespace PredatorSense
 		[STAThread]
 		public static void Main(string[] args)
 		{
+			if (args != null && args.Length >= 2 && string.Equals(args[0], "--cleanup-watchdog", StringComparison.OrdinalIgnoreCase))
+			{
+				Startup.RunCleanupWatchdog(args[1]);
+				return;
+			}
 			try
 			{
 				string empty = string.Empty;
@@ -114,8 +120,7 @@ namespace PredatorSense
 					}
 				}
 				Startup._Image_path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + text3 + "\\";
-				Startup.styled = Application.LoadComponent(new Uri("/PredatorSense;component/Style/" + text3 + "/PSStyle.xaml", UriKind.Relative)) as ResourceDictionary;
-				if (Startup.IsGuest() || Startup.IsDomainGuest)
+				Startup.styled = Application.LoadComponent(new Uri("/PredatorSense;component/Style/" + text3 + "/PSStyle.xaml", UriKind.Relative)) as ResourceDictionary;			ThemeManager.ApplyThemeResources(ThemeManager.IsDarkModeEnabled());				if (Startup.IsGuest() || Startup.IsDomainGuest)
 				{
 					string text4 = "PredatorSense";
 					try
@@ -154,6 +159,7 @@ namespace PredatorSense
 					}
 					else
 					{
+						Startup.StartCleanupWatchdogProcess();
 						new App
 						{
 							Resources = Startup.langRd
@@ -161,10 +167,21 @@ namespace PredatorSense
 					}
 				}
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
+				MessageBox.Show(ex.Message, "PredatorSense", MessageBoxButton.OK, MessageBoxImage.Hand);
+				Application.Current.Shutdown();
+				return;
+				}
+			finally
+			{
+				if (Startup.s_Mutex != null)
+				{
+					Startup.s_Mutex.Close();
+					Startup.s_Mutex = null;
 			}
 		}
+	}
 
 		// Token: 0x1700003D RID: 61
 		// (get) Token: 0x060002B1 RID: 689 RVA: 0x0001FBD8 File Offset: 0x0001DDD8
@@ -339,6 +356,93 @@ namespace PredatorSense
 
 			// Token: 0x04000377 RID: 887
 			public int Attributes;
+		}
+
+		private static void StartCleanupWatchdogProcess()
+		{
+			try
+			{
+				string executablePath = Assembly.GetExecutingAssembly().Location;
+				int currentPid = Process.GetCurrentProcess().Id;
+				Process.Start(new ProcessStartInfo
+				{
+					FileName = executablePath,
+					Arguments = "--cleanup-watchdog " + currentPid.ToString(CultureInfo.InvariantCulture),
+					UseShellExecute = false,
+					CreateNoWindow = true,
+					WindowStyle = ProcessWindowStyle.Hidden
+				});
+			}
+			catch
+			{
+			}
+		}
+
+		private static void RunCleanupWatchdog(string parentPidArg)
+		{
+			int parentPid;
+			if (!int.TryParse(parentPidArg, NumberStyles.Integer, CultureInfo.InvariantCulture, out parentPid))
+			{
+				return;
+			}
+			try
+			{
+				Process processById = Process.GetProcessById(parentPid);
+				try
+				{
+					processById.WaitForExit();
+				}
+				finally
+				{
+					processById.Dispose();
+				}
+			}
+			catch
+			{
+			}
+			Thread.Sleep(750);
+			Startup.TerminatePredatorSenseDependencies(parentPid);
+		}
+
+		private static void TerminatePredatorSenseDependencies(int parentPid)
+		{
+			string[] array = new string[] { "PSSvc", "PSAgent", "PSAdminAgent", "PSLauncher", "PSToastCreator", "DeployTool", "ListCheck", "UpgradeTool", "PSCreateDefaultProfile" };
+			foreach (string processName in array)
+			{
+				Process[] processesByName = Process.GetProcessesByName(processName);
+				for (int i = 0; i < processesByName.Length; i++)
+				{
+					Process process = processesByName[i];
+					try
+					{
+						if (process.Id != parentPid)
+						{
+							process.Kill(true);
+						}
+					}
+					catch
+					{
+					}
+					finally
+					{
+						process.Dispose();
+					}
+				}
+			}
+			try
+			{
+				using (ServiceController serviceController = new ServiceController("PSSvc"))
+				{
+					if (serviceController.Status != ServiceControllerStatus.Stopped && serviceController.Status != ServiceControllerStatus.StopPending)
+					{
+						serviceController.Stop();
+						serviceController.WaitForStatus(ServiceControllerStatus.Stopped, TimeSpan.FromSeconds(5.0));
+					}
+				}
+			}
+			catch
+			{
+			}
 		}
 	}
 }

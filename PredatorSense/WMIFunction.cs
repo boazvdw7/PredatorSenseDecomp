@@ -21,7 +21,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 9, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -49,7 +49,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 10, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[13];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt64(array, 5);
 				});
 				ulong output = 0UL;
@@ -77,7 +77,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 11, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -105,7 +105,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 12, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[13];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt64(array, 5);
 				});
 				ulong output = 0UL;
@@ -133,7 +133,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 13, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[13];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt64(array, 5);
 				});
 				ulong output = 0UL;
@@ -161,7 +161,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 15, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -189,7 +189,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 16, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -217,7 +217,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 17, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -245,7 +245,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 20, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[13];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt64(array, 5);
 				});
 				ulong output = 0UL;
@@ -273,7 +273,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 18, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -301,7 +301,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 19, new object[] { intput });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;

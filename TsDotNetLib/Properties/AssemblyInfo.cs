@@ -16,3 +16,4 @@ using System.Runtime.Versioning;
 [assembly: ComVisible(false)]
 [assembly: Guid("65D7645A-2641-4E52-A7F8-67CE935624F8")]
 [assembly: AssemblyFileVersion("3.1.3002.0")]
+[assembly: SupportedOSPlatform("windows")]

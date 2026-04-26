@@ -49,18 +49,14 @@ namespace PredatorSense
 			}
 			this.cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total", true);
 			this.FanControl_Page = new FanControlPage();
-			this.FanControl_Page.Width = 1152.0;
-			this.FanControl_Page.Height = 312.0;
-			this.FanControl_Page.HorizontalAlignment = HorizontalAlignment.Left;
-			this.FanControl_Page.VerticalAlignment = VerticalAlignment.Top;
+			this.FanControl_Page.HorizontalAlignment = HorizontalAlignment.Stretch;
+			this.FanControl_Page.VerticalAlignment = VerticalAlignment.Stretch;
 			Grid.SetRow(this.FanControl_Page, 0);
 			Grid.SetColumn(this.FanControl_Page, 0);
 			this.Content_Grid.Children.Add(this.FanControl_Page);
 			this.Monitoring_Page = new MonitoringPage();
-			this.Monitoring_Page.Width = 1152.0;
-			this.Monitoring_Page.Height = 312.0;
-			this.Monitoring_Page.HorizontalAlignment = HorizontalAlignment.Left;
-			this.Monitoring_Page.VerticalAlignment = VerticalAlignment.Top;
+			this.Monitoring_Page.HorizontalAlignment = HorizontalAlignment.Stretch;
+			this.Monitoring_Page.VerticalAlignment = VerticalAlignment.Stretch;
 			Grid.SetRow(this.Monitoring_Page, 1);
 			Grid.SetColumn(this.Monitoring_Page, 0);
 			this.Content_Grid.Children.Add(this.Monitoring_Page);
@@ -121,10 +117,24 @@ namespace PredatorSense
 			}
 		}
 
+		private void Maximize_Button_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				base.WindowState = ((base.WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized);
+			}
+			catch (Exception)
+			{
+			}
+		}
+
 		// Token: 0x06000332 RID: 818 RVA: 0x00027244 File Offset: 0x00025444
 		private void Window_StateChanged(object sender, EventArgs e)
 		{
-			base.WindowState = ((base.WindowState == WindowState.Minimized) ? WindowState.Minimized : WindowState.Normal);
+			if (this.Maximize_Button != null)
+			{
+				this.Maximize_Button.Content = ((base.WindowState == WindowState.Maximized) ? "\uE923" : "\uE922");
+			}
 		}
 
 		// Token: 0x06000333 RID: 819 RVA: 0x0002725C File Offset: 0x0002545C
@@ -294,7 +304,7 @@ namespace PredatorSense
 					num3 / 10
 				});
 				this.FanControl_Page.SetCustomFanAutoMode(new bool[] { flag, flag2 });
-				this.main_fan_mode_switch(num);
+				// Keep startup/resume non-destructive: reflect saved mode in UI without forcing a new fan command.
 			}
 		}
 
@@ -389,6 +399,7 @@ namespace PredatorSense
 		// Token: 0x0600033F RID: 831 RVA: 0x00027EB8 File Offset: 0x000260B8
 		private void load_advance_settings()
 		{
+			this.loading_advance_settings = true;
 			if (Registry.CheckLM("SOFTWARE\\OEM\\PredatorSense\\AdvanceSettings", "StickyKey", 0U) == 0)
 			{
 				this.stickykey_Checkbox.IsChecked = new bool?(false);
@@ -408,9 +419,33 @@ namespace PredatorSense
 			if (Registry.CheckLM("SOFTWARE\\OEM\\PredatorSense\\AdvanceSettings", "WinAndMenuKey", 0U) == 0)
 			{
 				this.winmenukey_Checkbox.IsChecked = new bool?(false);
+			}
+			else
+			{
+				this.winmenukey_Checkbox.IsChecked = new bool?(true);
+			}
+			this.darkmode_Checkbox.IsChecked = new bool?(ThemeManager.IsDarkModeEnabled());
+			this.loading_advance_settings = false;
+		}
+
+		private void darkmode_Checkbox_Checked(object sender, RoutedEventArgs e)
+		{
+			if (this.loading_advance_settings)
+			{
 				return;
 			}
-			this.winmenukey_Checkbox.IsChecked = new bool?(true);
+			ThemeManager.SetDarkModeEnabled(true);
+			ThemeManager.ApplyThemeResources(true);
+		}
+
+		private void darkmode_Checkbox_Unchecked(object sender, RoutedEventArgs e)
+		{
+			if (this.loading_advance_settings)
+			{
+				return;
+			}
+			ThemeManager.SetDarkModeEnabled(false);
+			ThemeManager.ApplyThemeResources(false);
 		}
 
 		// Token: 0x06000340 RID: 832 RVA: 0x00027F66 File Offset: 0x00026166
@@ -445,7 +480,7 @@ namespace PredatorSense
 				this.Monitoring_Page.update_title_text(CommonFunction.Degree_Type.dFahrenheit);
 			}
 			this.advance_F_TextBlock.Foreground = new SolidColorBrush(CommonFunction.ColorFromString("#E60000"));
-			this.advance_C_TextBlock.Foreground = new SolidColorBrush(CommonFunction.ColorFromString("#808080"));
+			this.advance_C_TextBlock.Foreground = (Brush)base.FindResource("UiMutedTextBrush");
 		}
 
 		// Token: 0x06000344 RID: 836 RVA: 0x00028040 File Offset: 0x00026240
@@ -456,14 +491,14 @@ namespace PredatorSense
 				Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\AdvanceSettings", "Degree", 0U);
 				this.Monitoring_Page.update_title_text(CommonFunction.Degree_Type.dCelsius);
 			}
-			this.advance_F_TextBlock.Foreground = new SolidColorBrush(CommonFunction.ColorFromString("#808080"));
+			this.advance_F_TextBlock.Foreground = (Brush)base.FindResource("UiMutedTextBrush");
 			this.advance_C_TextBlock.Foreground = new SolidColorBrush(CommonFunction.ColorFromString("#E60000"));
 		}
 
 		// Token: 0x06000345 RID: 837 RVA: 0x000280A8 File Offset: 0x000262A8
 		private void Main_Grid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-			if (e.ChangedButton == MouseButton.Left)
+			if (e.ChangedButton == MouseButton.Left && e.GetPosition(this.Main_Grid).Y <= 52.0)
 			{
 				try
 				{
@@ -472,6 +507,26 @@ namespace PredatorSense
 				catch (Exception)
 				{
 				}
+			}
+		}
+
+		private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			if (e.ChangedButton != MouseButton.Left)
+			{
+				return;
+			}
+			if (e.ClickCount == 2)
+			{
+				this.Maximize_Button_Click(sender, new RoutedEventArgs());
+				return;
+			}
+			try
+			{
+				base.DragMove();
+			}
+			catch (Exception)
+			{
 			}
 		}
 
@@ -633,5 +688,7 @@ namespace PredatorSense
 
 		// Token: 0x0400042B RID: 1067
 		public string NVIDIA_Experience_file = "C:\\Program Files\\NVIDIA Corporation\\NVIDIA GeForce Experience\\NVIDIA GeForce Experience.exe";
+
+		private bool loading_advance_settings;
 	}
 }

@@ -21,8 +21,13 @@ namespace PredatorSense
         public ObservableCollection<FanCurvePoint> FanCurve { get; set; }
         private static CancellationTokenSource _globalCts; // Shared across all editors
         private static ObservableCollection<FanCurvePoint> _globalFanCurve; // Shared curve
+        private static readonly object _pollStateLock = new object();
         private static readonly string FanCurveConfigPath =
             System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "PredatorSense", "fan_curve.xml");
+        private static bool _powerEventsRegistered;
+        private static DateTime _ignoreTemperatureUntilUtc = DateTime.MinValue;
+        private static int? _lastStableCpuTemp;
+        private static int? _pendingCpuTemp;
 
         private bool _isCustomCurveEnabled = false;
         private int? _draggingIndex = null;
@@ -33,6 +38,7 @@ namespace PredatorSense
         public FanCurveEditor()
         {
             InitializeComponent();
+            EnsurePowerEventRegistration();
 
             // Load saved curve or use default
             if (_globalFanCurve == null)
@@ -152,8 +158,17 @@ namespace PredatorSense
         {
             while (!token.IsCancellationRequested)
             {
-                int cpuTemp = -1;
-                CommonFunction.get_wmi_system_health_info(ref cpuTemp, CommonFunction.System_Health_Information_Index.sCPU_Temperature);
+                if (DateTime.UtcNow < _ignoreTemperatureUntilUtc)
+                {
+                    Thread.Sleep(1000);
+                    continue;
+                }
+
+                if (!TryGetStableCpuTemperature(out int cpuTemp))
+                {
+                    Thread.Sleep(2000);
+                    continue;
+                }
 
                 if (_globalFanCurve == null || _globalFanCurve.Count == 0)
                 {
@@ -195,6 +210,80 @@ namespace PredatorSense
                 });
 
                 Thread.Sleep(2000);
+            }
+        }
+
+        private static void EnsurePowerEventRegistration()
+        {
+            lock (_pollStateLock)
+            {
+                if (_powerEventsRegistered)
+                {
+                    return;
+                }
+
+                Microsoft.Win32.SystemEvents.PowerModeChanged += OnPowerModeChanged;
+                _powerEventsRegistered = true;
+            }
+        }
+
+        private static void OnPowerModeChanged(object sender, Microsoft.Win32.PowerModeChangedEventArgs e)
+        {
+            lock (_pollStateLock)
+            {
+                if (e.Mode == Microsoft.Win32.PowerModes.Resume)
+                {
+                    // Ignore wake-up sensor noise for a short period and require fresh stable samples.
+                    _ignoreTemperatureUntilUtc = DateTime.UtcNow.AddSeconds(10);
+                    _lastStableCpuTemp = null;
+                    _pendingCpuTemp = null;
+                }
+                else if (e.Mode == Microsoft.Win32.PowerModes.Suspend)
+                {
+                    _pendingCpuTemp = null;
+                }
+            }
+        }
+
+        private static bool TryGetStableCpuTemperature(out int cpuTemp)
+        {
+            cpuTemp = -1;
+            int rawCpuTemp = -1;
+
+            if (!CommonFunction.get_wmi_system_health_info(ref rawCpuTemp, CommonFunction.System_Health_Information_Index.sCPU_Temperature))
+            {
+                return false;
+            }
+
+            if (rawCpuTemp < 1 || rawCpuTemp > 110)
+            {
+                return false;
+            }
+
+            lock (_pollStateLock)
+            {
+                if (_lastStableCpuTemp.HasValue)
+                {
+                    int delta = Math.Abs(rawCpuTemp - _lastStableCpuTemp.Value);
+                    if (delta > 20)
+                    {
+                        if (_pendingCpuTemp.HasValue && Math.Abs(_pendingCpuTemp.Value - rawCpuTemp) <= 5)
+                        {
+                            _lastStableCpuTemp = rawCpuTemp;
+                            _pendingCpuTemp = null;
+                            cpuTemp = rawCpuTemp;
+                            return true;
+                        }
+
+                        _pendingCpuTemp = rawCpuTemp;
+                        return false;
+                    }
+                }
+
+                _pendingCpuTemp = null;
+                _lastStableCpuTemp = rawCpuTemp;
+                cpuTemp = rawCpuTemp;
+                return true;
             }
         }
 
@@ -270,7 +359,7 @@ namespace PredatorSense
                 // X axis labels
                 var label = new TextBlock
                 {
-                    Text = $"{tempLabel}°C",
+                    Text = $"{tempLabel} C",
                     Foreground = Brushes.Gray,
                     FontSize = 10
                 };
@@ -458,6 +547,8 @@ namespace PredatorSense
         {
             if (LoadFanCurveEnabled())
             {
+                EnsurePowerEventRegistration();
+
                 if (_globalFanCurve == null)
                     _globalFanCurve = LoadFanCurve() ?? new ObservableCollection<FanCurvePoint>
             {

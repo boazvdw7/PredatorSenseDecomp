@@ -134,7 +134,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 3, new object[] { file_path });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToInt32(array, 5);
 				});
 				output = await tsk.ConfigureAwait(false);
@@ -162,7 +162,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 4, new object[] { file_path });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToInt32(array, 5);
 				});
 				output = await tsk.ConfigureAwait(false);
@@ -552,7 +552,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 14, new object[0]);
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[25];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					list2.Add(BitConverter.ToUInt64(array, 5));
 					list2.Add(BitConverter.ToUInt64(array, 17));
 					return list2;
@@ -590,7 +590,7 @@ namespace PredatorSense
 					}
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[17];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					list2.Add(BitConverter.ToInt32(array, 5));
 					list2.Add(BitConverter.ToInt32(array, 13));
 					return list2;
@@ -627,7 +627,7 @@ namespace PredatorSense
 					}
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToInt32(array, 5);
 				});
 				output = await tsk.ConfigureAwait(false);
@@ -655,7 +655,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 24, new object[] { (int)level });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToInt32(array, 5);
 				});
 				output = await tsk.ConfigureAwait(false);
@@ -683,7 +683,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 23, new object[] { (int)level });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToInt32(array, 5);
 				});
 				output = await tsk.ConfigureAwait(false);
@@ -1044,7 +1044,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 26, new object[0]);
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToInt32(array, 5);
 				});
 				output = await tsk.ConfigureAwait(false);

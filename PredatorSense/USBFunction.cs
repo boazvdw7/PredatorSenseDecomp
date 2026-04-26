@@ -21,7 +21,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 5, new object[] { input });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -49,7 +49,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 6, new object[] { iEffect, iSpeed, cColor, iDirect });
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -84,7 +84,7 @@ namespace PredatorSense
 					}
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -112,7 +112,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 8, new object[0]);
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;
@@ -140,7 +140,7 @@ namespace PredatorSense
 					IPCMethods.SendCommandByNamedPipe(cline_stream, 10, new object[0]);
 					cline_stream.WaitForPipeDrain();
 					byte[] array = new byte[9];
-					cline_stream.Read(array, 0, array.Length);
+					cline_stream.ReadExactly(array, 0, array.Length);
 					return BitConverter.ToUInt32(array, 5);
 				});
 				uint output = 0U;

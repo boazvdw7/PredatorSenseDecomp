@@ -36,15 +36,5 @@ namespace PredatorSense
 			}
 			Application.Current.ShutdownMode = ShutdownMode.OnLastWindowClose;
 		}
-
-		// Token: 0x060002A4 RID: 676 RVA: 0x0001F7E0 File Offset: 0x0001D9E0
-		[STAThread]
-		[GeneratedCode("PresentationBuildTasks", "4.0.0.0")]
-		[DebuggerNonUserCode]
-		public static void Main()
-		{
-			App app = new App();
-			app.Run();
-		}
 	}
 }

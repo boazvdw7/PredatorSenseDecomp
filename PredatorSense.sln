@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36127.28
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredatorSense", "PredatorSense\PredatorSense.csproj", "{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredatorSense", "PredatorSense\PredatorSense.csproj", "{55CA6C8F-CB48-42AF-95F9-16734ED9F48B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TsDotNetLib", "TsDotNetLib\TsDotNetLib.csproj", "{CA94B40E-02C6-42C0-9F7A-26674365E1E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TsDotNetLib", "TsDotNetLib\TsDotNetLib.csproj", "{CA94B40E-02C6-42C0-9F7A-26674365E1E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

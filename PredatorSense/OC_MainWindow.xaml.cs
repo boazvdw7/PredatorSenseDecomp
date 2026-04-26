@@ -56,18 +56,14 @@ namespace PredatorSense
 			this.g_battery_boost = battery_boost_status;
 			this.cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total", true);
 			this.FanControl_Page = new FanControlPage();
-			this.FanControl_Page.Width = 1152.0;
-			this.FanControl_Page.Height = 312.0;
-            this.FanControl_Page.HorizontalAlignment = System.Windows.HorizontalAlignment.Left; 
-			this.FanControl_Page.VerticalAlignment = VerticalAlignment.Top;
+            this.FanControl_Page.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch; 
+			this.FanControl_Page.VerticalAlignment = VerticalAlignment.Stretch;
 			Grid.SetRow(this.FanControl_Page, 0);
 			Grid.SetColumn(this.FanControl_Page, 0);
 			this.Content_Grid.Children.Add(this.FanControl_Page);
 			this.Monitoring_Page = new OC_MonitoringPage();
-			this.Monitoring_Page.Width = 1152.0;
-			this.Monitoring_Page.Height = 312.0;
-			this.Monitoring_Page.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-			this.Monitoring_Page.VerticalAlignment = VerticalAlignment.Top;
+			this.Monitoring_Page.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
+			this.Monitoring_Page.VerticalAlignment = VerticalAlignment.Stretch;
 			if (File.Exists(this.NVIDIA_Experience_file64))
 			{
 				this.gfe_Button.Visibility = Visibility.Visible;
@@ -84,8 +80,7 @@ namespace PredatorSense
 			Grid.SetColumn(this.Monitoring_Page, 0);
 			if (CommonFunction.complete_loading)
 			{
-				this.Monitoring_Page.OC_Grid.Visibility = Visibility.Hidden;
-				this.OC_text.Visibility = Visibility.Hidden;
+				this.Monitoring_Page.SetOverclockingSectionVisible(false);
 				this.Content_Grid.Children.Add(this.Monitoring_Page);
 			}
 			else
@@ -231,10 +226,24 @@ namespace PredatorSense
 			}
 		}
 
+		private void Maximize_Button_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				base.WindowState = ((base.WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized);
+			}
+			catch (Exception)
+			{
+			}
+		}
+
 		// Token: 0x060000EE RID: 238 RVA: 0x0000A888 File Offset: 0x00008A88
 		private void Window_StateChanged(object sender, EventArgs e)
 		{
-			base.WindowState = ((base.WindowState == WindowState.Minimized) ? WindowState.Minimized : WindowState.Normal);
+			if (this.Maximize_Button != null)
+			{
+				this.Maximize_Button.Content = ((base.WindowState == WindowState.Maximized) ? "\uE923" : "\uE922");
+			}
 		}
 
 		// Token: 0x060000EF RID: 239 RVA: 0x0000A8A0 File Offset: 0x00008AA0
@@ -450,7 +459,7 @@ namespace PredatorSense
 					num3 / 10
 				});
 				this.FanControl_Page.SetCustomFanAutoMode(new bool[] { flag, flag2 });
-				this.main_fan_mode_switch(num);
+				// Keep startup/resume non-destructive: reflect saved mode in UI without forcing a new fan command.
 			}
 		}
 
@@ -549,8 +558,9 @@ namespace PredatorSense
         }
 
         // Token: 0x060000FB RID: 251 RVA: 0x0000B788 File Offset: 0x00009988
-        private void load_advance_settings()
+		private void load_advance_settings()
 		{
+			this.loading_advance_settings = true;
 			if (Registry.CheckLM("SOFTWARE\\OEM\\PredatorSense\\AdvanceSettings", "Degree", 0U) == 0)
 			{
 				this.C_RadioButton.IsChecked = new bool?(true);
@@ -562,9 +572,33 @@ namespace PredatorSense
 			if (Registry.CheckLM("SOFTWARE\\OEM\\PredatorSense\\AdvanceSettings", "WinAndMenuKey", 0U) == 0)
 			{
 				this.winmenukey_Checkbox.IsChecked = new bool?(false);
+			}
+			else
+			{
+				this.winmenukey_Checkbox.IsChecked = new bool?(true);
+			}
+			this.darkmode_Checkbox.IsChecked = new bool?(ThemeManager.IsDarkModeEnabled());
+			this.loading_advance_settings = false;
+		}
+
+		private void darkmode_Checkbox_Checked(object sender, RoutedEventArgs e)
+		{
+			if (this.loading_advance_settings)
+			{
 				return;
 			}
-			this.winmenukey_Checkbox.IsChecked = new bool?(true);
+			ThemeManager.SetDarkModeEnabled(true);
+			ThemeManager.ApplyThemeResources(true);
+		}
+
+		private void darkmode_Checkbox_Unchecked(object sender, RoutedEventArgs e)
+		{
+			if (this.loading_advance_settings)
+			{
+				return;
+			}
+			ThemeManager.SetDarkModeEnabled(false);
+			ThemeManager.ApplyThemeResources(false);
 		}
 
 		// Token: 0x060000FC RID: 252 RVA: 0x0000B800 File Offset: 0x00009A00
@@ -598,7 +632,7 @@ namespace PredatorSense
 				this.Monitoring_Page.update_title_text(CommonFunction.Degree_Type.dFahrenheit);
 			}
 			this.advance_F_TextBlock.Foreground = new SolidColorBrush(CommonFunction.ColorFromString("#E60000"));
-			this.advance_C_TextBlock.Foreground = new SolidColorBrush(CommonFunction.ColorFromString("#808080"));
+			this.advance_C_TextBlock.Foreground = (System.Windows.Media.Brush)base.FindResource("UiMutedTextBrush");
 		}
 
 		// Token: 0x06000100 RID: 256 RVA: 0x0000B8C4 File Offset: 0x00009AC4
@@ -609,14 +643,14 @@ namespace PredatorSense
 				Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\AdvanceSettings", "Degree", 0U);
 				this.Monitoring_Page.update_title_text(CommonFunction.Degree_Type.dCelsius);
 			}
-			this.advance_F_TextBlock.Foreground = new SolidColorBrush(CommonFunction.ColorFromString("#808080"));
+			this.advance_F_TextBlock.Foreground = (System.Windows.Media.Brush)base.FindResource("UiMutedTextBrush");
 			this.advance_C_TextBlock.Foreground = new SolidColorBrush(CommonFunction.ColorFromString("#E60000"));
 		}
 
 		// Token: 0x06000101 RID: 257 RVA: 0x0000B92C File Offset: 0x00009B2C
 		private void Main_Grid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-			if (e.ChangedButton == MouseButton.Left)
+			if (e.ChangedButton == MouseButton.Left && e.GetPosition(this.Main_Grid).Y <= 52.0)
 			{
 				try
 				{
@@ -625,6 +659,26 @@ namespace PredatorSense
 				catch (Exception)
 				{
 				}
+			}
+		}
+
+		private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			if (e.ChangedButton != MouseButton.Left)
+			{
+				return;
+			}
+			if (e.ClickCount == 2)
+			{
+				this.Maximize_Button_Click(sender, new RoutedEventArgs());
+				return;
+			}
+			try
+			{
+				base.DragMove();
+			}
+			catch (Exception)
+			{
 			}
 		}
 
@@ -790,5 +844,7 @@ namespace PredatorSense
 		public string NVIDIA_Experience_file64 = "C:\\Program Files\\NVIDIA Corporation\\NVIDIA GeForce Experience\\NVIDIA GeForce Experience.exe";
 
         private NotifyIcon _trayIcon;
+
+		private bool loading_advance_settings;
     }
 }

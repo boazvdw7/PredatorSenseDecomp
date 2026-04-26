@@ -13,20 +13,46 @@
 		</ResourceDictionary>
 	</FrameworkElement.Resources>
 	<Viewbox
-		Stretch="Uniform">
+		Stretch="Fill"
+		UseLayoutRounding="True"
+		SnapsToDevicePixels="True">
 		<Grid
 			x:Name="Main_Grid"
 			Width="1152"
 			Height="312">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition
 					Width="312" />
 				<ColumnDefinition
 					Width="*" />
 			</Grid.ColumnDefinitions>
+			<TextBlock
+				x:Name="OverclockingHeader_TextBlock"
+				Grid.Row="0"
+				Grid.Column="0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Bottom"
+				Margin="36,0,0,4"
+				FontSize="16"
+				Foreground="{DynamicResource UiMainTextBrush}"
+				Text="{DynamicResource MUI_Overclocking}" />
+			<TextBlock
+				Grid.Row="0"
+				Grid.Column="1"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Bottom"
+				Margin="0,0,0,4"
+				FontSize="16"
+				Foreground="{DynamicResource UiMainTextBrush}"
+				Text="{DynamicResource MUI_Monitoring}" />
 			<Grid
 				x:Name="OC_Grid"
-				Column="0">
+				Column="0"
+				Row="1">
 				<Grid.RowDefinitions>
 					<RowDefinition
 						Height="6" />
@@ -80,7 +106,7 @@
 						x:Name="CPU_core_clock_TextBlock"
 						HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
-						Foreground="#808080"
+						Foreground="{DynamicResource UiMutedTextBrush}"
 						FontSize="14" />
 				</StackPanel>
 				<Path
@@ -112,7 +138,7 @@
 					Grid.ColumnSpan="2"
 					HorizontalAlignment="Right"
 					VerticalAlignment="Bottom"
-					Foreground="#666666"
+					Foreground="{DynamicResource UiSubtleTextBrush}"
 					FontSize="12"
 					Text="{DynamicResource MUI_MHZ}"
 					Margin="0,0,12,6" />
@@ -227,7 +253,8 @@
 				</Grid>
 			</Grid>
 			<Grid
-				Column="1">
+				Column="1"
+				Row="1">
 				<Grid.RowDefinitions>
 					<RowDefinition
 						Height="6" />
@@ -260,7 +287,7 @@
 					Grid.Row="1"
 					HorizontalAlignment="Left"
 					VerticalAlignment="Bottom"
-					Foreground="#808080"
+					Foreground="{DynamicResource UiMutedTextBrush}"
 					FontSize="14" />
 				<Grid
 					Column="0"
@@ -283,7 +310,7 @@
 						HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontSize="12"
-						Foreground="#808080"
+						Foreground="{DynamicResource UiMutedTextBrush}"
 						Text="{DynamicResource MUI_Min}" />
 					<TextBlock
 						x:Name="CPU_MinTemplature_value"
@@ -291,14 +318,14 @@
 						HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontSize="12"
-						Foreground="#808080" />
+						Foreground="{DynamicResource UiMutedTextBrush}" />
 					<TextBlock
 						x:Name="CPU_MaxTemplature"
 						Grid.Column="3"
 						HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontSize="12"
-						Foreground="#808080"
+						Foreground="{DynamicResource UiMutedTextBrush}"
 						Text="{DynamicResource MUI_Max}" />
 					<TextBlock
 						x:Name="CPU_MaxTemplature_value"
@@ -306,7 +333,7 @@
 						HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontSize="12"
-						Foreground="#808080" />
+						Foreground="{DynamicResource UiMutedTextBrush}" />
 				</Grid>
 				<Border
 					Grid.Column="0"
@@ -368,7 +395,7 @@
 					HorizontalAlignment="Left"
 					VerticalAlignment="Top"
 					FontSize="16"
-					Foreground="#FFFFFF"
+					Foreground="{DynamicResource UiMainTextBrush}"
 					Text="{DynamicResource MUI_CPU}"
 					Margin="10,10,0,0" />
 				<Grid
@@ -424,7 +451,7 @@
 						HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontSize="12"
-						Foreground="#808080"
+						Foreground="{DynamicResource UiMutedTextBrush}"
 						Text="{DynamicResource MUI_Min}" />
 					<TextBlock
 						x:Name="GPU_MinTemplature_value"
@@ -432,14 +459,14 @@
 						HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontSize="12"
-						Foreground="#808080" />
+						Foreground="{DynamicResource UiMutedTextBrush}" />
 					<TextBlock
 						x:Name="GPU_MaxTemplature"
 						Grid.Column="3"
 						HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontSize="12"
-						Foreground="#808080"
+						Foreground="{DynamicResource UiMutedTextBrush}"
 						Text="{DynamicResource MUI_Max}" />
 					<TextBlock
 						x:Name="GPU_MaxTemplature_value"
@@ -447,7 +474,7 @@
 						HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontSize="12"
-						Foreground="#808080" />
+						Foreground="{DynamicResource UiMutedTextBrush}" />
 				</Grid>
 				<Border
 					Grid.Column="0"
@@ -605,7 +632,7 @@
 					HorizontalAlignment="Left"
 					VerticalAlignment="Top"
 					FontSize="16"
-					Foreground="#FFFFFF"
+					Foreground="{DynamicResource UiMainTextBrush}"
 					Margin="10,10,0,0"
 					Text="{DynamicResource MUI_GPU_NAME}" />
 				<Grid

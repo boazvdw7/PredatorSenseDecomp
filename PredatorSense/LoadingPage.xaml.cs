@@ -113,6 +113,13 @@ namespace PredatorSense
 					base.Close();
 					return;
 				}
+				// Timeout fallback: if service doesn't exist after waiting, allow startup anyway
+				if (this._count > 224 && !this._svc_exist)
+				{
+					this.complete = true;
+					base.Close();
+					return;
+				}
 				this.SvcCheckTimer.Start();
 			}
 		}

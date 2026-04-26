@@ -13,7 +13,9 @@
 		</ResourceDictionary>
 	</FrameworkElement.Resources>
 	<Viewbox
-		Stretch="Uniform">
+		Stretch="Fill"
+		UseLayoutRounding="True"
+		SnapsToDevicePixels="True">
 		<Grid
 			x:Name="Main_Grid"
 			Width="1152"
@@ -52,7 +54,7 @@
 				Grid.Row="1"
 				HorizontalAlignment="Left"
 				VerticalAlignment="Bottom"
-				Foreground="#808080"
+				Foreground="{DynamicResource UiMutedTextBrush}"
 				FontSize="14" />
 			<Grid
 				Column="1"
@@ -71,7 +73,7 @@
 					HorizontalAlignment="Left"
 					VerticalAlignment="Bottom"
 					FontSize="12"
-					Foreground="#808080"
+					Foreground="{DynamicResource UiMutedTextBrush}"
 					Text="{DynamicResource MUI_Min}" />
 				<TextBlock
 					x:Name="CPU_MaxTemplature"
@@ -79,7 +81,7 @@
 					HorizontalAlignment="Left"
 					VerticalAlignment="Bottom"
 					FontSize="12"
-					Foreground="#808080"
+					Foreground="{DynamicResource UiMutedTextBrush}"
 					Text="{DynamicResource MUI_Max}" />
 			</Grid>
 			<Border
@@ -141,7 +143,7 @@
 				HorizontalAlignment="Left"
 				VerticalAlignment="Top"
 				FontSize="16"
-				Foreground="#FFFFFF"
+				Foreground="{DynamicResource UiMainTextBrush}"
 				Text="{DynamicResource MUI_CPU}"
 				Margin="10,10,0,0" />
 			<Grid
@@ -193,7 +195,7 @@
 					HorizontalAlignment="Left"
 					VerticalAlignment="Bottom"
 					FontSize="12"
-					Foreground="#808080"
+					Foreground="{DynamicResource UiMutedTextBrush}"
 					Text="{DynamicResource MUI_Min}" />
 				<TextBlock
 					x:Name="GPU_MaxTemplature"
@@ -201,7 +203,7 @@
 					HorizontalAlignment="Left"
 					VerticalAlignment="Bottom"
 					FontSize="12"
-					Foreground="#808080"
+					Foreground="{DynamicResource UiMutedTextBrush}"
 					Text="{DynamicResource MUI_Max}" />
 			</Grid>
 			<Border
@@ -360,7 +362,7 @@
 				HorizontalAlignment="Left"
 				VerticalAlignment="Top"
 				FontSize="16"
-				Foreground="#FFFFFF"
+				Foreground="{DynamicResource UiMainTextBrush}"
 				Margin="10,10,0,0"
 				Text="{DynamicResource MUI_GPU_NAME}" />
 			<Grid
@@ -401,7 +403,7 @@
 				VerticalAlignment="Top"
 				HorizontalAlignment="Left"
 				FontSize="16"
-				Foreground="#FFFFFF"
+				Foreground="{DynamicResource UiMainTextBrush}"
 				Margin="44,8,0,0"
 				Text="{DynamicResource MUI_Monitoring}"
 				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"

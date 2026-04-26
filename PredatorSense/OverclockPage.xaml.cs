@@ -683,12 +683,12 @@ namespace PredatorSense
 		private int current_GPU2_maxMHz;
 
 		// Token: 0x04000184 RID: 388
-		private int GPU2Normal_maxMHz;
+		private int GPU2Normal_maxMHz = 0;
 
 		// Token: 0x04000185 RID: 389
-		private int GPU2Faster_maxMHz;
+		private int GPU2Faster_maxMHz = 0;
 
 		// Token: 0x04000186 RID: 390
-		private int GPU2Turbo_maxMHz;
+		private int GPU2Turbo_maxMHz = 0;
 	}
 }

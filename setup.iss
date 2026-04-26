@@ -6,6 +6,9 @@
 #define AppPublisher "Not Acer, Inc."
 #define AppURL "https://github.com/boazvdw7/PredatorSenseDecomp"
 #define AppExeName "PredatorSense.exe"
+#define BuildOutputDir "PredatorSense\\bin\\Release\\net10.0-windows"
+#define LibsDir "libs"
+#define ImagesDir "images"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -26,7 +29,7 @@ PrivilegesRequired=admin
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=commandline
 OutputBaseFilename=Setup
-SetupIconFile=C:\Software\dnSpy\PredatorSense\PredatorSense\PredatorSense.ico
+SetupIconFile=PredatorSense\PredatorSense.ico
 SolidCompression=yes
 WizardStyle=modern
 
@@ -37,23 +40,21 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Software\dnSpy\PredatorSense\PredatorSense\bin\Debug\{#AppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\PredatorSense\bin\Debug\TsDotNetLib.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\PSSvc.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\PSAdminAgent.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\PSAgent.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\PSCreateDefaultProfile.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\PSLauncher.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\SdkWrapper.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\ProfileHelperModel.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\msvcr120.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\IntelOverclockingSDK.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\ICSharpCode.SharpZipLib.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\AcrHttp.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\DeployTool.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\ListCheck.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\libs\UpgradeTool.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Software\dnSpy\PredatorSense\images\*"; DestDir: "{app}\images"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#BuildOutputDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#LibsDir}\PSSvc.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\PSAdminAgent.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\PSAgent.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\PSCreateDefaultProfile.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\PSLauncher.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\SdkWrapper.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\ProfileHelperModel.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\msvcr120.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\IntelOverclockingSDK.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\AcrHttp.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\DeployTool.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\ListCheck.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#LibsDir}\UpgradeTool.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#ImagesDir}\*"; DestDir: "{app}\images"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 
 
