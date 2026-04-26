@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.ServiceProcess;
+using System.Text;
 using System.Threading;
 using System.Windows;
 using Microsoft.Win32;
@@ -120,7 +121,11 @@ namespace PredatorSense
 					}
 				}
 				Startup._Image_path = AppDomain.CurrentDomain.BaseDirectory + "Images\\" + text3 + "\\";
-				Startup.styled = Application.LoadComponent(new Uri("/PredatorSense;component/Style/" + text3 + "/PSStyle.xaml", UriKind.Relative)) as ResourceDictionary;			ThemeManager.ApplyThemeResources(ThemeManager.IsDarkModeEnabled());				if (Startup.IsGuest() || Startup.IsDomainGuest)
+			Startup.styled = Application.LoadComponent(new Uri("/PredatorSense;component/Style/" + text3 + "/PSStyle.xaml", UriKind.Relative)) as ResourceDictionary;
+			ThemeManager.ApplyThemeResources(ThemeManager.IsDarkModeEnabled());
+			// Check if fans are stuck from a previous crash and reset them
+			Startup.CheckAndFixStuckFans();
+			if (Startup.IsGuest() || Startup.IsDomainGuest)
 				{
 					string text4 = "PredatorSense";
 					try
@@ -362,12 +367,19 @@ namespace PredatorSense
 		{
 			try
 			{
-				string executablePath = Assembly.GetExecutingAssembly().Location;
 				int currentPid = Process.GetCurrentProcess().Id;
+				string command = "$parentPid=" + currentPid.ToString(CultureInfo.InvariantCulture) + "; " +
+					"try { Wait-Process -Id $parentPid -ErrorAction SilentlyContinue } catch {} ; " +
+					"Start-Sleep -Milliseconds 750; " +
+					"$remaining=Get-Process -Name 'PredatorSense' -ErrorAction SilentlyContinue; if ($remaining) { exit 0 }; " +
+					"$names=@('PSSvc','PSAgent','PSAdminAgent','PSLauncher','PSToastCreator','DeployTool','ListCheck','UpgradeTool','PSCreateDefaultProfile'); " +
+					"foreach($name in $names){ Get-Process -Name $name -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue }; " +
+					"try { Stop-Service -Name 'PSSvc' -Force -ErrorAction SilentlyContinue } catch {}";
+				string encodedCommand = Convert.ToBase64String(Encoding.Unicode.GetBytes(command));
 				Process.Start(new ProcessStartInfo
 				{
-					FileName = executablePath,
-					Arguments = "--cleanup-watchdog " + currentPid.ToString(CultureInfo.InvariantCulture),
+					FileName = "powershell.exe",
+					Arguments = "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -EncodedCommand " + encodedCommand,
 					UseShellExecute = false,
 					CreateNoWindow = true,
 					WindowStyle = ProcessWindowStyle.Hidden
@@ -375,6 +387,23 @@ namespace PredatorSense
 			}
 			catch
 			{
+				try
+				{
+					// Fallback to legacy self-watchdog if PowerShell launch is unavailable.
+					string executablePath = Assembly.GetExecutingAssembly().Location;
+					int currentPid = Process.GetCurrentProcess().Id;
+					Process.Start(new ProcessStartInfo
+					{
+						FileName = executablePath,
+						Arguments = "--cleanup-watchdog " + currentPid.ToString(CultureInfo.InvariantCulture),
+						UseShellExecute = false,
+						CreateNoWindow = true,
+						WindowStyle = ProcessWindowStyle.Hidden
+					});
+				}
+				catch
+				{
+				}
 			}
 		}
 
@@ -442,6 +471,35 @@ namespace PredatorSense
 			}
 			catch
 			{
+			}
+		}
+
+		private static void CheckAndFixStuckFans()
+		{
+			try
+			{
+				// Check if fans are in a stuck state (non-auto mode) which indicates a previous crash
+				int currentFanMode = TsDotNetLib.Registry.CheckLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 0U);
+				
+				// If fan mode is not Auto (0), the app crashed or was killed while in a custom mode
+				// Automatically reset to Auto mode to prevent fans from getting stuck
+				if (currentFanMode != 0)
+				{
+					try
+					{
+						TsDotNetLib.Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 0U);
+						// Give the system a moment to process the registry change
+						Thread.Sleep(100);
+					}
+					catch
+					{
+						// If we can't write to registry, at least try to set via WMI
+					}
+				}
+			}
+			catch
+			{
+				// Silently fail - this is just a safety check
 			}
 		}
 	}

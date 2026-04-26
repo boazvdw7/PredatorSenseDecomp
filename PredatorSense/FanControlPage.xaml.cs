@@ -39,11 +39,7 @@ namespace PredatorSense
 			this.FanModeMax.Click += this.FanModeMax_Click;
 			this.FanModeCustom.Click += this.FanModeCustom_Click;
 			this.CPU_ScrollBar.Visibility = Visibility.Hidden;
-			this.CPU_Auto.Visibility = Visibility.Hidden;
 			this.GPU1_ScrollBar.Visibility = Visibility.Hidden;
-			this.GPU1_Auto.Visibility = Visibility.Hidden;
-			this.CPU_Auto.Click += this.FanModeCustomAutoCPU_Click;
-			this.GPU1_Auto.Click += this.FanModeCustomAutoGPU1_Click;
 		}
 
 		// Token: 0x06000062 RID: 98 RVA: 0x00004E04 File Offset: 0x00003004
@@ -63,22 +59,9 @@ namespace PredatorSense
 		// Token: 0x06000063 RID: 99 RVA: 0x00004EA0 File Offset: 0x000030A0
 		public void SetCustomFanAutoMode(params bool[] CustomFanAutoMode)
 		{
-			this.CPU_Auto.IsChecked = new bool?(CustomFanAutoMode[0]);
-			this.GPU1_Auto.IsChecked = new bool?(CustomFanAutoMode[1]);
-			if (this.CPU_Auto.IsChecked == true)
-			{
-				this.CPU_ScrollBar.IsEnabled = false;
-			}
-			else
-			{
-				this.CPU_ScrollBar.IsEnabled = true;
-			}
-			if (this.GPU1_Auto.IsChecked == true)
-			{
-				this.GPU1_ScrollBar.IsEnabled = false;
-				return;
-			}
-			this.GPU1_ScrollBar.IsEnabled = true;
+			// Main-page fan sliders stay locked while in Custom mode.
+			this.CPU_ScrollBar.IsEnabled = false;
+			this.GPU1_ScrollBar.IsEnabled = false;
 		}
 
 		// Token: 0x06000064 RID: 100 RVA: 0x00004F48 File Offset: 0x00003148
@@ -92,8 +75,8 @@ namespace PredatorSense
 		public bool[] GetCustomFanAutoMode()
 		{
 			bool[] array = new bool[4];
-			array[0] = this.CPU_Auto.IsChecked.Value;
-			array[1] = this.GPU1_Auto.IsChecked.Value;
+			array[0] = true;
+			array[1] = true;
 			return array;
 		}
 
@@ -115,9 +98,9 @@ namespace PredatorSense
 				this.FanModeMax.IsChecked = new bool?(false);
 				this.FanModeCustom.IsChecked = new bool?(false);
 				this.CPU_ScrollBar.Visibility = Visibility.Hidden;
-				this.CPU_Auto.Visibility = Visibility.Hidden;
 				this.GPU1_ScrollBar.Visibility = Visibility.Hidden;
-				this.GPU1_Auto.Visibility = Visibility.Hidden;
+				this.CPU_ScrollBar.IsEnabled = true;
+				this.GPU1_ScrollBar.IsEnabled = true;
 				return;
 			}
 			if (InitialFanMode.Equals(1))
@@ -126,9 +109,9 @@ namespace PredatorSense
 				this.FanModeMax.IsChecked = new bool?(true);
 				this.FanModeCustom.IsChecked = new bool?(false);
 				this.CPU_ScrollBar.Visibility = Visibility.Hidden;
-				this.CPU_Auto.Visibility = Visibility.Hidden;
 				this.GPU1_ScrollBar.Visibility = Visibility.Hidden;
-				this.GPU1_Auto.Visibility = Visibility.Hidden;
+				this.CPU_ScrollBar.IsEnabled = true;
+				this.GPU1_ScrollBar.IsEnabled = true;
 				return;
 			}
 			if (InitialFanMode.Equals(2))
@@ -137,9 +120,9 @@ namespace PredatorSense
 				this.FanModeMax.IsChecked = new bool?(false);
 				this.FanModeCustom.IsChecked = new bool?(true);
 				this.CPU_ScrollBar.Visibility = Visibility.Visible;
-				this.CPU_Auto.Visibility = Visibility.Visible;
 				this.GPU1_ScrollBar.Visibility = Visibility.Visible;
-				this.GPU1_Auto.Visibility = Visibility.Visible;
+				this.CPU_ScrollBar.IsEnabled = false;
+				this.GPU1_ScrollBar.IsEnabled = false;
 			}
 		}
 
@@ -245,15 +228,16 @@ namespace PredatorSense
 			this.FanModeMax.IsChecked = new bool?(false);
 			this.FanModeCustom.IsChecked = new bool?(false);
 			this.CPU_ScrollBar.Visibility = Visibility.Hidden;
-			this.CPU_Auto.Visibility = Visibility.Hidden;
 			this.GPU1_ScrollBar.Visibility = Visibility.Hidden;
-			this.GPU1_Auto.Visibility = Visibility.Hidden;
+			this.CPU_ScrollBar.IsEnabled = true;
+			this.GPU1_ScrollBar.IsEnabled = true;
 			Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 0U);
 			ThreadStart threadStart = delegate
 			{
 				CommonFunction.set_all_fan_mode(CommonFunction.Fan_Mode_Type.Auto);
 			};
 			new Thread(threadStart).Start();
+			FanCurveEditor.SyncCustomCurveEnabledWithFanMode(false);
 		}
 
 		// Token: 0x0600006E RID: 110 RVA: 0x000054DC File Offset: 0x000036DC
@@ -268,9 +252,9 @@ namespace PredatorSense
 			this.FanModeMax.IsChecked = new bool?(true);
 			this.FanModeCustom.IsChecked = new bool?(false);
 			this.CPU_ScrollBar.Visibility = Visibility.Hidden;
-			this.CPU_Auto.Visibility = Visibility.Hidden;
 			this.GPU1_ScrollBar.Visibility = Visibility.Hidden;
-			this.GPU1_Auto.Visibility = Visibility.Hidden;
+			this.CPU_ScrollBar.IsEnabled = true;
+			this.GPU1_ScrollBar.IsEnabled = true;
 			Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 1U);
 			ThreadStart threadStart = delegate
 			{
@@ -291,14 +275,14 @@ namespace PredatorSense
 			this.FanModeMax.IsChecked = new bool?(false);
 			this.FanModeCustom.IsChecked = new bool?(true);
 			this.CPU_ScrollBar.Visibility = Visibility.Visible;
-			this.CPU_Auto.Visibility = Visibility.Visible;
 			this.GPU1_ScrollBar.Visibility = Visibility.Visible;
-			this.GPU1_Auto.Visibility = Visibility.Visible;
+			this.CPU_ScrollBar.IsEnabled = false;
+			this.GPU1_ScrollBar.IsEnabled = false;
 			Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 2U);
 			List<bool> all_auto_state = new List<bool>();
 			List<ulong> all_percentage_state = new List<ulong>();
-			all_auto_state.Add(this.CPU_Auto.IsChecked.Value);
-			all_auto_state.Add(this.GPU1_Auto.IsChecked.Value);
+			all_auto_state.Add(false);
+			all_auto_state.Add(false);
 			all_percentage_state.Add((ulong)this.CPU_ScrollBar.Value * 10UL);
 			all_percentage_state.Add((ulong)this.GPU1_ScrollBar.Value * 10UL);
 			ThreadStart threadStart = delegate
@@ -306,6 +290,7 @@ namespace PredatorSense
 				CommonFunction.set_all_custom_fan_state(all_auto_state, all_percentage_state);
 			};
 			new Thread(threadStart).Start();
+			FanCurveEditor.SyncCustomCurveEnabledWithFanMode(true);
 		}
 
 		// Token: 0x06000070 RID: 112 RVA: 0x0000572E File Offset: 0x0000392E
@@ -317,28 +302,6 @@ namespace PredatorSense
 				return;
 			}
 			this.ShowCoolBoosterInformationPopup.IsOpen = true;
-		}
-
-		// Token: 0x06000071 RID: 113 RVA: 0x00005758 File Offset: 0x00003958
-		private void FanModeCustomAutoCPU_Click(object sender, RoutedEventArgs e)
-		{
-			if (this.CPU_Auto.IsChecked == true)
-			{
-				this.CPU_ScrollBar.IsEnabled = false;
-				return;
-			}
-			this.CPU_ScrollBar.IsEnabled = true;
-		}
-
-		// Token: 0x06000072 RID: 114 RVA: 0x000057A0 File Offset: 0x000039A0
-		private void FanModeCustomAutoGPU1_Click(object sender, RoutedEventArgs e)
-		{
-			if (this.GPU1_Auto.IsChecked == true)
-			{
-				this.GPU1_ScrollBar.IsEnabled = false;
-				return;
-			}
-			this.GPU1_ScrollBar.IsEnabled = true;
 		}
 
 		// Token: 0x06000073 RID: 115 RVA: 0x000057F0 File Offset: 0x000039F0
@@ -359,35 +322,6 @@ namespace PredatorSense
 			ThreadStart threadStart = delegate
 			{
 				CommonFunction.set_coolboost_state(false);
-			};
-			new Thread(threadStart).Start();
-		}
-
-		// Token: 0x06000075 RID: 117 RVA: 0x000058A8 File Offset: 0x00003AA8
-		private void Custom_Auto_Checked_Unchecked(object sender, RoutedEventArgs e)
-		{
-			if (this.check_main_initial_flag())
-			{
-				return;
-			}
-			CheckBox checkBox = sender as CheckBox;
-			Slider slider = (Slider)base.FindName(checkBox.Name.Replace("_Auto", "_ScrollBar"));
-			ulong slider_value = (ulong)slider.Value * 10UL;
-			CommonFunction.Fan_Group_Type current_group_type = CommonFunction.Fan_Group_Type.fCPU;
-			if (Convert.ToInt32(checkBox.Tag) == 0)
-			{
-				Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CPUFanCustomAuto", checkBox.IsChecked.Value ? 1U : 0U);
-				current_group_type = CommonFunction.Fan_Group_Type.fCPU;
-			}
-			else if (Convert.ToInt32(checkBox.Tag) == 1)
-			{
-				Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "GPU1FanCustomAuto", checkBox.IsChecked.Value ? 1U : 0U);
-				current_group_type = CommonFunction.Fan_Group_Type.fGPU;
-			}
-			bool state = checkBox.IsChecked.Value;
-			ThreadStart threadStart = delegate
-			{
-				CommonFunction.set_single_custom_fan_state(state, slider_value, current_group_type);
 			};
 			new Thread(threadStart).Start();
 		}

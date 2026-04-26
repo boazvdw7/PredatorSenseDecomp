@@ -149,7 +149,13 @@ namespace PredatorSense
 
             this.Loaded += (s, e) =>
             {
-                FanCurveEditor.ApplyFanCurveIfEnabled(this);
+                try
+                {
+                    FanCurveEditor.ApplyFanCurveIfEnabled(this);
+                }
+                catch
+                {
+                }
             };
         }
 
@@ -176,10 +182,33 @@ namespace PredatorSense
 
         private void OC_MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-			// Hide the window instead of closing it
+			// If the application is actually shutting down (not just minimizing), reset fans
+			if (System.Windows.Application.Current.ShutdownMode == ShutdownMode.OnExplicitShutdown)
+			{
+				try
+				{
+					// Reset fans to auto mode before closing
+					Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 0U);
+					ThreadStart threadStart = delegate
+					{
+						CommonFunction.set_all_fan_mode(CommonFunction.Fan_Mode_Type.Auto);
+						Thread.Sleep(500);
+					};
+					new Thread(threadStart).Start();
+					Thread.Sleep(1000);
+				}
+				catch (Exception)
+				{
+				}
+				return; // Allow the window to close
+			}
+			// Hide the window instead of closing it (tray mode)
 			e.Cancel = true;
 			this.Hide();
-			_trayIcon.Visible = true; // Show the tray icon
+			if (_trayIcon != null)
+			{
+				_trayIcon.Visible = true; // Show the tray icon
+			}
         }
 
         // Token: 0x060000EA RID: 234 RVA: 0x0000A7EA File Offset: 0x000089EA
@@ -207,6 +236,21 @@ namespace PredatorSense
 		{
 			try
 			{
+				// Reset fans to auto mode before closing to prevent them from getting stuck
+				try
+				{
+					Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 0U);
+					ThreadStart threadStart = delegate
+					{
+						CommonFunction.set_all_fan_mode(CommonFunction.Fan_Mode_Type.Auto);
+						Thread.Sleep(500);
+					};
+					new Thread(threadStart).Start();
+					Thread.Sleep(1000);
+				}
+				catch (Exception)
+				{
+				}
                 System.Windows.Application.Current.Shutdown();
             }
             catch (Exception)
@@ -240,10 +284,6 @@ namespace PredatorSense
 		// Token: 0x060000EE RID: 238 RVA: 0x0000A888 File Offset: 0x00008A88
 		private void Window_StateChanged(object sender, EventArgs e)
 		{
-			if (this.Maximize_Button != null)
-			{
-				this.Maximize_Button.Content = ((base.WindowState == WindowState.Maximized) ? "\uE923" : "\uE922");
-			}
 		}
 
 		// Token: 0x060000EF RID: 239 RVA: 0x0000A8A0 File Offset: 0x00008AA0
@@ -652,6 +692,11 @@ namespace PredatorSense
 		{
 			if (e.ChangedButton == MouseButton.Left && e.GetPosition(this.Main_Grid).Y <= 52.0)
 			{
+				if (e.ClickCount == 2)
+				{
+					this.Maximize_Button_Click(sender, new RoutedEventArgs());
+					return;
+				}
 				try
 				{
 					base.DragMove();

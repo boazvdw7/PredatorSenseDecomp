@@ -66,6 +66,19 @@ Name: "{autoprograms}\{#AppName}"; Filename: "{app}\{#AppExeName}"
 Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExeName}"; Tasks: desktopicon
 Name: "{commonstartup}\{#AppName}"; Filename: "{app}\{#AppExeName}"
 
+[Registry]
+; Remove all registry branches written/managed by this application on uninstall.
+Root: HKLM; Subkey: "SOFTWARE\OEM\PredatorSense\AdvanceSettings"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\OEM\PredatorSense\FanControl"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\OEM\PredatorSense\Overclock"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\OEM\PredatorSense\KeyAssignment"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\OEM\PredatorSense\LightSetting"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\OEM\PredatorSense\Log"; Flags: uninsdeletekey
+
+; Clean up parent keys only if empty after removing app-owned branches.
+Root: HKLM; Subkey: "SOFTWARE\OEM\PredatorSense"; Flags: uninsdeletekeyifempty
+Root: HKLM; Subkey: "SOFTWARE\OEM"; Flags: uninsdeletekeyifempty
+
 [Run]
 Filename: "sc.exe"; Parameters: "create PSSvc binPath= ""{app}\PSSvc.exe"" start= auto DisplayName= ""Predator Sense Service"""; StatusMsg: "Installing PSSvc service..."; Flags: runhidden waituntilterminated
 Filename: "sc.exe"; Parameters: "start PSSvc"; StatusMsg: "Starting PSSvc service..."; Flags: runhidden waituntilterminated

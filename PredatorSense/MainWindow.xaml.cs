@@ -98,6 +98,21 @@ namespace PredatorSense
 		{
 			try
 			{
+				// Reset fans to auto mode before closing to prevent them from getting stuck
+				try
+				{
+					Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 0U);
+					ThreadStart threadStart = delegate
+					{
+						CommonFunction.set_all_fan_mode(CommonFunction.Fan_Mode_Type.Auto);
+						Thread.Sleep(500);
+					};
+					new Thread(threadStart).Start();
+					Thread.Sleep(1000);
+				}
+				catch (Exception)
+				{
+				}
 				Application.Current.Shutdown();
 			}
 			catch (Exception)
@@ -131,10 +146,6 @@ namespace PredatorSense
 		// Token: 0x06000332 RID: 818 RVA: 0x00027244 File Offset: 0x00025444
 		private void Window_StateChanged(object sender, EventArgs e)
 		{
-			if (this.Maximize_Button != null)
-			{
-				this.Maximize_Button.Content = ((base.WindowState == WindowState.Maximized) ? "\uE923" : "\uE922");
-			}
 		}
 
 		// Token: 0x06000333 RID: 819 RVA: 0x0002725C File Offset: 0x0002545C
@@ -500,6 +511,11 @@ namespace PredatorSense
 		{
 			if (e.ChangedButton == MouseButton.Left && e.GetPosition(this.Main_Grid).Y <= 52.0)
 			{
+				if (e.ClickCount == 2)
+				{
+					this.Maximize_Button_Click(sender, new RoutedEventArgs());
+					return;
+				}
 				try
 				{
 					base.DragMove();
@@ -588,6 +604,21 @@ namespace PredatorSense
 		private void mainWindow_Closing(object sender, CancelEventArgs e)
 		{
 			this.PollingStop();
+			// Reset fans to auto mode before closing to prevent them from getting stuck
+			try
+			{
+				Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\FanControl", "CurrentFanMode", 0U);
+				ThreadStart threadStart = delegate
+				{
+					CommonFunction.set_all_fan_mode(CommonFunction.Fan_Mode_Type.Auto);
+					Thread.Sleep(500);
+				};
+				new Thread(threadStart).Start();
+				Thread.Sleep(1000);
+			}
+			catch (Exception)
+			{
+			}
 			Environment.Exit(0);
 		}
 

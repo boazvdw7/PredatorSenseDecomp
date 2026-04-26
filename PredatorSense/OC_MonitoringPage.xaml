@@ -146,7 +146,7 @@
 					Column="2"
 					Row="5"
 					ColumnSpan="2"
-					RowSpan="2">
+					RowSpan="3">
 					<Grid.RowDefinitions>
 						<RowDefinition
 							Height="56" />

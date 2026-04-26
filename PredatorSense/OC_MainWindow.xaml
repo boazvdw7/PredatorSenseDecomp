@@ -19,11 +19,11 @@
 	Closing="mainWindow_Closing">
 	<shell:WindowChrome.WindowChrome>
 		<shell:WindowChrome
-			CaptionHeight="0"
+			CaptionHeight="52"
 			ResizeBorderThickness="8"
-			GlassFrameThickness="0"
+			GlassFrameThickness="0,52,0,0"
 			CornerRadius="10"
-			UseAeroCaptionButtons="False" />
+			UseAeroCaptionButtons="True" />
 	</shell:WindowChrome.WindowChrome>
 	<FrameworkElement.Resources>
 		<ResourceDictionary>
@@ -33,21 +33,84 @@
 				<ResourceDictionary
 					Source="Lang\en.xaml" />
 			</ResourceDictionary.MergedDictionaries>
+			<Style
+				TargetType="Image">
+				<Setter Property="Effect" Value="{DynamicResource UiPngImageEffect}" />
+			</Style>
+			<Style
+				x:Key="TitleBarCaptionButtonStyle"
+				TargetType="Button">
+				<Setter Property="Width" Value="46" />
+				<Setter Property="Height" Value="30" />
+				<Setter Property="Foreground" Value="{DynamicResource UiMainTextBrush}" />
+				<Setter Property="Background" Value="Transparent" />
+				<Setter Property="BorderBrush" Value="Transparent" />
+				<Setter Property="BorderThickness" Value="0" />
+				<Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+				<Setter Property="FontSize" Value="10" />
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="Button">
+							<Border
+								x:Name="CaptionButtonBorder"
+								Background="{TemplateBinding Background}">
+								<ContentPresenter
+									HorizontalAlignment="Center"
+									VerticalAlignment="Center" />
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger Property="IsMouseOver" Value="True">
+									<Setter TargetName="CaptionButtonBorder" Property="Background" Value="#22000000" />
+								</Trigger>
+								<Trigger Property="IsPressed" Value="True">
+									<Setter TargetName="CaptionButtonBorder" Property="Background" Value="#33000000" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style
+				x:Key="TitleBarCloseButtonStyle"
+				BasedOn="{StaticResource TitleBarCaptionButtonStyle}"
+				TargetType="Button">
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="Button">
+							<Border
+								x:Name="CaptionCloseButtonBorder"
+								Background="{TemplateBinding Background}">
+								<ContentPresenter
+									HorizontalAlignment="Center"
+									VerticalAlignment="Center" />
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger Property="IsMouseOver" Value="True">
+									<Setter TargetName="CaptionCloseButtonBorder" Property="Background" Value="#E81123" />
+									<Setter Property="Foreground" Value="#FFFFFF" />
+								</Trigger>
+								<Trigger Property="IsPressed" Value="True">
+									<Setter TargetName="CaptionCloseButtonBorder" Property="Background" Value="#C50F1F" />
+									<Setter Property="Foreground" Value="#FFFFFF" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
 		</ResourceDictionary>
 	</FrameworkElement.Resources>
 	<Border
-		Background="#F3F3F3"
-		BorderBrush="#D0D0D0"
+		Background="{DynamicResource UiWindowBackgroundBrush}"
+		BorderBrush="{DynamicResource UiWindowBorderBrush}"
 		BorderThickness="1"
 		CornerRadius="10"
 		ClipToBounds="True">
 		<Grid
 			x:Name="Main_Grid"
-			TextElement.Foreground="#1F1F1F"
+			TextElement.Foreground="{DynamicResource UiMainTextBrush}"
+			Background="{DynamicResource UiWindowBackgroundBrush}"
 			MouseDown="Main_Grid_MouseDown">
-			<Panel.Background>
-				<SolidColorBrush Color="#F3F3F3" />
-			</Panel.Background>
 			<Grid.RowDefinitions>
 				<RowDefinition
 					Height="52" />
@@ -71,16 +134,16 @@
 				HorizontalAlignment="Stretch"
 				VerticalAlignment="Stretch"
 				Margin="10,10,10,10"
-				Background="#F3F3F3"
-				BorderBrush="#D0D0D0"
+				Background="{DynamicResource UiPanelBackgroundBrush}"
+				BorderBrush="{DynamicResource UiPanelBorderBrush}"
 				BorderThickness="1"
 				CornerRadius="8" />
 			<Border
 				Grid.Column="0"
 				Grid.Row="0"
 				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
-				Background="#F3F3F3"
-				BorderBrush="#D0D0D0"
+				Background="{DynamicResource UiTitleBarBackgroundBrush}"
+				BorderBrush="{DynamicResource UiTitleBarBorderBrush}"
 				BorderThickness="0,0,0,1">
 				<Grid
 					Height="52"
@@ -99,8 +162,8 @@
 							Height="16"
 							Source="app_icon.ico" />
 						<TextBlock
-							Text="PredatorSense Settings"
-							Foreground="#1F1F1F"
+							Text="Predator Sense"
+							Foreground="{DynamicResource UiMainTextBrush}"
 							FontSize="18"
 							FontWeight="SemiBold"
 							Margin="10,0,0,0"
@@ -110,45 +173,47 @@
 						Grid.Column="1"
 						Orientation="Horizontal"
 						VerticalAlignment="Center"
-						Margin="0,0,8,0">
+						Margin="0,0,0,0"
+						shell:WindowChrome.IsHitTestVisibleInChrome="True">
 						<Button
 							x:Name="gfe_Button"
 							Width="92"
 							Height="30"
 							Margin="0,0,8,0"
 							Content="GeForce"
-							Background="#F3F3F3"
-							BorderBrush="#D0D0D0"
+							Background="{DynamicResource UiButtonBackgroundBrush}"
+							BorderBrush="{DynamicResource UiButtonBorderBrush}"
 							Click="gfe_Button_Click"
 							Initialized="gfe_Button_Initialized"
 							MouseEnter="gfe_Button_MouseEnter"
 							MouseLeave="gfe_Button_MouseLeave" />
 						<Button
-							x:Name="Setting_Button"
-							Width="86"
-							Height="30"
-							Margin="0,0,8,0"
-							Content="Settings"
-							Background="#F3F3F3"
-							BorderBrush="#D0D0D0"
-							Click="Setting_Button_Click" />
+							x:Name="Minimize_Button"
+							Style="{StaticResource TitleBarCaptionButtonStyle}"
+							Content="&#xE921;"
+							Click="Minimize_Button_Click" />
 						<Button
 							x:Name="Maximize_Button"
-							Width="38"
-							Height="30"
-							Content="&#xE922;"
-							FontFamily="Segoe MDL2 Assets"
-							Background="#F3F3F3"
-							BorderBrush="#D0D0D0"
-							Click="Maximize_Button_Click" />
+							Click="Maximize_Button_Click">
+							<Button.Style>
+								<Style
+									BasedOn="{StaticResource TitleBarCaptionButtonStyle}"
+									TargetType="Button">
+									<Setter Property="Content" Value="&#xE922;" />
+									<Style.Triggers>
+										<DataTrigger
+											Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}"
+											Value="Maximized">
+											<Setter Property="Content" Value="&#xE923;" />
+										</DataTrigger>
+									</Style.Triggers>
+								</Style>
+							</Button.Style>
+						</Button>
 						<Button
 							x:Name="Close_Button"
-							Width="38"
-							Height="30"
+							Style="{StaticResource TitleBarCloseButtonStyle}"
 							Content="&#xE8BB;"
-							FontFamily="Segoe MDL2 Assets"
-							Background="#F3F3F3"
-							BorderBrush="#D0D0D0"
 							Click="Close_Button_Click" />
 					</StackPanel>
 				</Grid>
@@ -179,6 +244,19 @@
 					<RowDefinition
 						Height="*" />
 				</Grid.RowDefinitions>
+				<Button
+					x:Name="Setting_Button"
+					Width="86"
+					Height="30"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					Margin="0,8,0,0"
+					Grid.RowSpan="2"
+					Panel.ZIndex="3"
+					Content="Settings"
+					Background="{DynamicResource UiButtonBackgroundBrush}"
+					BorderBrush="{DynamicResource UiButtonBorderBrush}"
+					Click="Setting_Button_Click" />
 			</Grid>
 			<Popup
 				x:Name="setting_Popup"
@@ -187,7 +265,7 @@
 				IsOpen="False"
 				StaysOpen="False"
 				Placement="Bottom"
-				HorizontalOffset="-231"
+				HorizontalOffset="-204"
 				VerticalOffset="5"
 				AllowsTransparency="True"
 				Grid.ColumnSpan="{Binding Path=ColumnDefinitions.Count, ElementName=Main_Grid}"
@@ -206,7 +284,7 @@
 						Canvas.Left="0"
 						Canvas.Top="0"
 						Stretch="Fill"
-						Fill="#F3F3F3"
+						Fill="{DynamicResource UiPopupBackgroundBrush}"
 						Data="F1 M3.00006,16.0137 L241.003,16.0137 L247.005,3.99994 L253.007,16.0137 L343,16.0137 L343,200.014 L3.00006,200.014 L3.00006,16.0137 Z">
 						<UIElement.Effect>
 							<DropShadowEffect
@@ -248,22 +326,22 @@
 							Grid.Column="1"
 							Grid.Row="2"
 							BorderThickness="0,0,0,1"
-							BorderBrush="#D0D0D0" />
+							BorderBrush="{DynamicResource UiPopupBorderBrush}" />
 						<Border
 							Grid.Column="1"
 							Grid.Row="3"
 							BorderThickness="0,0,0,1"
-							BorderBrush="#D0D0D0" />
+							BorderBrush="{DynamicResource UiPopupBorderBrush}" />
 						<Border
 							Grid.Column="1"
 							Grid.Row="4"
 							BorderThickness="0,0,0,1"
-							BorderBrush="#D0D0D0" />
+							BorderBrush="{DynamicResource UiPopupBorderBrush}" />
 						<Border
 							Grid.Column="1"
 							Grid.Row="5"
 							BorderThickness="0,0,0,1"
-							BorderBrush="#D0D0D0" />
+							BorderBrush="{DynamicResource UiPopupBorderBrush}" />
 						<TextBlock
 							Grid.Column="1"
 							Grid.Row="1"
@@ -329,12 +407,59 @@
 							x:Name="darkmode_Checkbox"
 							Grid.Column="1"
 							Grid.Row="5"
-							Width="18"
-							Height="20"
+							Width="70"
+							Height="30"
 							HorizontalAlignment="Right"
 							VerticalAlignment="Center"
 							Checked="darkmode_Checkbox_Checked"
-							Unchecked="darkmode_Checkbox_Unchecked" />
+							Unchecked="darkmode_Checkbox_Unchecked">
+							<CheckBox.Template>
+								<ControlTemplate TargetType="CheckBox">
+									<Border
+										x:Name="SwitchTrack"
+										CornerRadius="15"
+										BorderThickness="1"
+										BorderBrush="#6A7078"
+										Background="#D8DEE6">
+										<Grid Margin="6,0,6,0">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="*" />
+												<ColumnDefinition Width="*" />
+											</Grid.ColumnDefinitions>
+											<TextBlock
+												Grid.Column="0"
+												VerticalAlignment="Center"
+												HorizontalAlignment="Center"
+												Text="☀"
+												FontSize="12"
+												Foreground="#37424F" />
+											<TextBlock
+												Grid.Column="1"
+												VerticalAlignment="Center"
+												HorizontalAlignment="Center"
+												Text="☾"
+												FontSize="12"
+												Foreground="#37424F" />
+											<Ellipse
+												x:Name="SwitchThumb"
+												Width="24"
+												Height="24"
+												VerticalAlignment="Center"
+												Fill="#FFFFFF"
+												Margin="2,0,0,0" />
+										</Grid>
+									</Border>
+									<ControlTemplate.Triggers>
+										<Trigger Property="IsChecked" Value="True">
+											<Setter TargetName="SwitchTrack" Property="Background" Value="#2B3442" />
+											<Setter TargetName="SwitchTrack" Property="BorderBrush" Value="#536176" />
+											<Setter TargetName="SwitchThumb" Property="Margin" Value="38,0,0,0" />
+											<Setter TargetName="SwitchThumb" Property="Fill" Value="#D9E0EC" />
+										</Trigger>
+									</ControlTemplate.Triggers>
+								</ControlTemplate>
+							</CheckBox.Template>
+						</CheckBox>
                         <Button
                             Content="Fan Curve Editor" 
                             Click="OpenFanCurveEditor_Click"

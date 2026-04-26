@@ -129,18 +129,6 @@
 					Thumb.DragStarted="ScrollBar_DragStarted"
 					Thumb.DragCompleted="ScrollBar_DragCompleted"
 					ValueChanged="ScrollBar_ValueChanged" />
-				<CheckBox
-					x:Name="CPU_Auto"
-					Grid.Row="3"
-					Width="80"
-					Height="20"
-					HorizontalAlignment="Right"
-					VerticalAlignment="Top"
-					Style="{DynamicResource AutoCheckBoxStyle}"
-					Tag="0"
-					Content="{DynamicResource MUI_Auto}"
-					Checked="Custom_Auto_Checked_Unchecked"
-					Unchecked="Custom_Auto_Checked_Unchecked" />
 			</Grid>
 			<Grid
 				x:Name="GPU_speed_control_Grid"
@@ -173,18 +161,6 @@
 					Thumb.DragStarted="ScrollBar_DragStarted"
 					Thumb.DragCompleted="ScrollBar_DragCompleted"
 					ValueChanged="ScrollBar_ValueChanged" />
-				<CheckBox
-					x:Name="GPU1_Auto"
-					Grid.Row="3"
-					Width="80"
-					Height="20"
-					HorizontalAlignment="Left"
-					VerticalAlignment="Top"
-					Style="{DynamicResource AutoCheckBoxStyle}"
-					Tag="1"
-					Content="{DynamicResource MUI_Auto}"
-					Checked="Custom_Auto_Checked_Unchecked"
-					Unchecked="Custom_Auto_Checked_Unchecked" />
 			</Grid>
 			<Grid
 				x:Name="CPU_information_Grid"
@@ -234,7 +210,7 @@
 					HorizontalAlignment="Center"
 					VerticalAlignment="Top"
 					FontSize="12"
-					Foreground="{DynamicResource UiSubtleTextBrush}"
+					Foreground="{DynamicResource UiMainTextBrush}"
 					Text="{DynamicResource MUI_RPM}" />
 			</Grid>
 			<Grid
@@ -285,7 +261,7 @@
 					HorizontalAlignment="Center"
 					VerticalAlignment="Top"
 					FontSize="12"
-					Foreground="{DynamicResource UiSubtleTextBrush}"
+					Foreground="{DynamicResource UiMainTextBrush}"
 					Text="{DynamicResource MUI_RPM}" />
 			</Grid>
 			<StackPanel
