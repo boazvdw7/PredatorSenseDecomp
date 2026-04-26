@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">별개 GPU 유휴임.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">오버클로킹은 AC 어댑터가 꽂혀있고 배터리가 40% 이상일 때만 사용할 수 있습니다.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">영역</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">오버클록킹을 재개하려면 배터리를 최소 40% 충전하십시오.</s:String>
+	<s:String
+		x:Key="MUI_Path">경로</s:String>
+	<s:String
+		x:Key="MUI_Home">홈</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">오버클로킹</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">핫키</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">팬 제어</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">모니터링</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows 및 메뉴 키</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">달라붙는 키</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">온도 단위</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 비활성화됨. 활성화 원할 시 두 AC 어댑터 꽂기.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">핫키 프로필</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">조명 프로필</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">CPU 오버클로킹</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">GPU 오버클로킹</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">오버클로킹은 두 AC 어댑터가 꽂혀있고 배터리 40%이상 남았을 때만 사용가능.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">프로필 관리자</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">키보드</s:String>
+	<s:String
+		x:Key="MUI_Zone">영역 [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">조명 효과</s:String>
+	<s:String
+		x:Key="MUI_Speed">속도</s:String>
+	<s:String
+		x:Key="MUI_Logo">레고</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">조명 바</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">전원 단추</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">슬라이드 모듈</s:String>
+	<s:String
+		x:Key="MUI_Breathing">호흡</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">백라이트</s:String>
+	<s:String
+		x:Key="MUI_Static">정적</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">동적</s:String>
+	<s:String
+		x:Key="MUI_Off">끄기</s:String>
+	<s:String
+		x:Key="MUI_All">모두</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">화살표 키</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">숫자 행</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Fn 키</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">여러 키 선택</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">방법 %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">%icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">을 클릭해 사전 설정 키를 선택합니다.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Ctrl을 길게 누르고 클릭 또는 클릭 및 끌기로 선택.</s:String>
+	<s:String
+		x:Key="MUI_Direction">방향</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">조명 프로필 관리자</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">핫키 프로필 관리자</s:String>
+	<s:String
+		x:Key="MUI_Close">닫기</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">새 핫키 프로필</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">새 조명 프로필</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">빈도</s:String>
+	<s:String
+		x:Key="MUI_Loading">부하</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">코어 클록</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">CPU 오버클로킹 중단됨.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">CPU 오버클로킹 재개됨.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">남은 배터리가 40% 이하여서 CPU 오버클로킹이 중지되었습니다.</s:String>
+	<s:String
+		x:Key="MUI_Macros">매크로</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">편집을 클릭해 핫키 사용자 지정</s:String>
+	<s:String
+		x:Key="MUI_Options">옵션</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">CPU 오버클로킹 스위치</s:String>
+	<s:String
+		x:Key="MUI_Fan">팬</s:String>
+	<s:String
+		x:Key="MUI_Auto">자동</s:String>
+	<s:String
+		x:Key="MUI_Max">최대</s:String>
+	<s:String
+		x:Key="MUI_Custom">사용자 지정</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">GPU 오버클로킹 스위치</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">팬 속도 스위치</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">앱 실행</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">고급 설정 활성화/비활성화</s:String>
+	<s:String
+		x:Key="MUI_Browse">찾아보기</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">CoolBoost™가 켜진 경우, 최대 팬 속도 증가로 부하가 많을 때 팬 속도를 높일 수 있음.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">팬 위치</s:String>
+	<s:String
+		x:Key="MUI_Min">최소</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">열기</s:String>
+	<s:String
+		x:Key="MUI_Marquee">뱀</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">랩</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">스타버스트</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">잔광</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">눌러서 끄기</s:String>
+	<s:String
+		x:Key="MUI_Wave">웨이브</s:String>
+	<s:String
+		x:Key="MUI_Neon">네온</s:String>
+	<s:String
+		x:Key="MUI_Ripple">리플</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">빗방울</s:String>
+	<s:String
+		x:Key="MUI_Hedge">생울타리</s:String>
+	<s:String
+		x:Key="MUI_Rotate">회전</s:String>
+	<s:String
+		x:Key="MUI_Interaction">상호 작용</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">오버클로킹은 두 AC 어댑터가 꽂혀있고 배터리 40%이상 남았을 때만 사용가능.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">오버클로킹 재개를 원하면 두 AC 어댑터 꽂기.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">활성화됨</s:String>
+	<s:String
+		x:Key="MUI_Disabled">비활성화됨</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">바로 가기 키 프로필</s:String>
+	<s:String
+		x:Key="MUI_Edit">편집</s:String>
+	<s:String
+		x:Key="MUI_Import">가져오기</s:String>
+	<s:String
+		x:Key="MUI_Export">내보내기</s:String>
+	<s:String
+		x:Key="MUI_Export_All">모두 내보내기</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">복제</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">키 할당</s:String>
+	<s:String
+		x:Key="MUI_Macro">매크로</s:String>
+	<s:String
+		x:Key="MUI_Lighting">백라이트</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">키스트로크 삽입</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">지연 삽입</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">녹화 시작</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">녹화 중지</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">지연 녹화</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">고정된 지연</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">지연 없음</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">고급 설정</s:String>
+	<s:String
+		x:Key="MUI_Cancel">취소</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">프로필 교체 또는 건너뛰기</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">이 폴더에 같은 이름을 가진 프로필이 이미 있습니다.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">기존 프로필 교체</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">이 프로필 건너뛰기</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">프로필 둘다 유지</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">다음 %N% 충돌에 대해 이를 수행합니다.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">다음 충돌에 대해 이를 수행합니다.</s:String>
+	<s:String
+		x:Key="MUI_Attention">주의</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">매크로 "%Name%"을(를) 삭제하시겠습니까?</s:String>
+	<s:String
+		x:Key="MUI_YES">예</s:String>
+	<s:String
+		x:Key="MUI_NO">아니요</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">온도</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPU</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">시스템</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Guest 사용자는 %ProductName%를 실행할 수 없습니다.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">팬 속도.</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">확인</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">내보내는 프로필 이름은 "%Name%"이 됩니다</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">프로필 가져오기</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">가져오기 및 바꾸기</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">가져오지만 두 프로필 모두 유지</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">가져오는 프로필 이름은 "%Name%"이 됩니다</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">프로필 "%Name%"을(를) 삭제하시겠습니까?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">새 프로필</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">새 매크로</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">프로필 목록에 같은 이름을 가진 프로필이 이미 있습니다.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">같은 이름의 프로필이 이미 있습니다.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">다른 이름을 입력하십시오.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">매크로 편집 페이지로 이동</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">키 %Num%에 빈 매크로를 할당했습니다. 매크로 편집 페이지로 이동합니다.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">다시 표시하지 않음</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">기록이 지워집니다</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">새 레코딩 기록을 시작하기 위해 현재 기록이 지워집니다. 계속하시겠습니까?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">내보내기 실패</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">선택한 프로필을 내보낼 수 있는 저장소가 부족합니다.</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">가져오기 실패</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">예기치 않은 문제로 인해 이 프로필을 가져올 수 없습니다.</s:String>
+	<s:String
+		x:Key="MUI_Name">이름</s:String>
+	<s:String
+		x:Key="MUI_Group">그룹</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">매크로 선택</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">프로필 삭제</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">같은 이름의 그룹이 이미 있습니다.</s:String>
+	<s:String
+		x:Key="MUI_None">없음</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">같은 이름의 매크로가 이미 있습니다.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">매크로 삭제</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">매크로 이름 변경</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">이 매크로에 기록 가능한 최대 명령 수를 초과했습니다.</s:String>
+	<s:String
+		x:Key="MUI_Profile">프로필</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">시간 지연</s:String>
+	<s:String
+		x:Key="MUI_Key_up">키 놓음</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">키 누름</s:String>
+	<s:String
+		x:Key="MUI_Color">색</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">기본 색</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">최근 색</s:String>
+	<s:String
+		x:Key="MUI_More_Color">기타 색...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">빨강</s:String>
+	<s:String
+		x:Key="MUI_Green_G">녹색</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">파랑</s:String>
+	<s:String
+		x:Key="MUI_Turbo">터보</s:String>
+	<s:String
+		x:Key="MUI_Faster">더 빠르게</s:String>
+	<s:String
+		x:Key="MUI_Normal">보통</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Η ξεχ. GPU είναι αδρ.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Ο υπερχρ. είναι διαθέσ. μόνο όταν είναι συνδεδ. ο προσ. AC και το φορτίο μπατ. είναι τουλ. 40%.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Ζώνη</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Φορτίστε την μπαταρία κατά 40% τουλ. για συνέχιση του υπερχρονισμού.</s:String>
+	<s:String
+		x:Key="MUI_Path">Διαδρομή</s:String>
+	<s:String
+		x:Key="MUI_Home">Αρχική</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Υπερχρονισμ.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Πλήκτρο συντ</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Έλ. ανεμιστ.</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Παρακολούθ.</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows&amp;πλ. μενού</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Ασύγχρονα πλήκτρα</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Μονάδες θερμοκρασ.</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 απενεργ. Συνδέστε και τους δύο προσ. AC για να ενεργ. το GPU2.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Προφίλ πλ. συντ.</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Προφίλ φωτισμού</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">Υπερχρονισμ. CPU</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">Υπερχρονισμ. GPU</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Ο υπερχρ. είναι διαθ. μόνο όταν είναι συνδ. και οι δύο προσ. AC και φορτίο μπατ. τουλ 40%</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Διαχ. προφίλ</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Πληκτρολ.</s:String>
+	<s:String
+		x:Key="MUI_Zone">Ζώνη [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Εφέ φώτων</s:String>
+	<s:String
+		x:Key="MUI_Speed">Ταχύτ</s:String>
+	<s:String
+		x:Key="MUI_Logo">Λογ.</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Φωτεινή γρ.</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Κουμπί τροφ.</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Μον. διαφάν.</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Αναπνοή</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Οπισθοφωτ.</s:String>
+	<s:String
+		x:Key="MUI_Static">Στατικ</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Δυναμικ</s:String>
+	<s:String
+		x:Key="MUI_Off">Off</s:String>
+	<s:String
+		x:Key="MUI_All">Όλα</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Πλ. βέλους</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Γραμμ. αριθ.</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Πλήκτρα Fn</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Επιλ. πολλαπλ. πλ.</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">Μέθοδ. %Number%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Κλικ %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">για επιλ. προκαθ. πλ.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Πατ. παρατ. το πλ. Ctrl και κάντε κλικ ή κλικ και μετ. για επιλογή.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Κατεύθ.</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Διαχ. προφίλ φωτισμού</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Διαχ. προφίλ πλ. συντόμ.</s:String>
+	<s:String
+		x:Key="MUI_Close">Κλείσ</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Νέο προφίλ πλ. συντόμ.</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Νέο προφίλ φωτισμού</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Συχνότητα</s:String>
+	<s:String
+		x:Key="MUI_Loading">Φόρτωση</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Ρολόι πυρ.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">Ο υπερχρονισμός της CPU διακόπηκε.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">Ο υπερχρον. της CPU συνεχίζεται.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">Ο υπερχρ. της CPU διακόπηκε επειδή το φορτίο στην μπαταρία είναι λιγότερο από 40%.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Μακροεντολές</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Με κλικ στο Επεξ. προσ. το πλ. συντ</s:String>
+	<s:String
+		x:Key="MUI_Options">Επιλογ.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">Διακόπτης υπερχρονισμού CPU</s:String>
+	<s:String
+		x:Key="MUI_Fan">Αν.</s:String>
+	<s:String
+		x:Key="MUI_Auto">Αυτ.</s:String>
+	<s:String
+		x:Key="MUI_Max">Μέγ</s:String>
+	<s:String
+		x:Key="MUI_Custom">Προσαρ</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">Διακόπτης υπερχρονισμού GPU</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Διακόπτης ταχύτητας ανεμιστήρα</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Εκκίνηση εφαρμογής</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Ενεργ./απενεργ. Πρόσθ. ρυθμίσ.</s:String>
+	<s:String
+		x:Key="MUI_Browse">Περιήγ</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Αν το CoolBoost™ είναι ON, αυξάνει τη μέγ. ταχ. του ανεμ., επιτρέποντας μεγαλύτερες ταχ. ανεμ. με εντατική χρήση.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Θέση ανεμ.</s:String>
+	<s:String
+		x:Key="MUI_Min">Ελ.</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Άνοιγμα</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Φίδι</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Τύλιγμα</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Έκρηξη αστεριών</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Λυκόφως</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Πατ. για απεν.</s:String>
+	<s:String
+		x:Key="MUI_Wave">Κύμα</s:String>
+	<s:String
+		x:Key="MUI_Neon">Νέον</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Κυματισμός</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Σταγόνα βροχής</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Φράχτης</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Περιστροφή</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Αλληλεπίδραση</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Ο υπερχρ. είναι διαθ. μόνο όταν είναι συνδ. και οι δύο προσ. AC και φορτίο μπατ. τουλ 40%</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Συνδέστε και τους δύο προσ. AC για συνέχιση του υπερχρ.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Ενεργοπ.</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Απενεργ.</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Προφίλ πλήκτρων συντόμευσης</s:String>
+	<s:String
+		x:Key="MUI_Edit">Επεξεργασία</s:String>
+	<s:String
+		x:Key="MUI_Import">Εισαγωγή</s:String>
+	<s:String
+		x:Key="MUI_Export">Εξαγωγή</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Εξαγωγή όλων</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Διπλότυπο</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Αντιστοίχιση πλήκτρων</s:String>
+	<s:String
+		x:Key="MUI_Macro">Μακροεντολή</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Φωτισμός</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Εισ. ακολ. πληκτρολ.</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Εισαγ. καθυστέρησης</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Έναρξη εγγραφής</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Διακοπή εγγραφής</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Καταγραφή καθυστέρησης</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Συγκεκρ. καθυστέρηση</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Χωρίς καθυστέρηση</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Πρόσθετες ρυθμίσεις</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Άκυρο</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Αντικατ. ή παράλ. προφίλ</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">Υπάρχει ήδη ένα προφίλ με το ίδιο όνομα στο φάκελο</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Αντικατ. υπάρχοντ. προφίλ</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Παράλειψη αυτού του προφίλ</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Διατ. &amp; των 2 προφ.</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">Να γίνει αυτό για τις επόμενες %N% διενέξεις.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">Να γίνει αυτό για την επόμενη διένεξη.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Προσοχή</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Είστε βέβαιοι για τη διαγραφή της μακροεντολής "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_YES">Ναι</s:String>
+	<s:String
+		x:Key="MUI_NO">Όχι</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Θερμοκρασία</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPU</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Σύστημα</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Ο επισκεπτόμενος χρήστης αδυνατεί να εκτελέσει το %ProductName%.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Ταχύτητα ανεμιστήρα</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">OK</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Το προφίλ που εξάγετε θα ονομαστεί "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Εισαγωγή προφίλ</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Εισαγωγή και αντικατάσταση</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Εισαγωγή, αλλά διατήρ. και των δύο προφ.</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Το προφίλ που εισάγετε θα πάρει το όνομα "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Είστε βέβαιοι για τη διαγραφή του προφίλ "%Name%";</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Νέο προφίλ</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Νέα μακροεντολή</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">Υπάρχει ήδη ένα προφίλ με το ίδιο όνομα στη λίστα προφίλ.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Υπάρχει ήδη ένα προφίλ με το ίδιο όνομα.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Καταχωρίστε άλλο όνομα.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Μετάβαση στη σελίδα Επεξεργασία μακροεντολής</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">Αντιστοιχίσατε μια κενή μακροεντολή στο πλήκτρο %Num%. Θα μεταφερθείτε στη σελίδα Επεξεργασία μακροεντολής.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Χωρίς άλλη υπενθύμιση</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Το ιστορικό θα απαλειφτεί</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Για να ξεκινήσει ένα νέο ιστορικό εγγραφής, το τρέχον ιστορικό θα απαλειφτεί. Θέλετε να συνεχίσετε;</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Η εξαγωγή απέτυχε</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Δεν επαρκεί ο χώρος αποθήκευσης για την εξαγωγή του ή των επιλεγμένων προφίλ.</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Η εισαγωγή απέτυχε</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Δεν είναι δυνατή η εισαγωγή αυτού του προφίλ λόγω μη αναμενόμενου προβλήματος.</s:String>
+	<s:String
+		x:Key="MUI_Name">Όνομα</s:String>
+	<s:String
+		x:Key="MUI_Group">Ομάδα</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Επιλ. μακροεντ.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Διαγραφή προφίλ</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Υπάρχει ήδη μια ομάδα με το ίδιο όνομα.</s:String>
+	<s:String
+		x:Key="MUI_None">Κανένα</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Υπάρχει ήδη μια μακροεντολή με το ίδιο όνομα.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Διαγραφή μακροεντολής</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Μετονομασία μακροεντολής</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Έχετε υπερβεί το μέγ. αριθμό εντολών που μπορούν να καταγραφούν σε αυτήν τη μακροεντολή.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Προφίλ</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Χρον. καθυστέρ.</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Πατ. το πλήκτρο</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Αφ. το πλήκτρο</s:String>
+	<s:String
+		x:Key="MUI_Color">Χρώμα</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Βασικά χρώματα</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Πρόσφατα χρώματα</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Περισσότερο χρώμα...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Κόκκινο</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Πράσινο</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Μπλε</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">ΠΙΟ ΓΡΗΓ.</s:String>
+	<s:String
+		x:Key="MUI_Normal">ΚΑΝΟΝΙΚΑ</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPU</s:String>
+</ResourceDictionary>

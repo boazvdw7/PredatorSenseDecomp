@@ -1,0 +1,350 @@
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String
+		x:Key="MUI_GPU_Idle">Vgrajeni GPE miruje.</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info_1AC">Sprememba frekvence je na voljo samo, ko je priključen napajalnik in je na voljo vsaj 40 % baterije.</s:String>
+	<s:String
+		x:Key="MUI_Zone_Content">Obm.</s:String>
+	<s:String
+		x:Key="MUI_Toast_Charge_To_Resume">Za nadaljevanje pospešenega delovanja napolnite baterijo na vsaj 40 %.</s:String>
+	<s:String
+		x:Key="MUI_Path">Pot</s:String>
+	<s:String
+		x:Key="MUI_Home">Domov</s:String>
+	<s:String
+		x:Key="MUI_Overclocking">Pospešev.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey">Bližn. tipka</s:String>
+	<s:String
+		x:Key="MUI_Fan_Control">Nadzor vent.</s:String>
+	<s:String
+		x:Key="MUI_Monitoring">Nadziranje</s:String>
+	<s:String
+		x:Key="MUI_Win_And_Menu_Key">Windows in men. tip.</s:String>
+	<s:String
+		x:Key="MUI_Sticky_Key">Lepljive tipke</s:String>
+	<s:String
+		x:Key="MUI_Unit_Temperature">Temperaturne enote</s:String>
+	<s:String
+		x:Key="MUI_GPU2_Disable_Info">GPU2 je onemogočen. Omogočite ga s priključitvijo obeh napajaln.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile">Profil bliž. tip.</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile">Profil osvetl.</s:String>
+	<s:String
+		x:Key="MUI_CPU_Overclocking">Pospeš. CPE-ja</s:String>
+	<s:String
+		x:Key="MUI_GPU_Overclocking">Pospeš. GPE-ja</s:String>
+	<s:String
+		x:Key="MUI_Overclock_Info">Pospeš. je na voljo, če sta priključena oba napaj., baterija pa je vsaj 40-% napolnjena.</s:String>
+	<s:String
+		x:Key="MUI_Profile_Manager">Uprav. profilov</s:String>
+	<s:String
+		x:Key="MUI_Keyboard">Tipkovnica</s:String>
+	<s:String
+		x:Key="MUI_Zone">Obm. [1~4]</s:String>
+	<s:String
+		x:Key="MUI_Light_Effects">Svetl. učinki</s:String>
+	<s:String
+		x:Key="MUI_Speed">Hitr.</s:String>
+	<s:String
+		x:Key="MUI_Logo">Logo</s:String>
+	<s:String
+		x:Key="MUI_Light_Bar">Svetl. vrst.</s:String>
+	<s:String
+		x:Key="MUI_Power_Button">Gumb za vkl.</s:String>
+	<s:String
+		x:Key="MUI_Slide_Module">Vlečn. modul</s:String>
+	<s:String
+		x:Key="MUI_Breathing">Dihanje</s:String>
+	<s:String
+		x:Key="MUI_Backlighting">Osv. ozadja</s:String>
+	<s:String
+		x:Key="MUI_Static">Stati.</s:String>
+	<s:String
+		x:Key="MUI_Dynamic">Dinam.</s:String>
+	<s:String
+		x:Key="MUI_Off">Izk</s:String>
+	<s:String
+		x:Key="MUI_All">Vse</s:String>
+	<s:String
+		x:Key="MUI_Arrow_Keys">Smer. tipke</s:String>
+	<s:String
+		x:Key="MUI_Num_Rows">Št. vrstice</s:String>
+	<s:String
+		x:Key="MUI_Fn_Keys">Tipke Fn</s:String>
+	<s:String
+		x:Key="MUI_Select_Muti_Keys">Izbira več tipk</s:String>
+	<s:String
+		x:Key="MUI_Method_Number">%Number%. način</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info1">Klikn. %icon%</s:String>
+	<s:String
+		x:Key="MUI_Method1_Info2">za izbiro predn. tipk.</s:String>
+	<s:String
+		x:Key="MUI_Method2_Info">Prit. in pridr. Ctrl, nato pa za izbiro klikn. ali klikn. in povl.</s:String>
+	<s:String
+		x:Key="MUI_Direction">Smer</s:String>
+	<s:String
+		x:Key="MUI_Lighting_Profile_Manager">Uprav. profila osvetl.</s:String>
+	<s:String
+		x:Key="MUI_Hotkey_Profile_Manager">Uprav. prof. bliž. tipk</s:String>
+	<s:String
+		x:Key="MUI_Close">Zapri</s:String>
+	<s:String
+		x:Key="MUI_New_Hotkey_Profile">Nov profil bližnj. tipk</s:String>
+	<s:String
+		x:Key="MUI_New_Lighting_Profile">Nov profil osvetlitve</s:String>
+	<s:String
+		x:Key="MUI_MHZ">MHz</s:String>
+	<s:String
+		x:Key="MUI_Frequency">Frekvenca</s:String>
+	<s:String
+		x:Key="MUI_Loading">Nalože.</s:String>
+	<s:String
+		x:Key="MUI_Core_Clock">Takt jedra</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO">Pospeševanje CPE je zaustavljeno.</s:String>
+	<s:String
+		x:Key="MUI_RE_AC_CPU_INFO">Pospeševanje CPE se nadaljuje.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_LOW_POWER_INFO">Pospešeno delovanje za CPU je ustavljeno, ker je raven akumulatorja pod 40 %.</s:String>
+	<s:String
+		x:Key="MUI_Macros">Makri</s:String>
+	<s:String
+		x:Key="MUI_Click_Edit_Info">Za pril. bližnj. tipk kliknite Uredi</s:String>
+	<s:String
+		x:Key="MUI_Options">Možn.</s:String>
+	<s:String
+		x:Key="MUI_CPU_OC_Switch">Stikalo za pospeševanje CPE-ja</s:String>
+	<s:String
+		x:Key="MUI_Fan">Ven</s:String>
+	<s:String
+		x:Key="MUI_Auto">Sam.</s:String>
+	<s:String
+		x:Key="MUI_Max">Maks.</s:String>
+	<s:String
+		x:Key="MUI_Custom">Po meri</s:String>
+	<s:String
+		x:Key="MUI_GPU_OC_Switch">Stikalo za pospeševanje GPE-ja</s:String>
+	<s:String
+		x:Key="MUI_Fan_Switch">Stikalo za hitrost ventilatorja</s:String>
+	<s:String
+		x:Key="MUI_Launch_App">Zaženi aplikacijo</s:String>
+	<s:String
+		x:Key="MUI_ED_Advance_Setting">Omogoči/onemog. napredne nast.</s:String>
+	<s:String
+		x:Key="MUI_Browse">Prebr.</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster">CoolBoost™</s:String>
+	<s:String
+		x:Key="MUI_Cool_Booster_Notification">Če je CoolBoost™ vklopljen, poveča največjo hitrost ventilatorja in omogoča večje hitrosti pri obremenitvah.</s:String>
+	<s:String
+		x:Key="MUI_Fan_Position">Polož. vent.</s:String>
+	<s:String
+		x:Key="MUI_Min">Min</s:String>
+	<s:String
+		x:Key="MUI_Celsius">˚C</s:String>
+	<s:String
+		x:Key="MUI_Fahrenheit">˚F</s:String>
+	<s:String
+		x:Key="MUI_LCD_Overdrive">LCD Overdrive</s:String>
+	<s:String
+		x:Key="MUI_Open">Odpri</s:String>
+	<s:String
+		x:Key="MUI_Marquee">Kača</s:String>
+	<s:String
+		x:Key="MUI_Circular_Marquee">Ovijanje</s:String>
+	<s:String
+		x:Key="MUI_Colorful_Marquee">Supernova</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Light">Svetlobni sij</s:String>
+	<s:String
+		x:Key="MUI_Press_To_Off">Za izklop prit.</s:String>
+	<s:String
+		x:Key="MUI_Wave">Val</s:String>
+	<s:String
+		x:Key="MUI_Neon">Neon</s:String>
+	<s:String
+		x:Key="MUI_Ripple">Valovanje</s:String>
+	<s:String
+		x:Key="MUI_Rain_Drop">Dežna kapljica</s:String>
+	<s:String
+		x:Key="MUI_Hedge">Ograda</s:String>
+	<s:String
+		x:Key="MUI_Rotate">Sukanje</s:String>
+	<s:String
+		x:Key="MUI_Interaction">Interakcija</s:String>
+	<s:String
+		x:Key="MUI_Overclocking_Remind">Pospeš. je na voljo, če sta priključena oba napaj., baterija pa je vsaj 40-% napolnjena.</s:String>
+	<s:String
+		x:Key="MUI_DC_CPU_INFO2">Za nadalj. pospešev. priključite oba napajalnika.</s:String>
+	<s:String
+		x:Key="MUI_Enabled">Omogoč.</s:String>
+	<s:String
+		x:Key="MUI_Disabled">Onemogo.</s:String>
+	<s:String
+		x:Key="MUI_HOTKEYTITLE">Profil bližnjične tipke</s:String>
+	<s:String
+		x:Key="MUI_Edit">Uredi</s:String>
+	<s:String
+		x:Key="MUI_Import">Uvozi</s:String>
+	<s:String
+		x:Key="MUI_Export">Izvozi</s:String>
+	<s:String
+		x:Key="MUI_Export_All">Izvozi vse</s:String>
+	<s:String
+		x:Key="MUI_Duplicate">Podvoji</s:String>
+	<s:String
+		x:Key="MUI_Key_Assignment">Dodelitve tipk</s:String>
+	<s:String
+		x:Key="MUI_Macro">Makro</s:String>
+	<s:String
+		x:Key="MUI_Lighting">Osvetlitev</s:String>
+	<s:String
+		x:Key="MUI_Insert_Key">Vstavi kombin. tipk</s:String>
+	<s:String
+		x:Key="MUI_Insert_Delay">Vstavi zakasnitev</s:String>
+	<s:String
+		x:Key="MUI_Start_recording">Začni snemanje</s:String>
+	<s:String
+		x:Key="MUI_Stop_recording">Ustavi snemanje</s:String>
+	<s:String
+		x:Key="MUI_Record_Delay">Posnemi zakasnitev</s:String>
+	<s:String
+		x:Key="MUI_Fix_Delay">Trajen zakasnitev</s:String>
+	<s:String
+		x:Key="MUI_No_Delay">Brez zakasnitev</s:String>
+	<s:String
+		x:Key="MUI_MS">ms</s:String>
+	<s:String
+		x:Key="MUI_Advanced_Settings">Dodatne nastavitve</s:String>
+	<s:String
+		x:Key="MUI_Cancel">Prekliči</s:String>
+	<s:String
+		x:Key="MUI_Export_Title">Zam. ali preskoči profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Info">V tej mapi že obstaja profil s tem imenom.</s:String>
+	<s:String
+		x:Key="MUI_Export_Replace">Zamenjaj obstoječi profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Skip">Preskoči ta profil</s:String>
+	<s:String
+		x:Key="MUI_Export_Rename">Ohrani oba profila</s:String>
+	<s:String
+		x:Key="MUI_Conflicts_Info">To naredi za naslednjih %N% navzkrižij.</s:String>
+	<s:String
+		x:Key="MUI_Conflict_Info">To naredi za naslednje navzkrižje.</s:String>
+	<s:String
+		x:Key="MUI_Attention">Pozor</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Info">Želite res izbrisati makro "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_YES">Da</s:String>
+	<s:String
+		x:Key="MUI_NO">Ne</s:String>
+	<s:String
+		x:Key="MUI_TEMPERATURE">Temperatura</s:String>
+	<s:String
+		x:Key="MUI_CPU">CPE</s:String>
+	<s:String
+		x:Key="MUI_SYSTEM">Sistem</s:String>
+	<s:String
+		x:Key="MUI_MSG_Guest">Gostje ne morejo zagnati %ProductName%.</s:String>
+	<s:String
+		x:Key="MUI_FANSPEED">Hitrost ventilatorja</s:String>
+	<s:String
+		x:Key="MUI_RPM">RPM</s:String>
+	<s:String
+		x:Key="MUI_OK">V redu</s:String>
+	<s:String
+		x:Key="MUI_Eeport_Rename_Info">Ime profila, ki ga izvažate, bo "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Import_Title">Uvozi profil</s:String>
+	<s:String
+		x:Key="MUI_Import_Replace">Uvozi in zamenjaj</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename">Uvozi, vendar ohrani oba profila</s:String>
+	<s:String
+		x:Key="MUI_Import_Rename_Info">Profil, ki ga uvažate, se bo imenoval "%Name%"</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Info">Res želite izbrisati profil "%Name%"?</s:String>
+	<s:String
+		x:Key="MUI_New_Profile">Novi profil</s:String>
+	<s:String
+		x:Key="MUI_New_Macro">Novi makro</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_List_Attention">Na seznamu profilov že obstaja profil s tem imenom.</s:String>
+	<s:String
+		x:Key="MUI_Same_Name_Attention">Profil s tem imenom že obstaja.</s:String>
+	<s:String
+		x:Key="MUI_Enter_Another_Name">Vnesite drugo ime.</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Title">Pojdi na stran za urejanje Makrov</s:String>
+	<s:String
+		x:Key="MUI_Go_Macro_Page_Info">Tipki %Num% ste dodelili prazen Makro. Odprla se bo stran za urejanje Makrov.</s:String>
+	<s:String
+		x:Key="MUI_Dont_Remind">Ne opomni me znova</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Title">Zgodovina bo počiščena</s:String>
+	<s:String
+		x:Key="MUI_History_Cleared_Info">Če želite začeti novo zgodovino beleženja, bo trenutna zgodovina počiščena. Želite nadaljevati?</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Title">Izvažanje ni uspelo</s:String>
+	<s:String
+		x:Key="MUI_Export_Fail_Info">Za izvoz izbranih profilov ni na voljo dovolj pomnilnika.</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Title">Uvažanje ni uspelo</s:String>
+	<s:String
+		x:Key="MUI_Import_Fail_Info">Tega profila ni mogoče uvoziti, ker je prišlo do nepričakovane težave.</s:String>
+	<s:String
+		x:Key="MUI_Name">Ime</s:String>
+	<s:String
+		x:Key="MUI_Group">Skupina</s:String>
+	<s:String
+		x:Key="MUI_Select_Macro">Izberite makro</s:String>
+	<s:String
+		x:Key="MUI_Delete_Profile_Title">Izbriši profil</s:String>
+	<s:String
+		x:Key="MUI_Group_Same_Info">Skupina s tem imenom že obstaja.</s:String>
+	<s:String
+		x:Key="MUI_None">Brez</s:String>
+	<s:String
+		x:Key="MUI_Macro_Same_Info">Makro s tem imenom že obstaja.</s:String>
+	<s:String
+		x:Key="MUI_Delete_Macro_Title">Izbriši makro</s:String>
+	<s:String
+		x:Key="MUI_Rename_Title">Preimenuj makro</s:String>
+	<s:String
+		x:Key="MUI_Over_Max">Največje število ukazov, ki jih lahko posnamete za ta makro, je bilo preseženo.</s:String>
+	<s:String
+		x:Key="MUI_Profile">Profil</s:String>
+	<s:String
+		x:Key="MUI_Time_Delay">Zakasnitev</s:String>
+	<s:String
+		x:Key="MUI_Key_up">Spustite tipko</s:String>
+	<s:String
+		x:Key="MUI_Key_Down">Pritisn. Tipko</s:String>
+	<s:String
+		x:Key="MUI_Color">Barva</s:String>
+	<s:String
+		x:Key="MUI_Basic_Colors">Osnovne barve</s:String>
+	<s:String
+		x:Key="MUI_Recent_Colors">Nedavne barve</s:String>
+	<s:String
+		x:Key="MUI_More_Color">Več barv ...</s:String>
+	<s:String
+		x:Key="MUI_Red_R">Rdeča</s:String>
+	<s:String
+		x:Key="MUI_Green_G">Zelena</s:String>
+	<s:String
+		x:Key="MUI_Blue_B">Modra</s:String>
+	<s:String
+		x:Key="MUI_Turbo">TURBO</s:String>
+	<s:String
+		x:Key="MUI_Faster">HITREJE</s:String>
+	<s:String
+		x:Key="MUI_Normal">NORMALNO</s:String>
+	<s:String
+		x:Key="MUI_GPU_NAME">GPE</s:String>
+</ResourceDictionary>
