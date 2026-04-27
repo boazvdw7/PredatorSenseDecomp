@@ -1,4 +1,4 @@
-<Application x:Class="PredatorSense.App" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Application x:Class="PredatorSense.App" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winui/2006/xaml/presentation">
   <Application.Resources>
     <Style x:Key="DarkDataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
       <Setter Property="Background" Value="#333"/>

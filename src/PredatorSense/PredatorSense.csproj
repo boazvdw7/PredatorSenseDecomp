@@ -1,10 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net10.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
-    <UseWindowsForms>true</UseWindowsForms>
-    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <UseWinUI>true</UseWinUI>
     <BuildInParallel>false</BuildInParallel>
     <Platforms>x86</Platforms>
     <PlatformTarget>x86</PlatformTarget>
@@ -37,15 +35,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.241211000" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
     <PackageReference Include="System.Management" Version="10.0.0" />
     <PackageReference Include="System.ServiceProcess.ServiceController" Version="10.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ApplicationDefinition Remove="Views\App.xaml" />
-    <Page Update="Views\App.xaml">
-      <Generator>MSBuild:Compile</Generator>
+  <ItemGroup>Include="Views\App.xaml" /erator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
 

@@ -885,12 +885,24 @@ namespace PredatorSense
 			this.lock_gpu_oc_radiobutton(false);
 			ThreadStart threadStart = delegate
 			{
-				CommonFunction.set_gpu_oc_level(level).GetAwaiter().GetResult();
-				Thread.Sleep(2000);
-				this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+				try
 				{
-					this.lock_gpu_oc_radiobutton(true);
-				}));
+					int result = CommonFunction.set_gpu_oc_level(level).GetAwaiter().GetResult();
+					System.Diagnostics.Debug.WriteLine($"set_gpu_oc_level returned: {result}");
+					Thread.Sleep(2000);
+					this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+					{
+						this.lock_gpu_oc_radiobutton(true);
+					}));
+				}
+				catch (Exception ex)
+				{
+					System.Diagnostics.Debug.WriteLine($"Error in GPU_OC_Level_RadioButton_Checked: {ex.Message}");
+					this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+					{
+						this.lock_gpu_oc_radiobutton(true);
+					}));
+				}
 			};
 			new Thread(threadStart).Start();
 			Registry.SetValueLM("SOFTWARE\\OEM\\PredatorSense\\Overclock", "CurrentGPUMode", (uint)level);

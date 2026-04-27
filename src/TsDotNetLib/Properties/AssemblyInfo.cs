@@ -10,7 +10,7 @@ using System.Runtime.Versioning;
 [assembly: AssemblyTitle("TsDotNetLib")]
 [assembly: AssemblyDescription("TsDotNetLib")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Acer Incorporated")]
+[assembly: AssemblyCompany("Not Acer Incorporated")]
 [assembly: AssemblyProduct("PredatorSense")]
 [assembly: AssemblyTrademark("")]
 [assembly: ComVisible(false)]

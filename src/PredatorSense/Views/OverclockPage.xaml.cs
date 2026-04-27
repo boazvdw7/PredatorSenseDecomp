@@ -577,15 +577,27 @@ namespace PredatorSense
 			this.lock_gpu_oc_button(false);
 			ThreadStart threadStart = delegate
 			{
-				CommonFunction.set_gpu_oc_level(level).GetAwaiter().GetResult();
-				Thread.Sleep(1000);
-				List<int> max_gpu_freq = CommonFunction.get_gpu_frequency(CommonFunction.Frequency_Mode.fMax).GetAwaiter().GetResult();
-				Thread.Sleep(1000);
-				this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+				try
 				{
-					this.SetGPUMaxMHz(max_gpu_freq[0]);
-					this.lock_gpu_oc_button(true);
-				}));
+					int result = CommonFunction.set_gpu_oc_level(level).GetAwaiter().GetResult();
+					System.Diagnostics.Debug.WriteLine($"set_gpu_oc_level returned: {result}");
+					Thread.Sleep(1000);
+					List<int> max_gpu_freq = CommonFunction.get_gpu_frequency(CommonFunction.Frequency_Mode.fMax).GetAwaiter().GetResult();
+					Thread.Sleep(1000);
+					this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+					{
+						this.SetGPUMaxMHz(max_gpu_freq[0]);
+						this.lock_gpu_oc_button(true);
+					}));
+				}
+				catch (Exception ex)
+				{
+					System.Diagnostics.Debug.WriteLine($"Error in set_gpu_oc_level_and_get_max_frequency: {ex.Message}");
+					this.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+					{
+						this.lock_gpu_oc_button(true);
+					}));
+				}
 			};
 			new Thread(threadStart).Start();
 		}
